@@ -1,0 +1,16 @@
+local ls = require("luasnip")
+
+local s = ls.snippet -- build snippets
+local t = ls.text_node -- insert text
+local i = ls.insert_node -- user input
+-- local r = ls.restore_node -- restore from variable
+local c = ls.choice_node -- multiple options
+
+local extras = require("luasnip.extras")
+-- local rep = extras.rep -- repeat for multiple cursors
+local ne = extras.nonempty
+
+ls.add_snippets(
+  "tex",
+  s() -- empty snippet
+)
