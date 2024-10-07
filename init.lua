@@ -1,1 +1,1 @@
-require("profiles.felipe.init")
+require("core.init")

@@ -121,8 +121,8 @@ return {
       -- sources for autocompletion
       sources = config.sources({
         { name = "luasnip" }, -- snippets
-        { name = "vimtex" }, -- Latex
         { name = "nvim_lsp" },
+        { name = "vimtex" }, -- Latex
         { name = "cmp_r" }, -- For r
         { name = "buffer", keyword_length = 3 },  -- text within current buffer
         {

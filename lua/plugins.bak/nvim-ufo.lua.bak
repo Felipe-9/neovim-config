@@ -1,0 +1,29 @@
+return {
+	"kevinhwang91/nvim-ufo",
+	dependencies = { "kevinhwang91/promise-async" },
+	event = "BufRead",
+	keys = {
+		-- { '<leader>zz', require('ufo').openAllFolds, { desc = "Open all folds "} },
+		-- { '<leader>zm', require('ufo').closeAllFolds, { desc = "Close all folds"} },
+		-- { 'K', function()
+		--   local winid = require('ufo').peekFoldedLinesUnderCursor()
+		--   if not winid then
+		--     vim.lsp.buf.hover()
+		--   end
+		-- end }
+	},
+	config = function()
+		local o = vim.o
+		local keymap = vim.keymap
+
+		o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+		o.foldcolumn = "1" -- '0' is not bad
+		o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+		o.foldlevelstart = 99
+		o.foldenable = true
+
+		-- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
+		keymap.set("n", "<leader>zz", require("ufo").openAllFolds, { desc = "Open all folds " })
+		keymap.set("n", "<leader>zm", require("ufo").closeAllFolds, { desc = "Close all folds" })
+	end,
+}
