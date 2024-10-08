@@ -1,3 +1,4 @@
+*.bak.*
 # General
 .DS_Store
 .AppleDouble
