@@ -32,7 +32,6 @@ return {
   { import = "plugins.todo-comments" }, -- TODO comments
   { import = "plugins.treesitter" }, -- LSP coloring file
   { import = "plugins.vim-maximizer" }, -- UI maximize splits
-  { import = "plugins.vimtex" }, -- LaTeX
   { import = "plugins.visual-multi" }, -- multiple cursors
   { import = "plugins.which-key" }, -- UI find keys and shortcuts
   { import = "plugins.yazi" }, -- UI File manager integration
@@ -52,5 +51,9 @@ return {
   { import = "plugins.lsp.trouble" }, -- error messages
   -- language specific
   { import = "plugins.lsp.r" }, -- Support for R
-  { import = "plugins.lsp.vimtex-cmp" }, -- Support for R
+  -- 
+  -- Latex
+  -- 
+  { import = "plugins.latex.vimtex-cmp" }, -- Support for R
+  { import = "plugins.latex.vimtex" }, -- LaTeX
 }
