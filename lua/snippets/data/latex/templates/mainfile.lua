@@ -1,6 +1,7 @@
 local ls = require("luasnip")
 
-local s = ls.snippet -- build snippets
+-- local s = ls.snippet -- build snippets
+local ms = ls.multi_snippet -- build snippets with multiple triggers
 -- local t = ls.text_node -- insert text
 local i = ls.insert_node -- user input
 -- local r = ls.restore_node -- restore from variable
@@ -10,13 +11,16 @@ local extras = require("luasnip.extras")
 local ne = extras.nonempty
 local fmt = require("luasnip.extras.fmt").fmta -- formatting with [[]] and delimiters=<>
 
-return s( -- Main Template
-  {
-    desc = "Main Template",
-    trig = "\\latex-template-main",
-  },
-  fmt(
-    [[
+return {
+  ms( -- Main Template
+    {
+      common = {
+        desc = "Main Template",
+      },
+      "\\latex-template-main",
+    },
+    fmt(
+      [[
     % !TEX root = ./main_file.tex
     % \documentclass{article}
     \documentclass[
@@ -475,6 +479,7 @@ return s( -- Main Template
     \end{luacode*},
     \end{document}
   ]],
-    {}
-  )
-)
+      {}
+    )
+  ),
+}

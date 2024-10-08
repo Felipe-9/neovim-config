@@ -36,7 +36,6 @@ return {
       }
     )
   ),
-
   ms( -- table setup
     {
       common = {
@@ -304,14 +303,14 @@ return {
       }
     )
   ),
-  s( -- Proposition Box environment
+  ms( -- Proposition Box environment
     {
-      desc = { "propositionBox environment" },
-      trig = {
-        "\\propositionBox",
-        "\\begin{propositionBox}",
-        "\\BPB",
+      common = {
+        desc = { "propositionBox environment" },
       },
+      "\\propositionBox",
+      "\\begin{propositionBox}",
+      "\\BPB",
     },
     fmt(
       [[

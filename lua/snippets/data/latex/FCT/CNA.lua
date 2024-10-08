@@ -1,57 +1,67 @@
 --
 local ls = require("luasnip")
 
-local s = ls.snippet -- build snippets
+-- local s = ls.snippet -- build snippets
+local ms = ls.multi_snippet -- build snippets with multiple triggers
 -- local t = ls.text_node -- insert text
--- local i = ls.insert_node -- user input
+local i = ls.insert_node -- user input
 
 -- local extras = require("luasnip.extras")
 -- local rep = extras.rep -- repeat for multiple cursors
 local fmt = require("luasnip.extras.fmt").fmta -- formatting with [[]] and delimiters=<>
 
-return
---
-    s( -- polinomio de lagrange
-      {
-        desc = "lagrange polynomn",
-        trig = "\\formula-CNA-polinomio-lagrange",
+return {
+  --
+  ms( -- polinomio de lagrange
+    {
+      common = {
+        desc = { "lagrange polynomn" },
       },
-      fmt(
-        [[
+      -- trig
+      "\\formula-CNA-polinomio-lagrange",
+    },
+    fmt(
+      [[
       p_{n\,(x)}=\sum_{i=0}^{n}{y_i\,l_{i\,(x)}}
       ;&\\&
       l_{i\,(x)}
       =\varphi_{i\,(x)}
       =\prod_{j=0}^{i-1}{\frac{x-x_j}{x_i-x_j}}
       \,\prod_{j=i+1}^{n}{\frac{x-x_j}{x_i-x_j}}
-    ]],
-        {}
-      )
-    ),
-    s( -- polinómio de newton com diferenças divididas
-      {
-        desc = "polinómio de newton com diferenças divididas",
-        trig = "\\formula-polinomio-newton-com-diff-div",
+      ]],
+      {}
+    )
+  ),
+  ms( -- polinómio de newton com diferenças divididas
+    {
+      common = {
+        desc = { "polinómio de newton com diferenças divididas" },
       },
-      fmt(
-        [[
+      -- trig
+      "\\formula-polinomio-newton-com-diff-div",
+    },
+    fmt(
+      [[
       p_{n\,(x)}
       = f_0
       + \sum_{i=0}^{n-1}{
         \left(\prod_{j=0}^{i}{x-x_j}\right)
         \,f_{[x_0,\dots,x_{i+1}]}
       }
-    ]],
-        {}
-      )
-    ),
-    s( -- erro de interpolação
-      {
-        desc = "erro de interpolação",
-        trig = "\\formula-erro-interpolacao",
+      ]],
+      {}
+    )
+  ),
+  ms( -- erro de interpolação
+    {
+      common = {
+        desc = { "erro de interpolação" },
       },
-      fmt(
-        [[
+      -- trig
+      "\\formula-erro-interpolacao",
+    },
+    fmt(
+      [[
       f_{x^*}-p_{n\,(x^*)}
       = \frac{f^{x+1}_{(\xi)}}{(n+1)!}
       \prod_{i=0}^{n}{x^*-x_i}
@@ -59,21 +69,24 @@ return
         \min(x_0,x_1,\dots,x_n),
         \max(x_0,x_1,\dots,x_n)
       }
-    ]],
-        {}
-      )
-    ),
-    s( -- interpolação por splines polinomiais cúbicos
-      {
+      ]],
+      {}
+    )
+  ),
+  ms( -- interpolação por splines polinomiais cúbicos
+    {
+      common = {
         desc = {
           "expressão de spline polinomial cúbico",
           "interpolador de f em x_0,x_1,...,x_n",
           "no intervalo [x_i,x_{i+1}]",
         },
-        trig = "\\formula-interp-spline-poli-cubico",
       },
-      fmt(
-        [[
+      -- trig
+      "\\formula-interp-spline-poli-cubico",
+    },
+    fmt(
+      [[
       s_{i\,(x)}
       = \left(
         \begin{aligned}
@@ -102,21 +115,24 @@ return
       ;&\\&
       m_i=\odv[order=2]{s_{(x_i)}}{x}
       ,\quad i=0,1,\dots,n
-    ]],
-        {}
-      )
-    ),
-    s( -- sistema de equações para det spline cubico interpolador de f
-      {
+      ]],
+      {}
+    )
+  ),
+  ms( -- sistema de equações para det spline cubico interpolador de f
+    {
+      common = {
         desc = {
           "sistema de equações para determinação de um spline cúbico",
           "interpolador de f",
           "nos pontos x_0,x_1,...,x_n",
         },
-        trig = "\\formula-sistema-eq-spline-cubico-interp",
       },
-      fmt(
-        [[
+      -- trig
+      "\\formula-sistema-eq-spline-cubico-interp",
+    },
+    fmt(
+      [[
       h_{i-1}\,m_{i-1}
       + 2\,(h_{i-1}+h_i)\,m_i
       + h_i\,m_{i+1}
@@ -125,18 +141,21 @@ return
         -\frac{f_{i}-f_{i-1}}{h_{i-1}}
       \right)
       ,\quad i\in\myrange{1,n-1}
-    ]],
-        {}
-      )
-    ),
-    s( -- sistema de equações para determinação do spline cúbico completo
-      {
-        desc = "adicionar às equações [e] as equações",
-        trig = "\\formula-sistema-eq-spline-cubico-completo",
+      ]],
+      {}
+    )
+  ),
+  ms( -- sistema de equações para determinação do spline cúbico completo
+    {
+      common = {
+        desc = { "adicionar às equações [e] as equações" },
       },
-      fmt(
-        [[
-        2\,h_0\,m_0 + h_0\,m_1
+      -- trig
+      "\\formula-sistema-eq-spline-cubico-completo",
+    },
+    fmt(
+      [[
+      2\,h_0\,m_0 + h_0\,m_1
         = 6\,\left(
           \frac{f_1-f_0}{h_0}-f'_{0}
         \right)
@@ -146,27 +165,32 @@ return
           f'_{0}-\frac{f_n-f_{n-1}}{h_{n-1}}
         \right)
       ]],
-        {}
-      )
-    ),
-    s( -- sistema de equações para determinação do spline cúbico natural
-      {
-        desc = "adicionar às equações [e] as equações",
-        trig = "\\formula-sistema-eq-spline-cubico-natural",
+      {}
+    )
+  ),
+  ms( -- sistema de equações para determinação do spline cúbico natural
+    {
+      common = {
+        desc = { "adicionar às equações [e] as equações" },
       },
-      fmt("m_0=m_n=0", {})
-    ),
-    s( -- metodo dos mínimos quadrados
-      {
+      -- trig
+      "\\formula-sistema-eq-spline-cubico-natural",
+    },
+    fmt("m_0=m_n=0", {})
+  ),
+  ms( -- metodo dos mínimos quadrados
+    {
+      common = {
         desc = {
           "função polinomial que melhor aproxima",
           "os dados {(x_0,y_0),...,(x_n,y_n)}",
           "em relacao à base {1,x,...,x^m}",
         },
-        trig = "\\formula-metodo-minimos-quadrados",
       },
-      fmt(
-        [[
+      "\\formula-metodo-minimos-quadrados",
+    },
+    fmt(
+      [[
       p_{(x)} = \sum_{i=0}^{m}{\alpha_i\,x^i}
       &\\[3ex]&
       \begin{cases}
@@ -177,18 +201,21 @@ return
           \\
           k\in\myrange{0,m}
       \end{cases}
-    ]],
-        {}
-      )
-    ),
-    -- numerical integration
-    s( -- formulas de newton-cotes (fechadas) 0
-      {
-        desc = "regra do ponto médio",
-        trig = "\\formula-newton-cotes-0-regra-ponto-medio",
+      ]],
+      {}
+    )
+  ),
+  -- numerical integration
+  ms( -- formulas de newton-cotes (fechadas) 0
+    {
+      common = {
+        desc = { "regra do ponto médio" },
       },
-      fmt(
-        [[
+      -- trig
+      "\\formula-newton-cotes-0-regra-ponto-medio",
+    },
+    fmt(
+      [[
       % integração
       \int_{a=x_0}^{b=x_1}{f_{(x)}\,\odif{x}}
       \approx h\,f_{\left(\frac{x_0+x_1}{2}\right)}
@@ -196,17 +223,20 @@ return
       % erro de quadratura
       \frac{h^3}{24}\,\odv[order=2]{f_{(\xi)}}{x}
       ;\quad\xi\in\myrange*{x_0,x_1}
-    ]],
-        {}
-      )
-    ),
-    s( -- formulas de newton-cotes (fechadas) 1
-      {
-        desc = "regra dos trapézios",
-        trig = "\\formula-newton-cotes-1-regra-trapezios",
+      ]],
+      {}
+    )
+  ),
+  ms( -- formulas de newton-cotes (fechadas) 1
+    {
+      common = {
+        desc = { "regra dos trapézios" },
       },
-      fmt(
-        [[
+      -- trig
+      "\\formula-newton-cotes-1-regra-trapezios",
+    },
+    fmt(
+      [[
       % integração
       \int_{a=x_0}^{b=x_1}{f_{(x)}\,\odif{x}}
       \approx \frac{h}{2}\,(f_0+f_1)
@@ -214,21 +244,21 @@ return
       % erro de quadratura
       -\frac{h^3}{12}\,\odv[order=2]{f_{(\xi)}}{x}
       ;\quad\xi\in\myrange*{x_0,x_1}
-    ]],
-        {}
-      )
-    ),
-    s( -- formulas de newton-cotes (fechadas) 2
-      {
-        desc = "regra de simpson simples",
-
-        trig = {
-          "\\formula-newton-cotes-2-regra-simpson-simples",
-          "\\formula-regra-simpson-simples",
-        },
+      ]],
+      {}
+    )
+  ),
+  ms( -- formulas de newton-cotes (fechadas) 2
+    {
+      common = {
+        desc = { "regra de simpson simples" },
       },
-      fmt(
-        [[
+      -- trig
+      "\\formula-newton-cotes-2-regra-simpson-simples",
+      "\\formula-regra-simpson-simples",
+    },
+    fmt(
+      [[
       % integração
       \int_{a=x_0}^{b=x_2}{f_{(x)}\,\odif{x}}
       =i
@@ -240,22 +270,25 @@ return
       =i-\hat{i}_s
       = -\frac{h^5}{90}\,f^{(4)}(\xi)
       ;\quad\xi\in\myrange*{x_0,x_2}
-    ]],
-        {}
-      )
-    ),
-    s( -- regra de simpson composta
-      {
+      ]],
+      {}
+    )
+  ),
+  ms( -- regra de simpson composta
+    {
+      common = {
         desc = {
           "regra de simpson composta",
           "grau de precisão: 3",
           "σ ∈ ]a,b[",
           "h = (b-a)/2n",
         },
-        trig = "\\formula-regra-simpson-composta",
       },
-      fmt(
-        [[
+      -- trig
+      "\\formula-regra-simpson-composta",
+    },
+    fmt(
+      [[
       % integração
       \int_{a=x_0}^{b=x_2}{f_{(x)}\,\odif{x}}
       =i
@@ -272,17 +305,20 @@ return
       = i-\hat{i}_s
       = -n\,\frac{h^5}{90}\,f^{(4)}(\sigma)
       ;\quad\sigma\in\myrange*{x_0,x_2}
-    ]],
-        {}
-      )
-    ),
-    s( -- método de integração de gauss
-      {
-        desc = "método de integração de gaussu",
-        trig = "\\formula-metodo-integracao-gauss",
+      ]],
+      {}
+    )
+  ),
+  ms( -- método de integração de gauss
+    {
+      common = {
+        desc = { "método de integração de gaussu" },
       },
-      fmt(
-        [[
+      -- trig
+      "\\formula-metodo-integracao-gauss",
+    },
+    fmt(
+      [[
       \int_a^b{f_{(x)}\,\odif{x}}
       = \frac{b-a}{2}
       \,\int_{-1}^{1}{f_{\left(
@@ -301,17 +337,20 @@ return
       }
       \,\odv[order={2\,n}]{f_{(\theta)}}{x}
       ,\quad\theta\in\myrange{-1,1}
-    ]],
-        {}
-      )
-    ),
-    s( -- cn a convergencia
-      {
-        desc = "convergencia de uma sucessão x_i=f(x_(i-1)) a partir de um x_0 para α",
-        trig = "\\formula-cna-convergencia-sucessao",
+      ]],
+      {}
+    )
+  ),
+  ms( -- cn a convergencia
+    {
+      common = {
+        desc = { "convergencia de uma sucessão x_i=f(x_(i-1)) a partir de um x_0 para α" },
       },
-      fmt(
-        [[
+      -- trig
+      "\\formula-cna-convergencia-sucessao",
+    },
+    fmt(
+      [[
       \text{condições de conversão}&\\&
       \begin{cases}
         f(x) \text{ é contínua em } i
@@ -320,7 +359,8 @@ return
         \\
         \myvert{f'(x)}\leq\myvert{f'(\alpha)}
       \end{cases}
-    ]],
-        {}
-      )
+      ]],
+      {}
     )
+  ),
+}

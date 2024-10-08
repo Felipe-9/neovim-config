@@ -1,7 +1,8 @@
 --
 local ls = require("luasnip")
 
-local s = ls.snippet -- build snippets
+-- local s = ls.snippet -- build snippets
+local ms = ls.multi_snippet -- build snippets with multiple triggers
 -- local t = ls.text_node -- insert text
 -- local i = ls.insert_node -- user input
 
@@ -9,15 +10,18 @@ local s = ls.snippet -- build snippets
 -- local rep = extras.rep -- repeat for multiple cursors
 local fmt = require("luasnip.extras.fmt").fmta -- formatting with [[]] and delimiters=<>
 
-return
---
-    s( -- parabolas
-      {
-        desc = "parametrizando parabolas",
-        trig = "\\formula-parabolas",
+return {
+  --
+  ms( -- parabolas
+    {
+      common = {
+        desc = { "parametrizando parabolas" },
       },
-      fmt(
-        [[
+      -- trig
+      "\\formula-parabolas",
+    },
+    fmt(
+      [[
       y=\alpha\,x^2+\beta\,x+\gamma
       \implies &\\&
       \implies
@@ -32,17 +36,20 @@ return
         = \gamma-x_0^2/4\,a
         = \gamma-\beta/4\,\alpha
       \end{cases}
-    ]],
-        {}
-      )
-    ),
-    s( -- elipses
-      {
-        desc = "caracterizando elipses",
-        trig = "\\formua-elipses",
+      ]],
+      {}
+    )
+  ),
+  ms( -- elipses
+    {
+      common = {
+        desc = { "caracterizando elipses" },
       },
-      fmt(
-        [[
+      -- trig
+      "\\formua-elipses",
+    },
+    fmt(
+      [[
       \frac{(x-x_0)^2}{r_1^2}
       + \frac{(y-y_0)^2}{r_2^2}
       = 1
@@ -55,17 +62,20 @@ return
         \\
         f_1\in\mathbb{r}^2:f_1=(x_0-c,y_0)
       \end{cases}
-    ]],
-        {}
-      )
-    ),
-    s( -- hiperboles
-      {
-        desc = "caracterizando hiperboles",
-        trig = "\\formula-hiperboles",
+      ]],
+      {}
+    )
+  ),
+  ms( -- hiperboles
+    {
+      common = {
+        desc = { "caracterizando hiperboles" },
       },
-      fmt(
-        [[
+      -- trig
+      "\\formula-hiperboles",
+    },
+    fmt(
+      [[
       \left(
         \frac{x-x_0}{r_1}
       \right)
@@ -88,17 +98,20 @@ return
           \,(x-x_0)
         \right}
       \end{cases}
-    ]],
-        {}
-      )
-    ),
-    s( -- plano tangente a f
-      {
-        desc = "formula para plano tangente a uma superficie f genérica no ponto genérico (x0,y0,z0)",
-        trig = "\\formula-plano-tangente",
+      ]],
+      {}
+    )
+  ),
+  ms( -- plano tangente a f
+    {
+      common = {
+        desc = { "formula para plano tangente a uma superficie f genérica no ponto genérico (x0,y0,z0)" },
       },
-      fmt(
-        [[
+      -- trig
+      "\\formula-plano-tangente",
+    },
+    fmt(
+      [[
       \left(
         \begin{aligned}
           &
@@ -109,49 +122,32 @@ return
         \end{aligned}
       \right)
       = 0
-    ]],
-        {}
-      )
-    ),
-    -- s( -- limite segundo cauchy
-    --   {
-    --     desc = "definição de limite segundo cauchy",
-    --     trig = "\\formula-limite-cauchy",
-    --   },
-    --   fmt([[
-    --     \forall\,\delta>0\,
-    --     \exists\,\varepsilon>>0:
-    --     \left(
-    --       \left(
-    --         \forall x\in \dominio
-    --         \land
-    --         \myvert{x-a}<<\varepsilon
-    --       \right)
-    --       \implies
-    --       \myvert{
-    --         f(x)-b
-    --       }<<\delta
-    --     \right)
-    --   ]],{})
-    -- ),
-    s( -- jacobiana(2x2)
-      {
-        desc = "jacobiana 2x2",
-        trig = "\\formula-jacobiana-2x2",
+      ]],
+      {}
+    )
+  ),
+  ms( -- jacobiana(2x2)
+    {
+      common = {
+        desc = { "jacobiana 2x2" },
       },
-      fmt(
-        [[
+      -- trig
+      "\\formula-jacobiana-2x2",
+    },
+    fmt(
+      [[
       \begin{bmatrix}
         \pdv{x}{u} & \pdv{x}{v}
         \\
         \pdv{y}{u} & \pdv{y}{v}
       \end{bmatrix}_{(x,y)}
-    ]],
-        {}
-      )
-    ),
-    s( -- matriz hessiana 2x2
-      {
+      ]],
+      {}
+    )
+  ),
+  ms( -- matriz hessiana 2x2
+    {
+      common = {
         desc = {
           "matriz hessiana 2x2",
           "máximos e minimos",
@@ -165,47 +161,53 @@ return
           "<0: mínimo local",
           ">0: máximo local",
         },
-        trig = {
-          "\\formula-matrix-hessiana-2",
-          -- "\\formula-matriz-hessiana-2",
-        },
       },
-      fmt(
-        [[
+      -- trig
+      "\\formula-matrix-hessiana-2",
+      -- "\\formula-matriz-hessiana-2",
+    },
+    fmt(
+      [[
       \det h_f=\begin{vmatrix}
             \pdv{f}{x,x}
           & \pdv{f}{x,y}
           \\\pdv{f}{y,x}
           & \pdv{f}{y,y}
       \end{vmatrix}
-    ]],
-        {}
-      )
-    ),
-    s( -- parametrização coordenadas esfericas
-      {
+      ]],
+      {}
+    )
+  ),
+  ms( -- parametrização coordenadas esfericas
+    {
+      common = {
         desc = "parametrização coordenadas esfericas",
-        trig = "\\formula-coordenadas-esfericas",
       },
-      fmt(
-        [[
+      -- trig
+      "\\formula-coordenadas-esfericas",
+    },
+    fmt(
+      [[
       \begin{cases}
            x=r\sin\phi\,\cos\theta
         \\ y=r\sin\phi\,\sin\theta
         \\ z=\cos\phi
         \\ \myvert{\det j}=r^2\sin\phi
       \end{cases}
-    ]],
-        {}
-      )
-    ),
-    s( -- parametrização coordenadas cilindricas
-      {
+      ]],
+      {}
+    )
+  ),
+  ms( -- parametrização coordenadas cilindricas
+    {
+      common = {
         desc = "parametrização coordenadas cilíndricas em r3",
-        trig = "\\formula-coordenadas-cilindricas",
       },
-      fmt(
-        [[
+      -- trig
+      "\\formula-coordenadas-cilindricas",
+    },
+    fmt(
+      [[
       \begin{cases}
           x=r\cos\theta
           \\ y=r\sin\theta
@@ -214,7 +216,29 @@ return
           \\ \tan{\theta}=y/x
           \\ \myvert{det j}=r
       \end{cases}
-    ]],
-        {}
-      )
+      ]],
+      {}
     )
+  ),
+}
+  -- s( -- limite segundo cauchy
+  --   {
+  --     desc = { "definição de limite segundo cauchy" },
+  --     trig = { "\\formula-limite-cauchy" },
+  --   },
+  --   fmt([[
+  --     \forall\,\delta>0\,
+  --     \exists\,\varepsilon>>0:
+  --     \left(
+  --       \left(
+  --         \forall x\in \dominio
+  --         \land
+  --         \myvert{x-a}<<\varepsilon
+  --       \right)
+  --       \implies
+  --       \myvert{
+  --         f(x)-b
+  --       }<<\delta
+  --     \right)
+  --   ]],{})
+  -- ),

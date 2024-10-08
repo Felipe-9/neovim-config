@@ -1,6 +1,7 @@
 local ls = require("luasnip")
 
-local s = ls.snippet -- build snippets
+-- local s = ls.snippet -- build snippets
+local ms = ls.multi_snippet -- build snippets with multiple triggers
 -- local t = ls.text_node -- insert text
 -- local i = ls.insert_node -- user input
 
@@ -8,15 +9,18 @@ local s = ls.snippet -- build snippets
 -- local rep = extras.rep                         -- repeat for multiple cursors
 local fmt = require("luasnip.extras.fmt").fmta -- formatting with [[]] and delimiters=<>
 
-return
---
-    s(
-      {
-        trig = "\\demonstration-QF-Clapeyron-H_vap",
-        desc = "Demonstração da equação de clapeyron para entalpia de vaporização",
+return {
+  --
+  ms( -- Equacao de Clapeyron
+    {
+      common =  {
+        name = "Clapeyron Equation ΔH_vap",
+        desc = "Demonstração da equação de clapeyron para entalpia de vaporização"
       },
-      fmt(
-        [[
+      "\\demonstration-QF-Clapeyron-H_vap",
+    },
+    fmt(
+      [[
       \odv{P}{T}_{vap}
       = \frac{\adif{H}_{vap}}{T\,\adif{V}_{vap}}
       = \frac{\adif{H_{vap}}}{T\,(V_{vap,g}-V_{vap\,l})}
@@ -44,16 +48,19 @@ return
       = \frac{\adif{H_{vap}}}{R}
       \adif{(-T^{-1})
     ]],
-        {}
-      )
-    ),
-    s(
-      {
-        trig = "\\demonstration-QF-Clapeyron-H_sub",
-        desc = "Demonstração da equação de clapeyron para entalpia de vaporização",
+      {}
+    )
+  ),
+  ms( -- Clapeyron H sublimation
+    {
+      common = {
+        name = "Clapeyron ΔH sublimation",
+        desc = "Demonstração da equação de clapeyron para entalpia de sublimação"
       },
-      fmt(
-        [[
+      "\\demonstration-QF-Clapeyron-H_sub",
+    },
+    fmt(
+      [[
       \odv{P}{T}_{sub}
       = \frac{\adif{H}_{sub}}{T\,\adif{V}_{sub}}
       = \frac{\adif{H_{sub}}}{T\,(V_{sub,g}-V_{sub\,s})}
@@ -81,6 +88,7 @@ return
       = \frac{\adif{H_{sub}}}{R}
       \adif{(-T^{-1})
     ]],
-        {}
-      )
+      {}
     )
+  ),
+}
