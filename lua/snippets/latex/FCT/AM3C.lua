@@ -5,8 +5,8 @@ local ms = ls.multi_snippet -- build snippets with multiple triggers
 -- local t = ls.text_node -- insert text
 local i = ls.insert_node -- user input
 
--- local extras = require("luasnip.extras")
--- local rep = extras.rep                         -- repeat for multiple cursors
+local extras = require("luasnip.extras")
+local rep = extras.rep                         -- repeat for multiple cursors
 local fmt = require("luasnip.extras.fmt").fmta -- formatting with [[]] and delimiters=<>
 
 return {
@@ -17,7 +17,7 @@ return {
         desc = {
           "Teorema para resolver EDOs de ordem 1",
           "y' + a(x) y = b(x)",
-          "onde: 𝛗(x)=\\exp(\\int{ a(x)dx })",
+          "onde: 𝛗(x)=\\exp(∫{ a(x)dx })",
         },
       },
       -- trig
@@ -26,17 +26,18 @@ return {
     fmt(
       [[
       \gamma = \exp{\left(
-      \int{<a>\,\odif{x}}
-    \right)}
-    ; &\\&
-    y
-    = \left(<a>\right)^{-1}
-    \,\left(\int{
-    \tC + \int{ \gamma(x)\,<b>\,\odif{x}}
-    }\right)
+        \int{<a>\,\odif{x}}
+      \right)}
+      ; &\\[3ex]&
+      y
+      = (<a_rep>)^{-1}
+      \,\left(\int{
+        C + \int{ \gamma(x)\,<b>\,\odif{x}}
+      }\right)
       ]],
       {
         a = i(1, "a(x)"),
+        a_rep = rep(1),
         b = i(2, "b(x)"),
       }
     )
@@ -47,16 +48,17 @@ return {
         desc = {
           "Bernoulli equation to solve:",
           "y' + a(x) y = b(x) y^k; k ∈ ℝ|{0,1}",
-          "onde: z=y^{1-k}",
+          "where: z=y^{1-k}",
         },
       },
       "\\formulas-AM3C-EDO-bernoulli",
     },
     fmt(
       [[
-    z=y^{1-k},
-    z' + (1-k)<a>\,z = (1-k)\,<b>
-  ]],
+      z=y^{1-k}
+      ; &\\[3ex]&
+      z' + (1-k)<a>\,z = (1-k)\,<b>
+      ]],
       {
         a = i(1, "a(x)"),
         b = i(2, "b(x)"),
@@ -68,11 +70,11 @@ return {
       common = {
         desc = {
           "Riccati equation to solve:",
-          "y' + a(x) y = b(x) + c(x) y^2",
+          "y' + a(x) y = b(x) + c(x) y²",
           "where:",
           "y(x) = y(x_1) + z^{-1};",
           "z' + (2 c(x) y(x_1) - a(x)) z = -c(x)",
-          "an arbitrary solution is given y(x_1)",
+          "an arbitrary solution is given: y(x_1)",
         },
       },
       -- trig
@@ -84,27 +86,39 @@ return {
       + <a>\,y
       = <b>
       + <c>\,y^2
-      ; &\\&
+      %
+      %
+      %
+      ; &\\[3ex]&
       y(<x1>)=<y_x1>
-      ; &\\&
+      %
+      %
+      %
+      ; &\\[3ex]&
       z' + (
         2
-        \,<c>
-        \,<y_x1>
-        - <a>
+        \,<c_r>
+        \,<y_x1_r>
+        - <a_r>
       )\,z
-      = - <c>
-      ; &\\&
+      = - <c_r>
+      %
+      %
+      %
+      ; &\\[3ex]&
       y(x)
-      = <y_x1>
+      = <y_x1_r>
       + z^{-1}
       ]],
       {
         a = i(1, "a(x)"),
+        a_r = rep(1),
         b = i(2, "b(x)"),
         c = i(3, "c(x)"),
+        c_r=rep(3),
         x1 = i(4, "x_1"),
         y_x1 = i(5, "y(x_1)"),
+        y_x1_r = rep(5),
       }
     )
   ),

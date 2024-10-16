@@ -209,12 +209,12 @@ return {
     fmt(
       [[
       \begin{cases}
-          x=r\cos\theta
-          \\ y=r\sin\theta
-          \\ z=z
-          \\ x^2+y^2=r
-          \\ \tan{\theta}=y/x
-          \\ \myvert{det j}=r
+        x=r\cos\theta
+        \\ y=r\sin\theta
+        \\ z=z
+        \\ x^2+y^2=r
+        \\ \tan{\theta}=y/x
+        \\ \myvert{det j}=r
       \end{cases}
       ]],
       {}

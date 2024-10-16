@@ -1,1 +1,1 @@
-require("snippets.temp")
+require("snippets.latex.init")
