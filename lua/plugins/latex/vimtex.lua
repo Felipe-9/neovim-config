@@ -23,6 +23,7 @@ return {
     vim.g.vimtex_quickfix_mode = 1
     vim.g.vimtex_mappings_enable = 0
     vim.g.vimtex_indent_enabled = 1
+    vim.g.vimtex_format_enabled = 1
     vim.g.imaps_enabled = 0
     vim.g.vimtex_log_ignore = {
       "Underfull",
@@ -30,13 +31,9 @@ return {
       "specifier changed to",
       "Token not allowed in PDF string",
     }
-    -- 
-    -- Defining custom environments
-    -- 
-    -- vim.call( 'vimtex#syntax#core#new_region_math' ,'BM')
-    -- 
+    --
     -- Syntax conceal
-    -- 
+    --
     vim.wo.conceallevel = 2
     vim.vimtex_syntax_conceal = 1
     vim.g.vimtex_syntax_conceal = {
@@ -47,16 +44,16 @@ return {
       spacing = 0,
       greek = 1,
       math_bounds = 1,
-      math_delimiters = 0,
+      math_delimiters = 1,
       math_fracs = 1,
       math_super_sub = 0,
       math_symbols = 1,
       sections = 0,
       styles = 1,
     }
-    -- 
+    --
     -- Defining custom syntax conceal
-    -- 
+    --
     -- Simple commands
     vim.g.vimtex_syntax_custom_cmds = {
       -- {
@@ -69,6 +66,12 @@ return {
         name = "mdif",
         concealchar = "D",
       },
+      -- { -- mdif*
+      --   mathmode = true,
+      --   name = "mdifstar",
+      --   cmdre = "mdif\\*",
+      --   concealchar = "D",
+      -- },
       { -- odif
         mathmode = true,
         name = "odif",
@@ -94,6 +97,14 @@ return {
         name = "gdif",
         concealchar = "∇",
       },
+      -- -- delims
+      -- {
+      --   mathmode = true,
+      --   -- opt = false,
+      --   name = "left(",
+      --   cmdre = "\\left(",
+      --   concealchar = "("
+      -- },
     }
     -- Commands with variables
     vim.g.vimtex_syntax_custom_cmds_with_concealed_delims = {
@@ -106,14 +117,14 @@ return {
         cchar_close = "]",
       },
       { -- myrange*
-        mathmode= true,
+        mathmode = true,
         opt = false,
-        conceal=true,
+        conceal = true,
         name = "myrangestar",
         cmdre = "myrange\\*",
         nargs = 1,
         cchar_open = "]",
-        cchar_close = "["
+        cchar_close = "[",
       },
       { -- myranger
         mathmode = true,
@@ -142,46 +153,53 @@ return {
       { -- myvert
         mathmode = true,
         opt = false,
-        nargs= 1,
+        nargs = 1,
         name = "myvertsingle",
         cmdre = "myvert",
         cchar_open = "|",
-        cchar_close = "|"
+        cchar_close = "|",
       },
       { -- myVert
         mathmode = true,
         opt = false,
-        nargs= 1,
+        nargs = 1,
         name = "myVertdouble",
         cmdre = "myVert",
         cchar_open = "‖",
-        cchar_close = "‖"
+        cchar_close = "‖",
       },
       { -- myvert*
         mathmode = true,
         opt = false,
-        nargs= 1,
+        nargs = 1,
         name = "myvertsinglestar",
         cmdre = "myvert\\*",
         cchar_open = "|",
-        cchar_close = "|"
+        cchar_close = "|",
       },
       { -- myVert
         mathmode = true,
         opt = false,
-        nargs= 1,
+        nargs = 1,
         name = "myVertdoublestar",
         cmdre = "myVert\\*",
         cchar_open = "‖",
-        cchar_close = "‖"
+        cchar_close = "‖",
       },
     }
 
     vim.g.vimtex_syntax_custom_envs = {
       {
         name = "BM",
-        math = true
-      }
+        math = true,
+      },
+    }
+
+    vim.g.vimtex_indent_delims = {
+      open = { "{", "(", "\\[" },
+      close = { "}", ")", "\\]" },
+      -- close_indented = 1,
+      include_modified_math = 1,
     }
   end,
 }

@@ -15,13 +15,8 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Setup nvim by josean
 require("lazy").setup({
-  -- require("test")
-  -- { import = "plugins.lualine" },
   { import = "profiles.felipe.plugins" },
-  -- { import = "felipe.plugins.lsp" },
-  -- { import = "felipe.plugins.git" },
 }, {
   install = { colorscheme = { "catppuccin-mocha" } },
   -- automatically check for plugin updates
@@ -32,14 +27,3 @@ require("lazy").setup({
   change_detection = { notify = false },
   ui = { border = "rounded" },
 })
-
--- -- Setup lazy.nvim require("lazy").setup({
---   spec = {
---     { import = "felipe.plugins" },
---   },
---   -- Configure any other settings here. See the documentation for more details.
---   -- colorscheme that will be used when installing plugins.
---   install = { colorscheme = { "catppuccin-mocha" } },
---   -- automatically check for plugin updates
---   checker = { enabled = true },
--- })
