@@ -4,5 +4,7 @@ return {
   main = "ibl",
   ---@module "ibl"
   ---@type ibl.config
-  config = true,
+  config = function ()
+    require("ibl").setup()
+  end,
 }
