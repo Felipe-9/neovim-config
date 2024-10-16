@@ -7,6 +7,8 @@ return {
   -- { import = "plugins.nvim-tree" }, -- UI Filetree
   -- { import = "plugins.pywal16" }, -- UI Theme based on background
   -- { import = "plugins.tagbar" }, -- File outline
+  -- { import = "plugins.nvim-scrollbar" }, -- UI scrollbar
+  { import = "plugins.align" }, -- Align columns
   { import = "plugins.alpha-nvim" }, -- Greeter
   { import = "plugins.auto-session" }, -- Sessions with w...
   { import = "plugins.autopairs" }, -- Edditing
@@ -25,7 +27,6 @@ return {
   { import = "plugins.lualine" }, -- Bottomline ui
   { import = "plugins.neoclip" }, -- persistent clipboard
   { import = "plugins.neoscroll" }, -- smooth scrolling
-  -- { import = "plugins.nvim-scrollbar" }, -- UI scrollbar
   { import = "plugins.nvim-ufo" }, -- folding
   { import = "plugins.surround" }, -- EDIT surroundings
   { import = "plugins.telescope" }, -- UI Find everything
@@ -51,6 +52,7 @@ return {
   { import = "plugins.lsp.trouble" }, -- error messages
   -- language specific
   { import = "plugins.lsp.r" }, -- Support for R
+  { import = "plugins.vim-glsl" }, -- GLSL interpreter
   -- 
   -- Latex
   -- 
