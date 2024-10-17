@@ -27,3 +27,5 @@ require("lazy").setup({
   change_detection = { notify = false },
   ui = { border = "rounded" },
 })
+
+require('integrations.init').setup()
