@@ -14,34 +14,41 @@ return {
   -- Math
   ms( -- pi
     {
-      common = {
-        desc = { "pi" },
-      },
+      common = { name = "pi" },
       -- trig
       "\\constantes-pi",
     },
-    fmt(
-      [[
-      \num{3.14159265359}
-      ]],
-      {}
-    )
+    fmt( [[ \num{3.14159265359} ]], {})
   ),
   -- Physics
-  ms( -- Constante da aceleração da Gravidade
+  ms( -- viscosidade ar
     {
       common = {
-        desc = {
-          "Constante da aceleração da Gravidade",
-        },
+        name = "viscosidade ar",
+        desc = "Pa.s (20℃, 1 atm)",
+      },
+      -- trig
+      "\\constante-viscosidade-ar",
+    },
+    fmt(
+      [[ <qty>{ 1.81e-5 }<unit> ]],
+      {
+        qty = c(1, { t("\\qty"), t("\\num") }),
+        unit = c(2, { t("{\\pascal.\\second}"), t("") }),
+      }
+    )
+  ),
+  ms( -- Constante da aceleração da Gravidade
+    {
+      common = { 
+        name = "Constante da aceleração da Gravidade",
+        desc = "m / s²"
       },
       -- trig
       "\\constante-aceleração_gravidade",
     },
     fmt(
-      [[
-      <qty>{ 9.780327 }<unit>
-      ]],
+      [[ <qty>{ 9.780327 }<unit> ]],
       {
         qty = c(1, { t("\\qty"), t("\\num") }),
         unit = c(2, { t("{ \\metre/\\second^2 }"), t("") }),
@@ -51,17 +58,14 @@ return {
   ms( -- Constante de Coulomb
     {
       common = {
-        desc = {
-          "Constante de Coulomb",
-        },
+        name = "Constante de Coulomb" ,
+        desc = "N.m² / C²"
       },
       -- trig
       "\\constante-coulomb",
     },
     fmt(
-      [[
-      <qty>{ 8.987551792314e9 }<unit>
-      ]],
+      [[ <qty>{ 8.987551792314e9 }<unit> ]],
       {
         qty = c(1, { t("\\qty"), t("\\num") }),
         unit = c(2, { t("{ \\newton\\,\\metre^2/\\coulomb^2\\ }"), t("") }),
@@ -70,10 +74,9 @@ return {
   ),
   ms( -- Electric Constant
     {
-      common = {
-        desc = {
-          "Constantes: Elétrica, Permissitiviade do espaço",
-        },
+      common = { 
+        name = "Permissitiviade (eletrica) do espaço",
+        desc = "N.m² / C²"
       },
       -- trig
       "\\constante-electric",
@@ -92,16 +95,15 @@ return {
   ms( -- Constantes: Carga elétrica de um eletron
     {
       common = {
-        desc = { "Constantes: Carga elétrica de um eletron" },
+        name = "Carga elétrica de um eletron",
+        desc = "C"
       },
       -- trig
       "\\constante-electron_charge",
       "\\constante-eletron_charge",
     },
-    fmt(
-      [[
-      <qty>{ 1.602176634e-19 }<unit>
-      ]],
+    fmt( 
+      [[ <qty>{ 1.602176634e-19 }<unit> ]],
       {
         qty = c(1, { t("\\qty"), t("\\num") }),
         unit = c(2, { t("{ \\coulomb }"), t("") }),
@@ -111,19 +113,18 @@ return {
   ms( -- Dieletric Strength
     {
       common = {
+        name = "Dieletric Strength of dry air",
         desc = {
-          "Dieletric Strength",
-          "Constantes: Dielectric strenght of dry air, the magnitude of the electric field at which dielectric breakdown occurs",
+          "the magnitude of the electric field at which dielectric breakdown occurs",
+          "MV / m"
         },
       },
       -- trig
       "\\constante-dieletrica",
-      "\\constante-dielectric_strenght",
+      "\\constante-dielectric_strenght_of_dry_air",
     },
     fmt(
-      [[
-      <qty>{ 3e6 }<unit>
-      ]],
+      [[ <qty>{ 3e6 }<unit> ]],
       {
         qty = c(1, { t("\\qty"), t("\\num") }),
         unit = c(2, { t("{\\mega\\volt/\\metre}"), t("") }),
@@ -134,7 +135,8 @@ return {
   ms( -- Constante de Avogadro
     {
       common = {
-        desc = { "Constante de Avogadro" },
+        name = "Constante de Avogadro",
+        desc = "mole^{-1}"
       },
       -- trig
       "\\Constante-Avogadro",
@@ -142,9 +144,7 @@ return {
       "\\Constante-mole",
     },
     fmt(
-      [[
-      <qty>{ 6.02214076e23 }<unit>
-      ]],
+      [[ <qty>{ 6.02214076e23 }<unit> ]],
       {
         qty = c(1, { t("\\qty"), t("\\num") }),
         unit = c(2, { t("{ \\mole^{-1} }"), t("") }),
@@ -154,18 +154,14 @@ return {
   ms( -- Constante dos gáses perfeitos
     {
       common = {
-        desc = {
-          "Constante dos gáses perfeitos",
-          "[R]=J/mol.K",
-        },
+        name = "Constante dos gáses perfeitos",
+        desc = "[R] = J / mol.K",
       },
       -- trig
       "\\Constante-gas_perfeito",
     },
     fmt(
-      [[
-      "<qty>{ 8.314462618 }<unit>"
-      ]],
+      [[ <qty>{ 8.314462618 }<unit> ]],
       {
         qty = c(1, { t("\\qty"), t("\\num") }),
         unit = c(2, { t("{\\joule.\\mole^{-1}.\\kelvin^{-1}}"), t("") }),
@@ -175,18 +171,14 @@ return {
   ms( -- Constante dos gáses perfeitos 2
     {
       common = {
-        desc = {
-          "Constante dos gáses perfeitos 2",
-          "[R]=m3.atm/mol.K",
-        },
+        name = "Constante dos gáses perfeitos 2",
+        desc = "[R] = m³.atm / mol.K",
       },
       -- trig
       "\\Constante-gas_perfeito.2",
     },
     fmt(
-      [[
-      "<qty>{ 8.20573660809596e-5 }<unit>"
-      ]],
+      [[ <qty>{ 8.20573660809596e-5 }<unit> ]],
       {
         qty = c(1, { t("\\qty"), t("\\num") }),
         unit = c(2, { t("{\\metre^3.\\atm.\\mole^{-1}.\\kelvin^{-1}}"), t("") }),
@@ -196,18 +188,14 @@ return {
   ms( -- Constante dos gáses perfeitos 3
     {
       common = {
-        desc = {
-          "Constante dos gáses perfeitos 3",
-          "[R]=L.atm/mol.K",
-        },
+        name = "Constante dos gáses perfeitos 3",
+        desc = "[R] = L.atm / mol.K",
       },
       -- trig
       "\\Constante-gas_perfeito.3",
     },
     fmt(
-      [[
-      <qty>{ 8.2057366080960e-2 }<unit>
-      ]],
+      [[ <qty>{ 8.2057366080960e-2 }<unit> ]],
       {
         qty = c(1, { t("\\qty"), t("\\num") }),
         unit = c(2, { t("{ \\litre.\\atm.\\mole^{-1}.\\kelvin^{-1} }"), t("") }),
@@ -217,18 +205,14 @@ return {
   ms( -- Constante dos gáses perfeitos 4
     {
       common = {
-        desc = {
-          "Constante dos gáses perfeitos 4",
-          "[R]=L.bar/mol.K",
-        },
+        name = "Constante dos gáses perfeitos 4",
+        desc = "[R] = L.bar / mol.K",
       },
       -- trig
       "\\Constante-gas_perfeito.3",
     },
     fmt(
-      [[
-      <qty>{ 8.31446261815324e-2 }<unit>
-      ]],
+      [[ <qty>{ 8.31446261815324e-2 }<unit> ]],
       {
         qty = c(1, { t("\\qty"), t("\\num") }),
         unit = c(2, { t("{ \\litre.\\bar.\\mole^{-1}.\\kelvin^{-1} }"), t("") }),
@@ -238,18 +222,14 @@ return {
   ms( -- Constante dos gáses perfeitos 5
     {
       common = {
-        desc = {
-          "Constante dos gáses perfeitos 5",
-          "[R]=cal/mol.K",
-        },
+        name = "Constante dos gáses perfeitos 5",
+        desc = "[R] = cal / mol.K",
       },
       -- trig
       "\\Constante-gas_perfeito.5",
     },
     fmt(
-      [[
-      <qty>{ 1.987204258640832 }<unit>
-      ]],
+      [[ <qty>{ 1.987204258640832 }<unit> ]],
       {
         qty = c(1, { t("\\qty"), t("\\num") }),
         unit = c(2, { t("{ \\calorie.\\mole^{-1}.\\kelvin^{-1} }"), t("") }),
@@ -259,12 +239,10 @@ return {
   ms( -- Constante mmHg in atm
     {
       common = {
-        desc = {
-          "Constante mmHg in atm",
-        },
+        name = "mmHg -> atm",
       },
       -- trig
-      "\\Constante-mmHg-to-atm",
+      "\\Constante-pressure-mmHg-to-atm",
     },
     fmt(
       [[
@@ -278,18 +256,14 @@ return {
   ms( -- Boltzmann constant k_B
     {
       common = {
-        desc = {
-          "Boltzmann constant k_B",
-          "k_B in J/K",
-        },
+        name = "Boltzmann constant k_B",
+        desc = "[k_B] = J / K",
       },
       -- trig
       "\\constante-boltzmann",
     },
     fmt(
-      [[
-      <qty>{ 1.380649e-23 }<unit>
-      ]],
+      [[ <qty>{ 1.380649e-23 }<unit> ]],
       {
         qty = c(1, { t("\\qty"), t("\\num") }),
         unit = c(2, { t("{\\joule.\\kelvin^{-1}}"), t("") }),

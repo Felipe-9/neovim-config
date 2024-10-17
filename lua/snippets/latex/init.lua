@@ -5,12 +5,12 @@ local snippet_tables = {
   require("snippets.latex.math"),
   require("snippets.latex.mysnippets"),
   require("snippets.latex.tikz-pfg"),
-  -- -- FCT
+  -- FCT
+  -- require("snippets.latex.FCT.EB"),
   require("snippets.latex.FCT.AM2C"),
   require("snippets.latex.FCT.AM3C"),
   require("snippets.latex.FCT.CMA"),
   require("snippets.latex.FCT.CNA"),
-  -- require("snippets.latex.FCT.EB"),
   require("snippets.latex.FCT.FTII"),
   require("snippets.latex.FCT.OSF"),
   require("snippets.latex.FCT.QF"),
