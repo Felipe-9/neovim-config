@@ -3,10 +3,24 @@ vim.g.maplocalleader = "\\"
 
 local keymap = vim.keymap
 
-keymap.set('i', "<leader>jk", "gcc<CR>", { desc = "Exit insert mode with jk" })
-
+-- keymap.set('i', "<leader>jk", "gcc<CR>", { desc = "Exit insert mode with jk" })
+-- Move
+keymap.set({ "n","x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent= true })
+keymap.set({ "n","x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent= true })
+keymap.set({ "n","x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent= true })
+keymap.set({ "n","x" }, "<Up>", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent= true })
+-- Move line or selection
+keymap.set("n", "<A-j>", "<cmd>m .+1<cr>==", {desc ="move line down"})
+keymap.set("n", "<A-k>", "<cmd>m .-2<cr>==", {desc ="move line up"})
+keymap.set("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", {desc ="move line down"})
+keymap.set("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", {desc ="move line up"})
+keymap.set("v", "<A-j>", ":m '>+1<cr>gv=gv'", {desc ="move selection down"})
+keymap.set("v", "<A-k>", ":m '<-2<cr>gv=gv'", {desc ="move selection up"})
+-- Ends with ; or .
+keymap.set("i", ";", ";<c-g>u")
+keymap.set("i", ".", ".<c-g>u")
 -- keymap.set('n', "<leader>/", "gcc<CR>", { desc = "comment out line" })
-keymap.set('n', "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
+keymap.set({ 'n',"i" }, "<esc>", "<cmd>nohl<cr><esc>", { desc = "Escape and clear" })
 keymap.set('n', "<leader>+", "<C-a>", { desc = "Increment number" })
 keymap.set('n', "<leader>-", "<C-x>", { desc = "Decrement number" })
 -- window management
