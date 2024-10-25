@@ -7,7 +7,7 @@ local i = ls.insert_node -- user input
 -- local r = ls.restore_node -- restore from variable
 
 local extras = require("luasnip.extras")
--- local rep = extras.rep -- repeat for multiple cursors
+local rep = extras.rep -- repeat for multiple cursors
 local ne = extras.nonempty
 local fmt = require("luasnip.extras.fmt").fmta -- formatting with [[]] and delimiters=<>
 
@@ -102,6 +102,31 @@ return { --
       }
     )
   ),
+  ms( -- Div derivative
+    {
+      common = {
+        name = "Derivate of a fraction"
+      },
+      "\\math-derivative-fraction"
+    },
+    fmt(
+      [[
+      \frac {
+        <f>\,<dg>
+        -<df>\,<g>
+      }{
+        (<g_r>)^2
+      }
+      ]],
+      {
+        f = i(1,"f"),
+        g = i(3,"g"),
+        df = i(2,"f'"),
+        dg = i(4,"g'"),
+        g_r = rep(3),
+      }
+    )
+  )
 }
 -- s( -- math enclosing brackets
 --   {

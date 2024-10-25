@@ -2,8 +2,8 @@ local ls = require("luasnip")
 
 -- local s = ls.snippet -- build snippets
 local ms = ls.multi_snippet -- build snippets with multiple triggers
--- local t = ls.text_node -- insert text
-local i = ls.insert_node -- user input
+local t = ls.text_node -- insert text
+-- local i = ls.insert_node -- user input
 -- local r = ls.restore_node -- restore from variable
 
 local extras = require("luasnip.extras")
@@ -21,7 +21,7 @@ return {
     },
     fmt(
       [[
-      % !TEX root = ./main_file.tex
+      % !TEX root = ./<main_file>.tex
       % \documentclass{article}
       \documentclass[
         class=article,
@@ -453,10 +453,10 @@ return {
       % print files
       \begin{luacode*}
         -- Files Directory
-        dir = \"./\"
+        dir = "./"
         -- Prefix and sufix
-        prefix = \"\"
-        sufix  = \"\"
+        prefix = "<main_file>."
+        sufix  = ""
         -- Print file range
         firstFile = 1 -- first file number
         lastFile  = 1 -- last  file number
@@ -471,15 +471,15 @@ return {
         do
           tex.print(string.split(table.concat{
           \[\[
-            \subfile{\]\], dir, prefix, string.format(\"%d\", i), sufix, \[\[}\newpage
+            \subfile{\]\], dir, prefix, string.format("%d", i), sufix, \[\[}\newpage
           \]\]
-          },\"\n\"))
+          },"\n"))
         end
         -- % ==================================================== %
       \end{luacode*},
       \end{document}
       ]],
-      {}
+      { main_file = t(vim.fn.expand("%:t:r")) }
     )
   ),
 }

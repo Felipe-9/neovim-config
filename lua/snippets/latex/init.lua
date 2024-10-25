@@ -5,6 +5,8 @@ local snippet_tables = {
   require("snippets.latex.math"),
   require("snippets.latex.mysnippets"),
   require("snippets.latex.tikz-pfg"),
+  require("snippets.latex.chem"),
+  require("snippets.latex.boxes"),
   -- FCT
   -- require("snippets.latex.FCT.EB"),
   require("snippets.latex.FCT.AM2C"),
