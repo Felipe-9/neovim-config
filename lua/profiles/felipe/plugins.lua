@@ -36,6 +36,10 @@ return {
   { import = "plugins.visual-multi" }, -- multiple cursors
   { import = "plugins.which-key" }, -- UI find keys and shortcuts
   { import = "plugins.yazi" }, -- UI File manager integration
+  -- 
+  -- integrations
+  -- 
+  -- { import = "plugins.integrations.telescope-luasnip" }, -- search snippets
   --
   -- LSPs
   --

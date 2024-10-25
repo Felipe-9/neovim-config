@@ -11,6 +11,11 @@ return {
     "MunifTanjim/nui.nvim",
     "AckslD/nvim-neoclip.lua",
     "debugloop/telescope-undo.nvim",
+    {
+      "benfowler/telescope-luasnip.nvim",
+      -- dependencies = "L3MON4D3/LuaSnip",
+      -- module = "telescope._extensions.luasnip", -- if you wish to lazy-load
+    }
   },
   config = function()
     local telescope = require("telescope")
@@ -53,13 +58,6 @@ return {
       end,
     })
 
-    -- Extensions
-    telescope.load_extension("ui-select")
-    telescope.load_extension("noice")
-    telescope.load_extension("neoclip") -- clipboard list on <leader>p
-    telescope.load_extension("undo") -- File version history <leader>fu
-    telescope.load_extension("fzf") -- Fuzzy find stuff
-
     telescope.setup({
       defaults = {
         vimgrep_arguments = vimgrep_arguments,
@@ -95,6 +93,16 @@ return {
         ["ui-select"] = { require("telescope.themes").get_dropdown({}) },
       },
     })
+    
+    -- Extensions
+    telescope.load_extension("ui-select")
+    telescope.load_extension("noice")
+    telescope.load_extension("neoclip") -- clipboard list on <leader>p
+    telescope.load_extension("undo") -- File version history <leader>fu
+    telescope.load_extension("fzf") -- Fuzzy find stuff
+    telescope.load_extension("luasnip") -- snippets
+
+    -- require'telescope'.extensions.luasnip.luasnip{}
 
     local keymap = vim.keymap
     -- keymap.set('n', '<leader>fP', builtin.commands, { desc = "Commands" })
@@ -107,11 +115,12 @@ return {
     keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Files in cwd" })
     keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Help tags" })
     keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "Keymaps" })
-    keymap.set("n", "<leader>fn", "<cmd>Telescope noice<cr>", { desc = "Noice messages" })
     keymap.set("n", "<leader>fo", builtin.lsp_document_symbols, { desc = "Outline" })
     keymap.set("n", "<leader>fr", builtin.oldfiles, { desc = "Recent files" })
     keymap.set("n", "<leader>fs", builtin.live_grep, { desc = "Find string in cwd" })
     keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Todos" })
+    keymap.set("n", "<leader>fn", "<cmd>Telescope noice<cr>", { desc = "Noice messages" })
+    -- keymap.set("n", "<leader>fl", "<cmd>Telescope luasnip<cr>", { desc = "snippets" })
     keymap.set("n", "<leader>p", "<cmd>Telescope neoclip<cr>", { desc = "Clipboard" })
   end,
 }
