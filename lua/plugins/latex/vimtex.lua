@@ -24,6 +24,7 @@ return {
     vim.g.vimtex_mappings_enable = 0
     vim.g.vimtex_indent_enabled = 1
     vim.g.vimtex_format_enabled = 1
+    vim.g.vimtex_indent_on_ampersands = 0
     vim.g.imaps_enabled = 0
     vim.g.vimtex_log_ignore = {
       "Underfull",
@@ -189,14 +190,25 @@ return {
     }
 
     vim.g.vimtex_syntax_custom_envs = {
-      {
+      { -- BM
         name = "BM",
         math = true,
+      },
+      { -- sectionBox
+        name = "sectionBox",
+        contains = "ALL",
+      },
+      { -- questionBox
+        name = "questionBox",
+      },
+      { -- exampleBox
+        name = "exampleBox",
+        contains="ALL",
       },
     }
 
     vim.g.vimtex_indent_delims = {
-      open = { "{", "(", "\\[" },
+      open  = { "{", "(", "\\[" },
       close = { "}", ")", "\\]" },
       -- close_indented = 1,
       include_modified_math = 1,
