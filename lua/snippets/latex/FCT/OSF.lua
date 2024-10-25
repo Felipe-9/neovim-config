@@ -12,6 +12,79 @@ local fmt = require("luasnip.extras.fmt").fmta -- formatting with [[]] and delim
 
 return {
   --
+  ms( -- kick law
+    {
+      common = {
+        name = "kick law",
+        desc = {
+          "Coarse reduction, p = -1.0",
+          "ratio L/L₀ defines Energy",
+          "-> L₀ 50 -> 1500 mm",
+          "-> L   5 ->   50 mm",
+          "-> K_K depende do triturador",
+          "-> f_c depende das particulas",
+        },
+      },
+      -- trig
+      "\\formua -OSF-kick-law-coarse-reduction",
+    },
+    fmt(
+      [[
+      E
+      =-K_K\,f_c\,\adif{\ln{L}}
+      ]],
+      {}
+    )
+  ),
+  ms( -- rittingers law
+    {
+      common = {
+        name = "Rittinger's law",
+        desc = {
+          "Fine reduction, p = -2.0",
+          "E ∝ Increase of surface area",
+          "-> L₀ 2 -> 5 mm",
+          "-> L  < 0.1  mm",
+          "-> K_R depende do triturador",
+          "-> f_c depende das particulas",
+        },
+      },
+      -- trig
+      "\\formula-OSF-rittingers-law-fine-reduction",
+    },
+    fmt(
+      [[
+      E
+      = K_R\,f_c\,\adif{L^{-1}}
+      ]],
+      {}
+    )
+  ),
+  ms( -- bonds law
+    {
+      common = {
+        name = "Bond's law",
+        desc = {
+          "Intermediate reduction, p = -1.5",
+          "L₀ 2.0 -> 50 mm",
+          "L  0.1 ->  5 mm",
+          "E_i Work index (energy for ∞ -> 200µm)",
+          "q = L₀/L",
+        },
+      },
+      -- trig
+      "\\formula-OSF-bonds-law-intermediate-reduction",
+    },
+    fmt(
+      [[
+      E
+      = E_i
+      \,\sqrt{\frac{100}{L_0}}
+      \,\left(1-\frac{1}{\sqrt{q}}\right)
+      ]],
+      {}
+    )
+  ),
   ms( -- crushing rolls nip angle
     {
       common = {
@@ -36,24 +109,6 @@ return {
       {}
     )
   ),
-  ms( -- bonds energy law
-    {
-      common = {
-        name = "bonds energy law",
-      },
-      -- trig
-      "\\formula-OSF-bonds-energy-law",
-    },
-    fmt(
-      [[
-      e
-      = e_i
-      \,\sqrt{100/l_2}
-      \,(1-\sqrt{q}^{-1})
-      ]],
-      {}
-    )
-  ),
   ms( -- sphere particle factors k surface
     {
       common = {
@@ -62,89 +117,56 @@ return {
       -- trig
       "\\formula-OSF-particle-surface-factor-sphere",
     },
-    fmt( [[ k'=\pi ]], {})
+    fmt( [[ \dot{k}=\pi ]], {})
   ),
   ms( -- sphere particle factors k volume
     {
       common = {
-        name = 'sphere particle factors k" (volume)',
+    name = 'sphere particle factors k" (volume)',
       },
       -- trig
-      "\\formula-particle-volume-factor-sphere",
+      "\\formula-OSF-particle-volume-factor-sphere",
     },
-    fmt([[ k"=\pi/6 ]], {})
+    fmt([[ \ddot{k}=\pi/6 ]], {})
   ),
-  ms( -- rittingers law
+  ms( -- PSD mean diameter property length
     {
       common = {
-        name = "rittingers law",
-        desc = {
-          "-> fine reduction, p = -2.0",
-          "-> l₁ 2 -> 5 mm",
-          "-> l₂ < 0.1 mm",
-          "-> k_r depende do triturador",
-          "-> f_c depende das particulas",
-        },
+        name = "PSD mean diameter property: Length",
       },
       -- trig
-      "\\formula-OSF-rittingers-law-fine-reduction",
+      "\\formula-OSF-PSD-mean-diameter-property-length"
     },
-    fmt(
-      [[
-      e
-      = c\,\adif{l^{-1}}
-      = k_r\,f_c\,\adif{l^{-1}}
-      ]],
-      {}
-    )
+    fmt( [[l = n\,d]],{} )
   ),
-  ms( -- bonds law
+  ms( -- PSD mean diameter property surface
     {
       common = {
-        name = "bonds law",
-        desc = {
-          "intermediate reduction, p = -1.5",
-          "l₁ 2   -> 50 mm",
-          "l₂ 0.1 ->  5 mm",
-        },
+        name = "PSD mean diameter property: Surface",
       },
       -- trig
-      "\\formula-OSF-bonds-law-intermediate-reduction",
+      "\\formula-OSF-PSD-mean-diameter-property-surface"
     },
-    fmt(
-      [[
-      e
-      =2\,c\,\adif{l^{-1/2}}
-      =e_i\,\sqrt{100/l_1}
-      \left(
-        1 - q^{-1/2}
-      \right)
-      ]],
-      {}
-    )
+    fmt( [[s = n\,\dot{k}\,d^2]],{} )
   ),
-  ms( -- kick law
+  ms( -- PSD mean diameter property volume
     {
       common = {
-        name = "kick law",
-        desc = {
-          "coarse reduction, p = -1.0",
-          "-> l₁ 50 -> 1500 mm",
-          "-> l₂  5 ->   50 mm",
-          "-> k_k depende do triturador",
-          "-> f_c depende das particulas",
-        },
+        name = "PSD mean diameter property: Volume",
       },
       -- trig
-      "\\formua-OSF-kick-law-coarse-reduction",
+      "\\formula-OSF-PSD-mean-diameter-property-volume"
     },
-    fmt(
-      [[
-      e
-      =c\,\adif{\ln{l}}
-      =k_k\,f_c\,\adif{\ln{l}}
-      ]],
-      {}
-    )
+    fmt( [[v=n\,\ddot{k}\,d^3]],{} )
+  ),
+  ms( -- PSD mean diameter property mass
+    {
+      common = {
+        name = "PSD mean diameter property: Mass",
+      },
+      -- trig
+      "\\formula-OSF-PSD-mean-diameter-property-mass"
+    },
+    fmt( [[x = n\,\rho\,\ddot{k}\,d^3]],{} )
   ),
 }
