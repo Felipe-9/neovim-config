@@ -23,7 +23,7 @@ return {
     fmt(
       [[
         % !TEX root = ./<subfile>.tex
-        \documentclass["<mainfile>".tex]{subfiles}
+        \documentclass["<mainfile>.tex"]{subfiles}
 
         % \tikzset{external/force remake=true} % - remake all
 
