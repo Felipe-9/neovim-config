@@ -1,0 +1,3012 @@
+{
+    // place your snippets for latex here. each snippet is defined under a snippet name and has a prefix, body and
+    // description. the prefix is what is used to trigger the snippet and the body will be expanded and inserted. possible variables are:
+    // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. placeholders with the
+    // same ids are connected.
+    // example:
+    // "print to console": {
+    //     "prefix": "log",
+    //     "body": [
+    //         "console.log('$1');",
+    //         "$2"
+    //     ],
+    //     "description": "log output to console"
+    // }
+
+    // index:
+    //  - small snippets
+    //      - sisetup default
+    //      - tikz/external/remake next
+    //  - environment templates
+    //      - question box
+    //      - section box
+    //      - flalign*
+    //      - boldmath
+    //      - table
+    //      - indexer
+    //      - minted
+    //  - my chemmacros
+    //      - modiagram
+    //      - chem reaction table
+    //  - pgfplots
+    //  - full templates
+    //      - main template
+
+    // essentials
+    "begin": {
+        "description": "beggin-end tag",
+        "prefix": "\\begin",
+        "body": [
+            "\\begin{$1}",
+            "    $2",
+            "\\end{$1}"
+        ]
+    },
+    //   `7mm"""yb.                                                              mm
+    //     mm    `yb.                                                            mm
+    //     mm     `mb  .gp"ya  `7mmpmmmb.pmmmb.   ,pw"wq.  `7mmpmmmb.  ,pp"ybd mmmmmm  `7mb,od8  ,6"yb.   ,p6"bo   ,pw"wq.   .gp"ya  ,pp"ybd
+    //     mm      mm ,m'   yb   mm    mm    mm  6w'   `wb   mm    mm  8i   `"   mm      mm' "' 8)   mm  6m'  oo  6w'   `wb ,m'   yb 8i   `"
+    //     mm     ,mp 8m""""""   mm    mm    mm  8m     m8   mm    mm  `ymmma.   mm      mm      ,pm9mm  8m       8m     m8 8m"""""" `ymmma.
+    //     mm    ,dp' ym.    ,   mm    mm    mm  ya.   ,a9   mm    mm  l.   i8   mm      mm     8m   mm  ym.    , ya.   ,a9 ym.    , l.   i8
+    //   .jmmmmmdp'    `mbmmd' .jmml  jmml  jmml. `ybmd9'  .jmml  jmml.m9mmmp'   `mbmo .jmml.   `moo9^yo. ymbmd'   `ybmd9'   `mbmmd' m9mmmp'
+    //                                                                                                      bog
+    //                                                                                                       od
+    "demonstração formula de clapeyron h vap": {
+        "description": "demonstração da equação de clapeyron para entalpia de vaporização",
+        "prefix": [
+            "\\demontração_formula-clapeyron-h_vap"
+        ],
+        "body": [
+            "\\odv{p}{t}_{vap}",
+            "= \\frac{\\adif{h}_{vap}}{t\\,\\adif{v}_{vap}}",
+            "= \\frac{\\adif{h_{vap}}}{t\\,(v_{vap,g}-v_{vap\\,l})}",
+            "\\cong \\frac{\\adif{h_{vap}}}{t\\,v_{vap,g}}",
+            "\\cong \\frac{\\adif{h_{vap}}}{t\\,\\left(",
+            "    r\\,t/p",
+            "\\right)}",
+            "=",
+            "\\frac{p\\,\\adif{h_{vap}}}{r\\,t^2}",
+            "\\implies &\\\\\\\\&",
+            "\\implies",
+            "\\int{\\frac{\\odif{p}}{p}}",
+            "= \\adif{\\ln p}",
+            "= \\ln p_g/p_l",
+            "= &\\\\\\\\&",
+            "= \\int{",
+            "    \\frac{\\adif{h_{vap}}}{r\\,t^2}",
+            "    \\,\\odif{t}",
+            "}",
+            "= \\frac{\\adif{h_{vap}}}{r}",
+            "\\int{",
+            "    \\frac{\\odif{t}}{t^2}",
+            "}",
+            "% = &\\\\\\\\& ",
+            "= \\frac{\\adif{h_{vap}}}{r}",
+            "\\adif{(-t^{-1})}"
+        ]
+    },
+    "demonstração formula de clapeyron h sub": {
+        "description": "demonstração da equação de clapeyron para entalpia de sublimação",
+        "prefix": [
+            "\\demontração_formula-clapeyron-h_sub"
+        ],
+        "body": [
+            "\\odv{p}{t}_{sub}",
+            "= \\frac{\\adif{h}_{sub}}{t\\,\\adif{v}_{sub}}",
+            "= \\frac{\\adif{h_{sub}}}{t\\,(v_{sub,g}-v_{sub\\,s})}",
+            "\\cong \\frac{\\adif{h_{sub}}}{t\\,v_{sub,g}}",
+            "\\cong \\frac{\\adif{h_{sub}}}{t\\,\\left(",
+            "    r\\,t/p",
+            "\\right)}",
+            "=",
+            "\\frac{p\\,\\adif{h_{sub}}}{r\\,t^2}",
+            "\\implies &\\\\\\\\&",
+            "\\implies",
+            "\\int{\\frac{\\odif{p}}{p}}",
+            "= \\adif{\\ln p}",
+            "= \\ln p_g/p_s",
+            "= &\\\\\\\\&",
+            "= \\int{",
+            "    \\frac{\\adif{h_{sub}}}{r\\,t^2}",
+            "    \\,\\odif{t}",
+            "}",
+            "= \\frac{\\adif{h_{sub}}}{r}",
+            "\\int{",
+            "    \\frac{\\odif{t}}{t^2}",
+            "}",
+            "% = &\\\\\\\\& ",
+            "= \\frac{\\adif{h_{sub}}}{r}",
+            "\\adif{(-t^{-1})}"
+        ]
+    },
+    // ,,
+    // `7mm"""ymm                                                  `7mm
+    //   mm    `7                                                    mm
+    //   mm   d    ,pw"wq.  `7mb,od8 `7mmpmmmb.pmmmb.  `7mm  `7mm    mm   ,6"yb.  ,pp"ybd
+    //   mm""mm   6w'   `wb   mm' "'   mm    mm    mm    mm    mm    mm  8)   mm  8i   `"
+    //   mm   y   8m     m8   mm       mm    mm    mm    mm    mm    mm   ,pm9mm  `ymmma.
+    //   mm       ya.   ,a9   mm       mm    mm    mm    mm    mm    mm  8m   mm  l.   i8
+    // .jmml.      `ybmd9'  .jmml.   .jmml  jmml  jmml.  `mbod"yml..jmml.`moo9^yo.m9mmmp'
+    /* -------------------------------------------------- */
+    /*                        cm a                        */
+    /* -------------------------------------------------- */
+    /* ==================== formulas ==================== */
+    "lei de bragg": {
+        "description": [
+            " n: ordem de reflexão\n λ: ordem de reflexão\n d: distancia entre planos\n θ: angulo de impacto"
+        ],
+        "prefix": "\\formula-lei-bragg-difracao-raios-x",
+        "body": "n\\,\\lambda=2\\,d_{h\\,k\\,l}\\,\\sin(\\theta)"
+    },
+    "distancias entre planos de miller": {
+        "description": "distancia entre planos de miller",
+        "prefix": "\\formula-distancia-planos-miller",
+        "body": [
+            "d_{h\\,k\\,l}",
+            "=\\frac{a}{\\sqrt{h^2+k^2+l^2}}"
+        ]
+    },
+    "tabela difracao raios x": {
+        "description": "difração com n indo de 1 a 12",
+        "prefix": "\\formula-tabela-difracao-raios-x-bragg",
+        "body": [
+            "\\begin{center}",
+            "\\vspace{1ex}",
+            "\\begin{tabular}{*{5}{c}}",
+            "    \\toprule",
+            "    ",
+            "        h & k & l & n & 2\\,\\theta",
+            "    ",
+            "    \\\\\\\\\\midrule",
+            "    ",
+            "           1 & 0 & 0 &  1 & ",
+            "        \\\\\\\\ 1 & 1 & 0 &  2 & ",
+            "        \\\\\\\\ 1 & 1 & 1 &  3 & ",
+            "        \\\\\\\\ 2 & 0 & 0 &  4 & ",
+            "        \\\\\\\\ 2 & 1 & 0 &  5 & ",
+            "        \\\\\\\\ 2 & 1 & 1 &  6 & ",
+            "        \\\\\\\\ 2 & 2 & 0 &  8 & ",
+            "        \\\\\\\\ 2 & 2 & 1 &  9 & ",
+            "        \\\\\\\\ 3 & 0 & 0 &  9 & ",
+            "        \\\\\\\\ 3 & 1 & 0 & 10 & ",
+            "        \\\\\\\\ 3 & 1 & 1 & 11 & ",
+            "        \\\\\\\\ 2 & 2 & 2 & 12 & ",
+            "    ",
+            "    \\\\\\\\\\bottomrule",
+            "\\end{tabular}",
+            "\\vspace{2ex}",
+            "\\end{center}"
+        ]
+    },
+    "parametro de rede cubica": {
+        "description": [
+            "a - parametro de rede cs, cfc e ccc em função do peso atomico e densidade",
+            "\ncs : a=r*2\nccc: a=r*4/sqrt(3)\ncfc: a=r*2^{3/2}",
+        ],
+        "prefix": [
+            "\\formula-parametro-rede-cubica",
+            "\\formula-parametro-rede-cs",
+            "\\formula-parametro-rede-cfc",
+            "\\formula-parametro-rede-ccc"
+        ],
+        "body": [
+            "a",
+            "=\\sqrt[3]{",
+            "    \\frac",
+            "    {pa\\,n_{\\text{at por cel}}}",
+            "    {\\rho\\,n_a} % n_a numero de avogadro",
+            "}"
+        ]
+    },
+    // "parametro de rede cubica": {
+    //     "description": "a - parametro de rede cs, cfc e ccc em função do peso atomico e densidade",
+    //     "prefix": [
+    //         "\\formulaparametroredecubica",
+    //         "\\formulaparametroredecs",
+    //         "\\formulaparametroredecfc",
+    //         "\\formulaparametroredeccc"
+    //     ],
+    //     "body": [
+    //         "a",
+    //         "=\\sqrt[3]{",
+    //         "    \\frac",
+    //         "    {pa\\,n_{\\text{at por cel}}}",
+    //         "    {\\rho\\,n_a} % n_a numero de avogadro",
+    //         "}"
+    //     ]
+    // },
+    /* =================== constantes =================== */
+    "fator de empacotamento atomico cs": {
+        "description": "fea - porcentagem de volume ocupado por atomos na estrutura cristalina,\n a=2r",
+        "prefix": "\\constante-fator-empacotamento-fea-cs",
+        "body": "\\qty{52.3598775598299}{\\percent}"
+    },
+    "fator de empacotamento atomico ccc": {
+        "description": "fea - porcentagem de volume ocupado por atomos na estrutura cristalina,\n a=r*4/\\sqrt{3}",
+        "prefix": "\\constante-fator-empacotamento-fea-ccc",
+        "body": "\\qty{68.0174761587832}{\\percent}"
+    },
+    "fator de empacotamento atomico cfc": {
+        "description": "fea - porcentagem de volume ocupado por atomos na estrutura cristalina,\n a=r*2^{3/2}",
+        "prefix": "\\constante-fator-empacotamento-fea-cfc",
+        "body": "\\qty{74.0480489693062}{\\percent}"
+    },
+    "fator de empacotamento atomico hc": {
+        "description": "fea - porcentagem de volume ocupado por atomos na estrutura cristalina,\n a=2r, c=1.633*a",
+        "prefix": "\\constante-fator-empacotamento-fea-hc",
+        "body": "\\qty{74.0477388950487}{\\percent}"
+    },a
+    /* ================== tikzpictures ================== */
+    "tikz estrutura cristalina cubica cs": {
+        "description": "tikz de cs",
+        "prefix": "\\tikz-estrutura-cristalina-cubica-cs",
+        "body": [
+            "% atoms",
+            "\\fill[ball color=graph33] (0,0,0) circle (.5);",
+            "\\fill[ball color=graph33] (1,0,0) circle (.5);",
+            "\\fill[ball color=graph33] (1,1,0) circle (.5);",
+            "\\fill[ball color=graph33] (0,1,0) circle (.5);",
+            "% ",
+            "\\fill[ball color=graph31] (0,0,1) circle (.5);",
+            "\\fill[ball color=graph31] (1,0,1) circle (.5);",
+            "\\fill[ball color=graph31] (1,1,1) circle (.5);",
+            "\\fill[ball color=graph31] (0,1,1) circle (.5);",
+        ]
+    },
+    "tikz estrutura cristalina cubica ccc": {
+        "description": "tikz de ccc",
+        "prefix": "\\tikz-estrutura-cristalina-cubica-ccc",
+        "body": [
+            "% atoms",
+            "\\fill[ball color=graph33] (0,0,0) circle (0.433012701892219);",
+            "\\fill[ball color=graph33] (1,0,0) circle (0.433012701892219);",
+            "\\fill[ball color=graph33] (1,1,0) circle (0.433012701892219);",
+            "\\fill[ball color=graph33] (0,1,0) circle (0.433012701892219);",
+            "% ",
+            "\\fill[ball color=graph32] (0.5,0.5,0.5) circle (0.433012701892219);",
+            "% ",
+            "\\fill[ball color=graph31] (0,0,1) circle (0.433012701892219);",
+            "\\fill[ball color=graph31] (1,0,1) circle (0.433012701892219);",
+            "\\fill[ball color=graph31] (1,1,1) circle (0.433012701892219);",
+            "\\fill[ball color=graph31] (0,1,1) circle (0.433012701892219);"
+        ]
+    },
+    "tikz estrutura cristalina cubica cfc": {
+        "description": "tikz de cfc",
+        "prefix": "\\tikz-estrutura-cristalina-cubica-cfc",
+        "body": [
+            "% atoms",
+            "\\fill[ball color=graph33] (0,0,0) circle (0.353553390593274);",
+            "\\fill[ball color=graph33] (1,0,0) circle (0.353553390593274);",
+            "\\fill[ball color=graph33] (1,1,0) circle (0.353553390593274);",
+            "\\fill[ball color=graph33] (0,1,0) circle (0.353553390593274);",
+            "\\fill[ball color=graph33] (0.5,0.5,0) circle (0.353553390593274);",
+            "% ",
+            "\\fill[ball color=graph32] (1,0.5,0.5) circle (0.353553390593274);",
+            "\\fill[ball color=graph32] (0,0.5,0.5) circle (0.353553390593274);",
+            "\\fill[ball color=graph32] (0.5,1,0.5) circle (0.353553390593274);",
+            "\\fill[ball color=graph32] (0.5,0,0.5) circle (0.353553390593274);",
+            "% ",
+            "\\fill[ball color=graph31] (0,0,1) circle (0.353553390593274);",
+            "\\fill[ball color=graph31] (1,0,1) circle (0.353553390593274);",
+            "\\fill[ball color=graph31] (1,1,1) circle (0.353553390593274);",
+            "\\fill[ball color=graph31] (0,1,1) circle (0.353553390593274);",
+            "\\fill[ball color=graph31] (0.5,0.5,1) circle (0.353553390593274);"
+        ]
+    },
+    // planos indices de miller
+    "tikz plano miller (110)": {
+        "description": [
+            "plano com indice de miller (110)",
+            "diagonal sobre z"
+        ],
+        "prefix": "\\tikz-plano-miller-(110)",
+        "body": [
+            "% plano (110)",
+            "\\draw[-, fill, fill opacity=0.3]",
+            "   (0,0,1)",
+            "-- (0,1,1)",
+            "-- (1,1,0)",
+            "-- (1,0,0);"
+        ]
+    },
+    "tikz plano miller (001)": {
+        "description": [
+            "plano com indice de miller (001)\n",
+            "face z=1"
+        ],
+        "prefix": "\\tikz-plano-miller-(001)",
+        "body": [
+            "% plano (001)",
+            "\\draw[-, fill, fill opacity=0.3]",
+            "   (1+0.3, 1, 0-0.3)",
+            "-- (1+0.3, 1, 1+0.3)",
+            "-- (0-0.3, 1, 1+0.3)",
+            "-- (0-0.3, 1, 0-0.3);"
+        ]
+    },
+    "tikz plano miller (111)": {
+        "description": [
+            "plano com indice de miller (111)",
+            "triangulo"
+        ],
+        "prefix": "\\tikz-plano-miller-(111)",
+        "body": [
+            "% plano (111)",
+            "\\draw[-, fill, fill opacity=0.3]",
+            "   (1,0,0)",
+            "-- (0,1,0)",
+            "-- (0,0,1);",
+        ]
+    },
+    /* -------------------------------------------------- */
+    /*                        cn a                        */
+    /* -------------------------------------------------- */
+    /* ====== interpolação e aproximação polinomial ===== */
+    "polinomio de lagrange": {
+        "description": "",
+        "prefix": "\\formula-polinomio-lagrange",
+        "body": [
+            "p_{n\\,(x)}=\\sum_{i=0}^{n}{y_i\\,l_{i\\,(x)}}",
+            ";${1:&}\\\\\\\\${1:&}",
+            "l_{i\\,(x)}",
+            "=\\varphi_{i\,(x)}",
+            "=\\prod_{j=0}^{i-1}{\\frac{x-x_j}{x_i-x_j}}",
+            "\\,\\prod_{j=i+1}^{n}{\\frac{x-x_j}{x_i-x_j}}",
+        ]
+    },
+    "polinómio de newton com diferenças divididas": {
+        "description": "",
+        "prefix": "\\formula-polinomio-newton-com-diff-div",
+        "body": [
+            "p_{n\\,(x)}",
+            "= f_0",
+            "+ \\sum_{i=0}^{n-1}{",
+            "    \\left(\\prod_{j=0}^{i}{x-x_j}\\right)",
+            "    \\,f_{[x_0,\\dots,x_{i+1}]}",
+            "}"
+        ]
+    },
+    "erro de interpolação": {
+        "description": "",
+        "prefix": "\\formula-erro-interpolacao",
+        "body": [
+            "f_{x^*}-p_{n\\,(x^*)}",
+            "= \\frac{f^{x+1}_{(\\xi)}}{(n+1)!}",
+            "\\prod_{i=0}^{n}{x^*-x_i}",
+            "\\\\\\\\\\xi\\in\\myrange*{",
+            "    \\min(x_0,x_1,\\dots,x_n),",
+            "    \\max(x_0,x_1,\\dots,x_n)",
+            "}"
+        ]
+    },
+    "interpolação por splines polinomiais cúbicos": {
+        "description": "expressão de spline polinomial cúbico, interpolador de f em x_0,x_1,...,x_n no intervalo [x_i,x_{i+1}]",
+        "prefix": "\\formula-interp-spline-poli-cubico",
+        "body": [
+            "s_{i\\,(x)}",
+            "= \\left(",
+            "    \\begin{aligned}",
+            "        - &",
+            "            \\frac{(x-x_{i+1})^3}{6\\,h_i}\\,m_i",
+            "        &+\\\\\\\\+&",
+            "            \\frac{(x-x_i)^3}{6\\,h_i}\\,m_{i+1}",
+            "        &+\\\\\\\\+&",
+            "            \\left(",
+            "                f_i",
+            "                - \\frac{h_i^2}{6}\\,m_i",
+            "            \\right)",
+            "            \\,\\frac{x_{i+1}-x}{h_i}",
+            "        &+\\\\\\\\+&",
+            "            \\left(",
+            "                f_{i+1}",
+            "                - \\frac{h_i^2}{6}\\,m_{i+1}",
+            "            \\right)",
+            "            \\,\\frac{x-x_i}{h_i}",
+            "        &",
+            "    \\end{aligned}",
+            "\\right)"
+            ";${1:&}\\\\\\\\${1:&}",
+            "h_i=x_{i+1}-x_i",
+            ",\\quad i=0,1,\\dots,n-1",
+            ";${1:&}\\\\\\\\${1:&}",
+            "m_i=\\odv[order=2]{s_{(x_i)}}{x}",
+            ",\\quad i=0,1,\\dots,n",
+        ]
+    },
+    "sistema de equações para det spline cubico interpolador de f": {
+        "description": "sistema de equações para determinação de um spline cúbico interpolador de f nos pontos x_0,x_1,...,x_n",
+        "prefix": "\\formula-sistema-eq-spline-cubico-interp",
+        "body": [
+            "h_{i-1}\\,m_{i-1}",
+            "+ 2\,(h_{i-1}+h_i)\\,m_i",
+            "+ h_i\\,m_{i+1}",
+            "= 6\\left(",
+            "    \\frac{f_{i+1}-f_{i}}{h_i}",
+            "    -\\frac{f_{i}-f_{i-1}}{h_{i-1}}",
+            "\\right)",
+            ",\\quad i\\in\\myrange{1,n-1}",
+        ]
+    },
+    "sistema de equações para determinação do spline cúbico completo": {
+        "description": "adicionar às equações [e] as equações",
+        "prefix": "\\formula-sistema-eq-spline-cubico-completo",
+        "body": [
+            "2\\,h_0\\,m_0 + h_0\\,m_1",
+            "= 6\\,\\left(",
+            "    \\frac{f_1-f_0}{h_0}-f'_{0}",
+            "\\right)",
+            "&\\\\\\\\&",
+            "h_{n-1}\\,m_{n-1} + 2\\,h_{n-1}\\,m_n",
+            "= 6\\,\\left(",
+            "    f'_{0}-\\frac{f_n-f_{n-1}}{h_{n-1}}",
+            "\\right)",
+        ]
+    },
+    "sistema de equações para determinação do spline cúbico natural": {
+        "description": "adicionar às equações [e] as equações",
+        "prefix": "\\formula-sistema-eq-spline-cubico-natural",
+        "body": "m_0=m_n=0"
+    },
+    "metodo dos mínimos quadrados": {
+        "description": "função polinomial que melhor aproxima os dados {(x_0,y_0),...,(x_n,y_n)} em relacao à base {1,x,...,x^m}",
+        "prefix": "\\formula-metodo-minimos-quadrados",
+        "body": [
+            "p_{(x)} = \\sum_{i=0}^{m}{\\alpha_i\\,x^i}",
+            "${1:&}\\\\\\\\[3ex]${1:&}",
+            "\\begin{cases}",
+            "    \\sum_{i=0}^{m}{\\left(",
+            "        \\alpha_i\\,\\sum_{j=0}^{n}{x_{j}^{i+k}}",
+            "    \\right)}",
+            "    = \\sum_{i=0}^{n}{x_i^k\\,y_i}",
+            "    \\\\\\\\",
+            "    k\\in\\myrange{0,m}",
+            "\\end{cases}",
+        ]
+    },
+    /* =============== integração numérica ============== */
+    // formulas de newton-cotes (fechadas)
+    "formulas de newton-cotes (fechadas) 0": {
+        "description": "regra do ponto médio",
+        "prefix": "\\formula-newton-cotes-0-regra-ponto-medio",
+        "body": [
+            "% integração",
+            "\\int_{a=x_0}^{b=x_1}{f_{(x)}\\,\\odif{x}}",
+            "\\approx h\\,f_{\\left(\\frac{x_0+x_1}{2}\\right)}",
+            "${1:&}\\\\\\\\[3ex]${1:&}",
+            "% erro de quadratura",
+            "\\frac{h^3}{24}\\,\\odv[order=2]{f_{(\\xi)}}{x}",
+            ";\\quad\\xi\\in\\myrange*{x_0,x_1}"
+        ]
+    },
+    "formulas de newton-cotes (fechadas) 1": {
+        "description": "regra dos trapézios",
+        "prefix": "\\formula-newton-cotes-1-regra-trapezios",
+        "body": [
+            "% integração",
+            "\\int_{a=x_0}^{b=x_1}{f_{(x)}\\,\\odif{x}}",
+            "\\approx \\frac{h}{2}\\,(f_0+f_1)",
+            "${1:&}\\\\\\\\[3ex]${1:&}",
+            "% erro de quadratura",
+            "-\\frac{h^3}{12}\\,\\odv[order=2]{f_{(\\xi)}}{x}",
+            ";\\quad\\xi\\in\\myrange*{x_0,x_1}"
+        ]
+    },
+    "formulas de newton-cotes (fechadas) 2": {
+        "description": "regra de simpson simples",
+        "prefix": [
+            "\\formula-newton-cotes-2-regra-simpson-simples",
+            "\\formula-regra-simpson-simples"
+        ],
+        "body": [
+            "% integração",
+            "\\int_{a=x_0}^{b=x_2}{f_{(x)}\\,\\odif{x}}",
+            "=i",
+            "\\approx \\hat{i}",
+            "=\\frac{h}{3}\\,(f_0+4\\,f_1+f_2)",
+            "${1:&}\\\\\\\\[3ex]${1:&}",
+            "% erro de quadratura",
+            "\\varepsilon_i",
+            "=i-\\hat{i}_s",
+            "= -\\frac{h^5}{90}\\,f^{(4)}(\xi)",
+            ";\\quad\\xi\\in\\myrange*{x_0,x_2}"
+        ]
+    },
+    "regra de simpson composta": {
+        "description": [
+            "regra de simpson composta",
+            "\ngrau de precisão: 3",
+            "\nσ ∈ ]a,b[",
+            "\nh = (b-a)/2n"
+        ],
+        "prefix": "\\formula-regra-simpson-composta",
+        "body": [
+            "% integração",
+            "\\int_{a=x_0}^{b=x_2}{f_{(x)}\\,\\odif{x}}",
+            "=i",
+            "\\approx \\hat{i}",
+            "= \\frac{h}{3}\\left(",
+            "    f(x_0)",
+            "    + 4\\,\\sum_{j=1}^{n  }{f(x_{(2\\,j-1)})}",
+            "    + 2\\,\\sum_{j=1}^{n-1}{f(x_{(2\\,j  )})}",
+            "    + f(x_{2\\,n})",
+            "\\right)",
+            "${1:&}\\\\\\\\[3ex]${1:&}",
+            "% erro de quadratura",
+            "\\varepsilon_i",
+            "= i-\\hat{i}_s",
+            "= -n\\,\\frac{h^5}{90}\\,f^{(4)}(\\sigma)",
+            ";\\quad\\sigma\\in\\myrange*{x_0,x_2}"
+        ]
+    },
+    "método de integração de gauss": {
+        "description": "",
+        "prefix": "\\formula-metodo-integracao-gauss",
+        "body": [
+            "\\int_a^b{f_{(x)}\\,\\odif{x}}",
+            "= \\frac{b-a}{2}",
+            "\\,\\int_{-1}^{1}{f_{\\left(",
+            "    \\frac{b-a}{2}\\,y",
+            "    + \\frac{b+a}{2}",
+            "\\right)}\\,\\odif{y}}",
+            "${1:&}\\\\\\\\[3ex]${1:&}",
+            "f\\in c^{(2\\,n)}_{(\\myrange{-1,1})}",
+            // "\\implies ${1:&}\\\\\\\\${1:&}",
+            "\\implies",
+            "i-\\hat{i}",
+            "= \\frac{"
+            "    2^{2\\,n+1}\\,(n!)^4",
+            "}{",
+            "    (2\\,n+1)\\,((2\\,n)!)^3",
+            "}",
+            "\\,\\odv[order={2\\,n}]{f_{(\\theta)}}{x}",
+            ",\\quad\\theta\\in\\myrange{-1,1}"
+        ]
+    },
+    "cn a convergencia": {
+        "description": "convergencia de uma sucessão x_i=f(x_(i-1)) a partir de um x_0 para α",
+        "prefix": "\\formula-cna-convergencia-sucessao",
+        "body": [
+            "\\text{condições de conversão}&\\\\\\\\&",
+            "\\begin{cases}",
+            "    f(x) \\text{ é contínua em } i",
+            "    \\\\\\\\",
+            "    f(x)\in i,\\forall x\\in i",
+            "    \\\\\\\\",
+            "    \\myvert{f'(x)}\\leq\\myvert{f'(\\alpha)}",
+            "\\end{cases}"
+        ]
+    },
+    /* -------------------------------------------------- */
+    /*                        am 2c                       */
+    /* -------------------------------------------------- */
+    "parabolas": {
+        "description": [
+            "parametrizando parabolas",
+        ],
+        "prefix": "\\formula-parabolas",
+        "body": [
+            "y=\\alpha\\,x^2+\\beta\\,x+\\gamma",
+            "\\implies &\\\\\\\\&",
+            "\\implies",
+            "\\begin{cases}",
+            "    a = (4\\,\\alpha)^{-1}",
+            "    \\\\\\\\",
+            "    x_0",
+            "    = -\\beta\\,2\\,a",
+            "    = -\\beta/2\\,\\alpha",
+            "    \\\\\\\\",
+            "    y_0",
+            "    = \\gamma-x_0^2/4\\,a",
+            "    = \\gamma-\\beta/4\\,\\alpha",
+            "\\end{cases}"
+        ]
+    },
+    "elipses": {
+        "description": "caracterizando elipses",
+        "prefix": "\\formua-elipses",
+        "body": [
+            "\\frac{(x-x_0)^2}{r_1^2}",
+            "+ \\frac{(y-y_0)^2}{r_2^2}",
+            "= 1",
+            "&\\\\\\\\&",
+            "\\begin{cases}",
+            "    c = \\myvert{\\vec{p_0\\,f}}",
+            "    = \\sqrt{r_1^2+r_2^2}",
+            "    \\\\\\\\",
+            "    f_1\\in\\mathbb{r}^2:f_1=(x_0-c,y_0)",
+            "    \\\\\\\\",
+            "    f_1\\in\\mathbb{r}^2:f_1=(x_0-c,y_0)",
+            "\\end{cases}"
+        ]
+    },
+    "hiperboles": {
+        "description": "caracterizando hiperboles",
+        "prefix": "\\formula-hiperboles",
+        "body": [
+            "\\left(",
+            "    \\frac{x-x_0}{r_1}",
+            "\\right)",
+            "- \\left(",
+            "    \\frac{y-y_0}{r_2}",
+            "\\right)",
+            "= 1",
+            "&\\\\\\\\&",
+            "\\begin{cases}",
+            "    c = \\myvert{\\vec{p_0\\,f}}",
+            "    = \\sqrt{r_1^2+r_2^2}",
+            "    \\\\\\\\",
+            "    v=(x_0\\pm r_1,y_0)",
+            "    \\\\\\\\",
+            "    f=(x_0\\pm c,y_0)",
+            "    \\\\\\\\",
+            "    a = \\left{",
+            "        (x,y):(y-y_0)",
+            "        = \\pm\\frac{r_2}{r_1}",
+            "        \\,(x-x_0)",
+            "    \\right}",
+            "\\end{cases}"
+        ]
+    },
+    "plano tangente a f": {
+        "description": "formula para plano tangente a uma superficie f genérica no ponto genérico (x0,y0,z0)",
+        "prefix": "\\formula-plano-tangente",
+        "body": [
+            "\\left(",
+            "    \\begin{aligned}",
+            "        &",
+            "               \\pdv{f}{x}(x_0)\\,(x-x_0)",
+            "        &+\\\\\\\\+& \\pdv{f}{y}(y_0)\\,(y-y_0)",
+            "        &+\\\\\\\\+& \\pdv{f}{z}(z_0)\\,(z-z_0)",
+            "        &",
+            "    \\end{aligned}",
+            "\\right)",
+            "= 0",
+        ]
+    },
+    "limite segundo cauchy": { 
+        "description": "definição de limite segundo cauchy",
+        "prefix": "\\formula-limite-cauchy",
+        "body": [
+            "\\forall\\,\\delta>0\\,",
+            "\\exists\\,\\varepsilon>0:",
+            "\\left(",
+            "    \\left(",
+            "        \\forall x\\in \\dominio",
+            "        \\land",
+            "        \\myvert{x-a}<\\varepsilon",
+            "    \\right)",
+            "    \\implies",
+            "    \\myvert{",
+            "        f(x)-b",
+            "    }<\\delta",
+            "\\right)",
+        ]
+    },
+    "jacobiana(2x2)": {
+        "description": "jacobiana 2x2",
+        "prefix": "\\formula-jacobiana-2x2",
+        "body": [
+            "\\begin{bmatrix}",
+            "    \\pdv{x}{u} & \\pdv{x}{v}",
+            "    \\\\\\\\",
+            "    \\pdv{y}{u} & \\pdv{y}{v}",
+            "\\end{bmatrix}_{(x,y)}"
+        ]
+    },
+    "matriz hessiana 2x2": {
+        "description": [
+            "matriz hessiana 2x2\nmáximos e minimos\n",
+            "det h:\n>0: crítico local\n=0: indeterminável\n<0: ponto de sela\n",
+            "det h>0 and d^2f/dx^2:\n<0: mínimo local\n>0: máximo local"
+        ],
+        "prefix": [
+            "\\formula-matrix-hessiana-2",
+            "\\formula-matriz-hessiana-2",
+        ],
+        "body": [
+            "\\det h_f=\\begin{vmatrix}",
+            "      \\pdv{f}{x,x}",
+            "    & \\pdv{f}{x,y}",
+            "    \\\\\\\\\\pdv{f}{y,x}",
+            "    & \\pdv{f}{y,y}",
+            "\\end{vmatrix}"
+        ]
+    },
+    "parametrização coordenadas esfericas": {
+        "description": "parametrização coordenadas esfericas",
+        "prefix": "\\formula-coordenadas-esfericas",
+        "body": [
+            "\\begin{cases}",
+            "    x=r\\sin\\phi\\,\\cos\\theta",
+            "    \\\\\\\\",
+            "    y=r\\sin\\phi\\,\\sin\\theta",
+            "    \\\\\\\\",
+            "    z=\\cos\\phi",
+            "    \\\\\\\\",
+            "    \\myvert{\det j}=r^2\\sin\\phi",
+            "\\end{cases}"
+        ]
+    },
+    "parametrização coordenadas cilindricas": {
+        "description": "parametrização coordenadas cilíndricas em r3",
+        "prefix": "\\formula-coordenadas-cilindricas",
+        "body": [
+            "\\begin{cases}",
+            "    x=r\cos\theta",
+            "    \\\\\\\\",
+            "    y=r\sin\theta",
+            "    \\\\\\\\",
+            "    z=z",
+            "    \\\\\\\\",
+            "    x^2+y^2=r",
+            "    \\\\\\\\",
+            "    \\tan{\\theta}=y/x",
+            "    \\\\\\\\",
+            "    \\myvert{det j}=r",
+            "\\end{cases}"
+        ]
+    },
+    /* -------------------------------------------------- */
+    /*                        teqb                        */
+    /* -------------------------------------------------- */
+    "formula gibbs": {
+        "description": "equação de gibbs formad derivada",
+        "prefix": "\\formula-gibbs-derivada",
+        "body": [
+            "\\odif{g}",
+            "= v\\,\\odif{p}",
+            "-s\\,\\odif{t}"
+        ]
+    },
+    "formula variação de entropia de gás perfeito": {
+        "description": "equação para variação de entropia de um gás perfeito",
+        "prefix": [
+            "\\formula-entropia_gas_perfeito"
+        ],
+        "body": [
+            "\\adif{s}_{g}",
+            "=\\int_{t_1}^{t_2}{",
+            "    n\\,c_{p,g}\\,\\frac{\\odif{t}}{t}",
+            "}",
+            "+ n\\,r\\,\\ln\\frac{p_1}{p_2}"
+        ]
+    },
+    "forumla de clapeyron": {
+        "description": "equação de clapeyron",
+        "prefix": [
+            "\\formula-clapeyron"
+        ],
+        "body": [
+            "\\odv{p}{t}",
+            "= t^{-1}\\adv{h}{v}"
+        ]
+    },
+    "forumla de clapeyron h vap": {
+        "description": "equação de clapeyron para entalpia de vaporização",
+        "prefix": [
+            "\\formula-clapeyron-h_vap"
+        ],
+        "body": [
+            "\\ln\\frac{p_g}{p_l}",
+            "= \\frac{p\\,\\adif{h}_{vap}}{r}",
+            "\\,\\left(",
+            "    \\frac{1}{t_l}",
+            "    - \\frac{1}{t_g}",
+            "\\right)"
+        ]
+    },
+    /* -------------------------------------------------- */
+    /*                        ft ii                       */
+    /* -------------------------------------------------- */
+    "difusão em misturas": {
+        "description": "d_{a,m} difusão de um gás em mistura",
+        "prefix": "\\formula-difusao-mistura",
+        "body": [
+            "\\mathscr{d}_{${1:x},m}",
+            "= \\frac{",
+            "    \\sum_{j=2}^{n}{y_{j}}",
+            "}{",
+            "    \\sum_{i=2}^{n}{y_i/\\mathscr{d}_{${1:x},i}}",
+            "}$0",
+        ]
+    },
+    "variação da difusão": {
+        "description": "d ∝ t^{3/2}*ω, d ∝ p^{-1}",
+        "prefix": [
+            "\\formula-difusão-variacao",
+            "\\formula-difusão-prop"
+        ],
+        "body": [
+            "\\frac",
+            "{\\mathscr{d}_{${1:a},${2:b},${5:t_2}${7:\\,\\unit{\\kelvin}},${6:p_2}${8:\\,\\unit{\\atm}}}}",
+            "{\\mathscr{d}_{${1:a},${2:b},${3:t_1}${7:\\,\\unit{\\kelvin}},${4:p_1}${8:\\,\\unit{\\atm}}}}",
+            "= ",
+            "\\,\\frac{${4:p_1}}{${6:p_2}}",
+            "\\,\\left(",
+            "    \\frac{${5:t_2}}{${3:t_1}}",
+            "\\right)^{3/2}",
+            "% \\,\\frac",
+            "% {\\omega_{\\mathscr{d},${3:t_1}}}",
+            "% {\\omega_{\\mathscr{d},${5:t_2}}}",
+        ]
+    },
+    "difusão em liquidos (stokes-einstein)": {
+        "description": "𝒟 liquidos",
+        "prefix": "\\formula-difusao-liquido-stoke-einstein",
+        "body": [
+            "\\mathscr{d}_a",
+            "=\\frac{k_b\\,t}{6\\,\\pi\\,\\mu\\,r_a}",
+        ]
+    },
+    "diluição infinita hayduk-laudie": {
+        "description": "𝒟 inf em líquidos",
+        "prefix": "\\formula-diluicao-infinita-hayduk-laudie",
+        "body": [
+            "\\mathscr{d}_{a,b}",
+            "= 13.26*10^{-5}\\,\\mu_b^{-1.14}\\,v_a^{-0.589}"
+        ]
+    },
+    "equação de scheibel": {
+        "description": "𝒟",
+        "prefix": "\\formula-difusao-sheibel",
+        "body": [
+            "\\frac{\\mathscr{d}_{a,b}\\,\\mu_b}{t}",
+            "=\\frac{",
+            "    8.2*10^{-8}",
+            "    \\left(",
+            "        1 + (3\\,v_b/v_a)^{2/3}",
+            "    \\right)",
+            "}{",
+            "    v_a^{1/3}",
+            "}",
+        ]
+    },
+    "fluxo": {
+        "description": "θ=1+n_b/n_a",
+        "prefix": "\\formula-fluxo-geral",
+        "body": [
+            "n_{a,z}",
+            "= -\\frac{c\\,d_{a,b}}{1-\\theta\\,y_a}",
+            "\\,\\odv{y_a}{z}",
+        ]
+    },
+    "fluxo estacionário plano": {
+        "description": "s*n_{a,z}: cte;\n\nθ=1+n_b/n_a",
+        "prefix": "\\formula-fluxo-estacionario-plano",
+        "body": [
+            "n_{a,z}",
+            "= \\frac{c\\,d_{a,b}}{\\theta\\,\\adif{z}}",
+            "\\,\\ln\\frac",
+            "{1-\\theta\\,y_{a,1}}",
+            "{1-\\theta\\,y_{a,0}}"
+        ]
+    },
+    "fluxo estacionário cilindro": {
+        "description": "2*pi*r*l*n_{a,r}: cte;\n\nθ=1+n_b/n_a",
+        "prefix": "\\formula-fluxo-estacionario-cilindro",
+        "body": [
+            "n_{a,r}",
+            "= -\\frac{c\\,d_{a,b}}{\\theta\\,r_0\\,\\ln{(r_1/r_0)}}",
+            "\\,\\ln\\frac",
+            "{1-\\theta\\,y_{a,1}}",
+            "{1-\\theta\\,y_{a,0}}"
+        ]
+    },
+    "fluxo estacionário esfera": {
+        "description": "4*pi*r^2*n_{a,r}: cte;\n\nθ=1+n_b/n_a",
+        "prefix": "\\formula-fluxo-estacionario-esfera",
+        "body": [
+            "n_{a,r}",
+            "= -\\frac{c\\,d_{a,b}}{\\theta\\,r_0(1-r_0/r_1)}",
+            "\\,\\ln\\frac",
+            "{1-\\theta\\,y_{a,1}}",
+            "{1-\\theta\\,y_{a,0}}"
+        ]
+    },
+    /* -------------------------------------------------- */
+    /*                        qf a                        */
+    /* -------------------------------------------------- */
+    "0th order rate law derivated": {
+        "description": "a -> p",
+        "prefix": "\\formula-rate-deriv-0",
+        "body": "\\odv{\\ch{[${1:a}]}}{t} = -k"
+    },
+    "0th order rate law integrated": {
+        "description": "a -> p",
+        "prefix": "\\formula-rate-int-0",
+        "body": "\\adif{\\ch{[a]}} = -k\\,\\adif{t}"
+    },
+    /* ==================== 1st order =================== */
+    "1st order rate law derivated": {
+        "description": "a -> p",
+        "prefix": "\\formula-rate-deriv-1",
+        "body": "\\odv{\\ch{[${1:a}]}}{t} = -k\\,\\ch{[${1:a}]}"
+    },
+    "1st order rate law integrated": {
+        "description": "a -> p",
+        "prefix": "\\formula-rate-int-1",
+        "body": "\\adif{\\ln\\ch{[${1:a}]}}=-k\\,\\adif{t}"
+    },
+  // stopped here 
+    "1st order pre equilibrium a deriv": {
+        "description": "a -> p\\n\\n[p]=[a]",
+        "prefix": "\\formula-pre-equilibrium-deriv-a-1",
+        "body": [
+            "\\odv{\\ch{[a]}}{t}",
+            "= \\ch{[a]}_0\\,k_{-1}",
+            "- \\ch{[a]}\\,(k_{-1}+k_{+1})",
+        ]
+    },
+    "1st order pre equilibrium a": {
+        "description": "a -> p\\n\\n[p]=[a]₀-[a]",
+        "prefix": "\\formula-pre-equilibrium-a-1",
+        "body": [
+            "\\ch{[${1:a}]}",
+            "=\\frac{",
+            "   k_{-1}\\,\\ch{[a]}_0",
+            "   + k_{+1}\\,\\exp(",
+            "       -(k_{-1}+k_{+1})\\,t",
+            "   )",
+            "}{k_{-1}+k_{+1}}",
+        ]
+    },
+    "1st order equilibrium a": {
+        "description": [
+            "a -> p",
+            "\n[p]=[a]₀-[a]"
+        ],
+        "prefix": "\\formula-equilibrium-a-1",
+        "body": [
+            "\\ch{[${1:a}]}",
+            "=\\frac{k_{-1}\\,\\ch{[a]}_0}{k_{-1}+k_{+1}}",
+        ]
+    },
+    "1st order equilibrium p": {
+        "description": [
+            "a -> p",
+            "\n[p]=[a]₀-[a]"
+        ],
+        "prefix": "\\formula-equilibrium-p-1",
+        "body": [
+            "\\ch{[${1:p}]}",
+            "=\\frac{k_{+1}\\,\\ch{[a]}_0}{k_{-1}+k_{+1}}",
+        ]
+    },
+    "1th order half-life": {
+        "description": "t½",
+        "prefix": "\\formula-half-life-1",
+        "body": "t_{1/2} = \\ln{2}/k"
+    },
+    "1th order time constant": {
+        "description": "te",
+        "prefix": "\\formula-te-time-constant-1",
+        "body": "t_{e} = k^{-1}"
+    },
+    /* ==================== 2nd order =================== */
+    "2nd order rate law derivated": {
+        "description": "a² -> p",
+        "prefix": "\\formula-rate-deriv-2.1",
+        "body": "\\odv{\\ch{[${1:a}]}}{t} = -k\\,\\ch{[${1:a}]}^2"
+    },
+    "2nd order rate law a² integrated": {
+        "description": "a² -> p",
+        "prefix": "\\formula-rate-int-2.1",
+        "body": "\\adif{-\\ch{[${1:a}]}^{-1}} = -k\\,\\adif{t}"
+    },
+    "2nd order rate law a+b integrated": {
+        "description": "a + b -> p",
+        "prefix": "\\formula-rate-int-2.2",
+        "body": [
+            "\\ln\\frac{",
+            "   \\ch{[b]}/\\ch{[b]}_0",
+            "}{",
+            "   \\ch{[a]}/\\ch{[a]}_0",
+            "}",
+            "=\\frac{k\\,t}{\\ch{[b]}_0-\\ch{[a]}_0}",
+        ]
+    },
+    "n-th order half-life": {
+        "description": "t½",
+        "prefix": "\\formula-half-life-n",
+        "body": "t_{1/2} = \\left(k\\,\\ch{[${1:a}]_{0}^{n-1}}\\right)^{-1}"
+    },
+    /* ================ activated complex =============== */
+    "arrhenius equation": {
+        "description": "relation between activation energy and reaction rate constant",
+        "prefix": "\\formula-arrhenius-equation",
+        "body": "k=a\\,\\exp(-ea/r\\,t)"
+    },
+    "eyring equation": {
+        "description": [
+            "describe the relationship between reaction rate and temperature.",
+            "\n useful when we are talking about activation energy",
+            "\n k‡: transition state equilibrium constant",
+            "\n δh‡: activation entalpy",
+        ],
+        "prefix": [
+            "\\formula-eyring-equation",
+            "\\formula-transition-state-equilibrium-constant"
+        ],
+        "body": [
+            "\\ln{k^{\\ddagger}}",
+            "= -\\frac{\\adif{h}^{\\ddagger}}{r\\,t}",
+            "+ \\frac{\\adif{s}^{\\ddagger}}{r}"
+        ]
+    },
+    "arrhenius-eyring equation": {
+        "description": "join both arrhenius and eyring equation to get a relation between activation energy and entalpy of activantion",
+        "prefix": [
+            "\\formula-arrhenius-eyring",
+            "\\formula-activation-energy-entalpy"
+        ],
+        "body": "ea=\\adif{h}^{\\ddagger} + r\\,t"
+    },
+    "gibbs free energy equation": {
+        "description": [
+            "gibbs free energy",
+            "\nδg: change of gibbs free energy of the reaction",
+            "\nδh: change in entalpy",
+            "\nδs: change in entropy",
+        ],
+        "prefix": "\\formula-gibbs-free-energy-equation",
+        "body": "\\adif{g}=\\adif{h}-t\\,\\adif{s}"
+    },
+    "gibbs free energy non standard state equation": {
+        "description": [
+            "gibbs free energy when reaction is not in standard state",
+            "\nstandard state: 1 atm, 298 k, ph 7",
+            "\nδg: change of gibbs free energy of the reaction",
+            "\nδg⁰: standard gibbs free energy",
+            "\nk⁰: equilibrium constant",
+        ],
+        "prefix": "\\formula-gibbs-free-energy-non-standard-equation",
+        "body": "\\adif{g}=\\adif{g}^{0}+r\\,t\\,\\ln{k}"
+    },
+    "gibbs free energy of activation": {
+        "description": [
+            "transition theory, gibbs free energy of activation",
+            "\nstandard state: 1 atm, 298 k, ph 7",
+            "\nδg‡: gibbs energy of activation",
+            "\nδh‡: entalpy of activation",
+            "\nδs‡: entropy of activation",
+        ],
+        "prefix": "\\formula-gibbs-free-energy-activation-equation",
+        "body": [
+            "\\adif{g}^{\\ddagger}=",
+            "= -r\\,t\\,\\ln{k}",
+            "= \\adif{h}^{\\ddagger}-t\\,\\adif{s}^{\\ddagger}"
+        ]
+    },
+    /* ================= tens sup e ads ================= */
+    /* -------------------------------------------------- */
+    /*                        math                        */
+    /* -------------------------------------------------- */
+    "quadratic formula": {
+        "description": "0=ax^2+bx+c",
+        "prefix": "\\formula-quadratic",
+        "body": [
+            "x",
+            "= \\frac{",
+            "    - ${2:b}",
+            "    \\pm \\sqrt{",
+            "        ${2:b}^2",
+            "        -4\\,${1:a}\\,${3:c}",
+            "    }",
+            "    {2\\,${1:a}}",
+            "}",
+        ]
+    },
+    /* -------------------------------------------------- */
+    /*                    formulas: osf                   */
+    /* -------------------------------------------------- */
+    "crushing rolls nip angle": {
+        "description": [
+            "nip angle for crushing rolls",
+            "\nr_1: roll radius",
+            "\nr_2: feed particle radius",
+            "\nb: distance between rolls",
+            "\nβ<=31º",
+        ],
+        "prefix": "\\formula-crushing_rolls-nip_angle",
+        "body": [
+            "\\cos{\\beta/2}",
+            "= \\frac",
+            "{r_1+b/2}",
+            "{r_1+r_2}"
+        ]
+    },
+    "bonds energy law": {
+        "description": "",
+        "prefix": "\\formula-bonds-energy-law",
+        "body": [
+            "e",
+            "= e_i",
+            "\\,\\sqrt{100/l_2}",
+            "\\,(1-\\sqrt{q}^{-1})",
+        ]
+    },
+    "sphere particle factors k": {
+        "description": "k': for surface\n\nk\": for volume",
+        "prefix": "\\formula-particle-surface-volume-factor-sphere",
+        // "prefix": "\\formula-osf",
+        "body": "${1:k'=\\pi}\n${2:k\"=\\pi/6}"
+    },
+    "rittingers law": {
+        "description": [
+            "fine reduction, p=-2.0\n",
+            "l_1 2 -> 5 mm",
+            "l_2 <0.1 mm",
+            "\nk_r depende do triturador",
+            "\nf_c depende das particulas",
+        ],
+        "prefix": "\\formula-rittingers-law-fine-reduction",
+        "body": [
+            "e ",
+            "= c\\,\\adif{l^{-1}}",
+            "= k_r\\,f_c\\,\\adif{l^{-1}}",
+        ]
+    },
+    "bonds law": {
+        "description": [
+            "intermediate reduction, p=-1.5\n",
+            "l_1 2   -> 50 mm",
+            "l_2 0.1 ->  5 mm",
+        ],
+        "prefix": "\\formula-bonds-law-intermediate-reduction",
+        "body": [
+            "e",
+            "=2\\,c\\adif{l^{-1/2}}",
+            "=e_i\\,\\sqrt{100/l_1}",
+            "\\left(",
+            "    1 - q^{-1/2}",
+            "\\right)",
+        ]
+    },
+    "kick law": {
+        "description": [
+            "coarse reduction, p=-1.0\n",
+            "l_1 50 -> 1500 mm",
+            "l_2  5 ->   50 mm",
+            "\nk_k depende do triturador",
+            "\nf_c depende das particulas",
+        ],
+        "prefix": "\\formua-kick-law-coarse-reduction",
+        "body": [
+            "e",
+            "=c\\,\\adif{\\ln{l}}",
+            "=k_k\\,f_c\\,\\adif{\\ln{l}}",
+        ]
+    },
+    //   .g8"""bgd                                 mm                           mm
+    // .dp'     `m                                 mm                           mm
+    // dm'       `  ,pw"wq.  `7mmpmmmb.  ,pp"ybd mmmmmm   ,6"yb.  `7mmpmmmb.  mmmmmm  ,pp"ybd
+    // mm          6w'   `wb   mm    mm  8i   `"   mm    8)   mm    mm    mm    mm    8i   `"
+    // mm.         8m     m8   mm    mm  `ymmma.   mm     ,pm9mm    mm    mm    mm    `ymmma.
+    // `mb.     ,' ya.   ,a9   mm    mm  l.   i8   mm    8m   mm    mm    mm    mm    l.   i8
+    //   `"bmmmd'   `ybmd9'  .jmml  jmml.m9mmmp'   `mbmo `moo9^yo..jmml  jmml.  `mbmo m9mmmp'
+    /* -------------------------------------------------- */
+    /*                   constants: osf                   */
+    /* -------------------------------------------------- */
+    "viscosidade ar": {
+        "description": "Pa s (20℃, 1 atm)",
+        "prefix": [
+            "\\constante-viscosidade-ar"
+        ],
+        "body": "\\\\${1:SI|num}{1.81e-5}${2:{\\pascal.\\second\\}}"
+    },
+    /* -------------------------------------------------- */
+    /*                  Constants: Maths                  */
+    /* -------------------------------------------------- */
+    "Constante pi": {
+        "description": "algo sobre circulos",
+        "prefix": [
+            "\\constante-pi",
+            "\\CTT-PI"
+        ],
+        "body": "\\num{3.14159265359}"
+    },
+    /* -------------------------------------------------- */
+    /*                 Constants: Physics                 */
+    /* -------------------------------------------------- */
+    "Constante da aceleração da Gravidade": {
+        "description": "Constante: Acc da Gravidade",
+        "prefix": [
+            "\\constante-aceleração_gravidade",
+            "\\CTT-AG"
+        ],
+        "body": "\\\\${1:SI|num}{9.780327}${2:{\\metre/\\second^2\\}}"
+    },
+    "Constante de Coulomb": {
+        "description": "Constantes: Coulomb",
+        "prefix": [
+            "\\constante-coulomb",
+        ],
+        "body": "\\\\${1:SI|num}{8.987551792314e9}${2:{\\newton\\,\\metre^2/\\coulomb^2\\}}"
+    },
+    "Electric Constant": {
+        "description": "Constantes: Elétrica, Permissitiviade do espaço",
+        "prefix": [
+            "\\constante-electric",
+            "\\constante-permissivity_of_free_space",
+        ],
+        "body": "\\\\${1:SI|num}{8.854187812747955e-12}${2:{\\newton\\,\\metre^2/\\coulomb^2\\}}"
+    },
+    "Carga Eletron": {
+        "description": "Constantes: Carga elétrica de um eletron",
+        "prefix": [
+            "\\constante-electron_charge",
+            "\\constante-eletron_charge",
+        ],
+        "body": "\\\\${1:SI|num}{1.602176634e-19}${2:{\\coulomb\\}}"
+    },
+    "Dieletric Strength": {
+        "description": "Constantes: Dielectric strenght of dry air, the magnitude of the electric field at which dielectric breakdown occurs",
+        "prefix": [
+            "\\constante-dieletrica",
+            "\\constante-dielectric_strenght",
+        ],
+        "body": "\\\\${1:SI|num}{3e6}${2:{\\mega\\volt/\\metre\\}}"
+    },
+    /* -------------------------------------------------- */
+    /*             Constants: Chemical Physics            */
+    /* -------------------------------------------------- */
+    "Constante de Avogadro": {
+        "description": "Constante: Avogadro",
+        "prefix": [
+            "\\Constante-Avogadro",
+            "\\Constante-mol",
+            "\\Constante-mole",
+            "\\CTT-mol",
+            "\\CTT-mole",
+        ],
+        "body": "\\\\${1:SI|num}{6.02214076e23}${2:{\\mole^{-1}}}"
+    },
+    "Constante dos gáses perfeitos": { 
+        "description": "[R]=J/mol.K",
+        "prefix": [
+            "\\Constante-gas_perfeito",
+            "\\CTT-GP",
+            // "\\R-Gases"
+        ],
+        "body": [
+            "\\\\${1:SI|num}{8.314462618}${2:{\\joule.\\mole^{-1\\}.\\kelvin^{-1\\}\\}}",
+        ]
+    },
+    "Constante dos gáses perfeitos 2": { 
+        "description": "[R]=m3.atm/mol.K",
+        "prefix": [
+            "\\Constante-gas_perfeito.2",
+            "\\CTT-GP2",
+            "\\R-Gases2"
+        ],
+        "body": [
+            "\\\\${1:SI|num}{8.20573660809596e-5}${2:{\\metre^3.\\atm.\\mole^{-1\\}.\\kelvin^{-1\\}\\}}",
+        ]
+    },
+    "Constante dos gáses perfeitos 3": { 
+        "description": "[R]=L.atm/mol.K",
+        "prefix": [
+            "\\Constante-gas_perfeito.3",
+            "\\CTT-GP3",
+            "\\R-Gases3"
+        ],
+        "body": [
+            "\\\\${1:SI|num}{0.082057366080960}${2:{\\litre.\\atm.\\mole^{-1\\}.\\kelvin^{-1\\}\\}}",
+        ]
+    }, 
+    "Constante dos gáses perfeitos 4": { 
+        "description": "[R]=L.bar/mol.K",
+        "prefix": [
+            "\\Constante-gas_perfeito4",
+            "\\CTT-GP4",
+            "\\R-Gases4"
+        ],
+        "body": [
+            "\\\\${1:SI|num}{0.0831446261815324}${2:{\\litre.\\bar.\\mole^{-1\\}.\\kelvin^{-1\\}\\}}",
+        ]
+    },
+    "Constante dos gáses perfeitos 5": { 
+        "description": "[R]=cal/mol.K",
+        "prefix": [
+            "\\Constante-gas_perfeito5",
+            "\\CTT-GP5",
+            "\\R-Gases5"
+        ],
+        "body": [
+            "\\\\${1:SI|num}{1.987204258640832}${2:{\\calorie.\\mole^{-1\\}.\\kelvin^{-1\\}\\}}",
+        ]
+    },
+    "Constante mmHg in atm": {
+        "description": "Converte para atm",
+        "prefix": "\\Constante-mmHg-to-atm",
+        "body": [
+            "\\frac",
+            "{\\\\num{760.00209995982457}\\,\\unit{\\mmHg}}",
+            "{\\unit{\\atm}}",
+        ]
+    },
+    "Boltzmann constant k_B": {
+        "description": "k_B in J/K",
+        "prefix": "\\constante-boltzmann",
+        // "body": "\\\\${1:SI|num}{1.380648999974554e-23}${2:{\\joule.\\kelvin^{-1}}}"
+        "body": "\\\\${1:SI|num}{1.380649e-23}${2:{\\joule.\\kelvin^{-1\\}\\}}"
+    },
+    // 888888888888              88           88
+    //      88                   88           88
+    //      88                   88           88
+    //      88       ,adPPYYba,  88,dPPYba,   88   ,adPPYba,
+    //      88       ""     `Y8  88P'    "8a  88  a8P_____88
+    //      88       ,adPPPPP88  88       d8  88  8PP"""""""
+    //      88       88,    ,88  88b,   ,a8"  88  "8b,   ,aa
+    //      88       `"8bbdP"Y8  8Y"Ybbd8"'   88   `"Ybbd8"'
+    "table/multirow": {
+        "description": "\\multirow[⟨vpos⟩]{⟨nrows⟩}[⟨bigstruts⟩]{⟨width⟩}[⟨vmove⟩]{⟨text⟩}",
+        "prefix": "\\multirow",
+        "body": "\\multirow${4:[vpos]}{${2:nrows}}{${3:width,*}}{${1:text}}$0"
+    },
+    "table setup": {
+        "description": "Setup table width and lenght",
+        "prefix": "\\tablesetup",
+        "body": [
+            "\\setlength\\tabcolsep{6mm}        % width",
+            "\\renewcommand\\arraystretch{1.25} % height"
+        ]
+    },
+    /* ==================================================================================================== */
+    /* ==================================================================================================== */
+    /* ==================================================================================================== */
+    /* ==================================================================================================== */
+    /* ==================================================================================================== */
+    // Abreviations
+    "ordenal a": {
+        "description": "ª",
+        "prefix": "\\^a",
+        "body": "ª"
+    },
+    "ordenal o": {
+        "description": "º",
+        "prefix": "\\^o",
+        "body": "º"
+    },
+    // Small snippets ===============================>
+    "DNAblock": {
+        "description": "renew command \\DNAblock from mydnaseq",
+        "prefix": "\\DNAblock",
+        "body": "\\renewcommand\\DNAblock{${1:5}}"
+    },
+    "minipage": {
+        "description": "Minipage environment",
+        "prefix": "\\minipage",
+        "body": [
+            "\\begin{minipage}{${1:1}\\textwidth}",
+            "    $2",
+            "\\end{minipage}"
+        ]
+    },
+    "Figure Environment": {
+        "description": "figure template",
+        "prefix": [
+            "\\figure",
+            "\\begin{figure}"
+        ],
+        "body": [
+            "\\begin{figure}\\centering",
+            "    \\includegraphics[width=${1:.8}\\textwidth]{${2:image}}",
+            "\\end{figure}",
+        ]
+    },
+    "includegraphics": {
+        "description": "Include a simple graphic centered",
+        "prefix": [
+            "\\includegraphics"
+        ],
+        "body": [
+            "\\begin{center}",
+            "    \\includegraphics[width=${1:.8}\\textwidth]{${2:image}}",
+            "\\end{center}",
+        ]
+    },
+    "geometry default": {
+        "description": "geometry: default settings",
+        "prefix": "\\geometry",
+        "body": [
+            "\\geometry{",
+            "    top       = 21mm,",
+            "    bottom    = 21mm,",
+            "    left      = .06\\paperwidth,",
+            "    right     = .06\\paperwidth,",
+            "    portrait  = true,",
+            "    noheader, nofoot,",
+            "}"
+        ]
+    },
+    "sisetup default": {
+        "description": "Sisetup: set default settings",
+        "prefix": "\\sisetup",
+        "body": [
+            "\\sisetup{",
+            "    % input / scientific / engineering / input / fixed",
+            "    exponent-mode={input},",
+            "    % exponent-to-prefix={false}, % 1000 g -> 1 kg",
+            "    % exponent-product={*}, % x * 10^y",
+            "    % fixed-exponent={0},",
+            "    % round-mode={places},% figures/places/unsertanty/none",
+            "    round-precision={2},",
+            "    % round-minimum={0.01}, % <x => 0",
+            "    % output-exponent-marker={\\,\\\\mathrm{E}},",
+            "}"
+        ]
+    },
+    //     ,,
+    //     .M"""bgd
+    //    ,MI    "Y
+    //    `MMb.      .gP"Ya   ,p6"bo
+    //      `YMMNq. ,M'   Yb 6M'  OO
+    //    .     `MM 8M"""""" 8M
+    //    Mb     dM YM.    , YM.    ,
+    //    P"Ybmmd"   `Mbmmd'  YMbmd'
+
+    //     .M"""bgd `7MM                             mm                           mm
+    //    ,MI    "Y   MM                             MM                           MM
+    //    `MMb.       MMpMMMb.   ,pW"Wq.  `7Mb,od8 mmMMmm   ,p6"bo  `7MM  `7MM  mmMMmm  ,pP"Ybd
+    //      `YMMNq.   MM    MM  6W'   `Wb   MM' "'   MM    6M'  OO    MM    MM    MM    8I   `"
+    //    .     `MM   MM    MM  8M     M8   MM       MM    8M         MM    MM    MM    `YMMMa.
+    //    Mb     dM   MM    MM  YA.   ,A9   MM       MM    YM.    ,   MM    MM    MM    L.   I8
+    //    P"Ybmmd"  .JMML  JMML. `Ybmd9'  .JMML.     `Mbmo  YMbmd'    `Mbod"YML.  `Mbmo M9mmmP'
+    "Section shortcut 2": {
+        "description": "shortcut for Section 2",
+        "prefix": "\\ssection",
+        "body": "\\subsection{$1}"
+    },
+    "Section shortcut 3": {
+        "description": "shortcut for Section 3",
+        "prefix": "\\sssection",
+        "body": "\\subsubsection{$1}"
+    },
+    "Question shortcut 2": {
+        "description": "shortcut for question 2",
+        "prefix": "\\squestion",
+        "body": "\\subquestion{$1}"
+    },
+    "Question shortcut 3": {
+        "description": "shortcut for question 3",
+        "prefix": "\\ssquestion",
+        "body": "\\subsubquestion{$1}"
+    },
+    "Example shortcut 1": {
+        "description": "shortcut for example 2",
+        "prefix": "\\sexample",
+        "body": "\\subexample{$1}"
+    },
+    "Example shortcut 2": {
+        "description": "shortcut for example 3",
+        "prefix": "\\ssexample",
+        "body": "\\subsubexample{$1}"
+    },
+    //    7MMM.     ,MMF'               `7MM"""Yp,
+    //     MMMb    dPMM                   MM    Yb
+    //     M YM   ,M MM  `7M'   `MF'      MM    dP  ,pW"Wq.  `7M'   `MF' .gP"Ya  ,pP"Ybd
+    //     M  Mb  M' MM    VA   ,V        MM"""bg. 6W'   `Wb   `VA ,V'  ,M'   Yb 8I   `"
+    //     M  YM.P'  MM     VA ,V         MM    `Y 8M     M8     XMX    8M"""""" `YMMMa.
+    //     M  `YM'   MM      VVV          MM    ,9 YA.   ,A9   ,V' VA.  YM.    , L.   I8
+    //   .JML. `'  .JMML.    ,V         .JMMmmmd9   `Ybmd9'  .AM.   .MA. `Mbmmd' M9mmmP'
+    //                      ,V
+    //                   OOb"
+    "Question Box environment": {
+        "description": "questionBox environment",
+        "prefix": [
+            "\\questionBox",
+            "\\begin{questionBox}",
+            "\\BQB"
+        ],
+        "body": [
+            "\\begin{questionBox}$1{ % Q$2",
+            "    ${3:question}",
+            "} % Q$2",
+            "    ${4:body}",
+            "\\end{questionBox}"
+        ]
+    },
+    "Proposition Box environment": {
+        "description": "propositionBox environment",
+        "prefix": [
+            "\\propositionBox",
+            "\\begin{propositionBox}",
+            "\\BPB"
+        ],
+        "body": [
+            "\\begin{propositionBox}$1{${2:title}} % PROP$3",
+            "    ",
+            "    ${4:body}",
+            "    ",
+            "\\end{propositionBox}"
+        ]
+    },
+    "Answer Box environment": {
+        "description": "answerBox environment",
+        "prefix": [
+            "\\answerBox",
+            "\\begin{answerBox}",
+            "\\BAB",
+            "\\BANS",
+            "\\BRES"
+        ],
+        "body": [
+            "\\begin{answerBox}$1{${2:title}} % RS $3",
+            "    ${4:body}",
+            "\\end{answerBox}"
+        ]
+    },
+    "Definition Box environment": {
+        "description": "definitionBox environment",
+        "prefix": [
+            "\\definitionBox",
+            "\\begin{definitionBox}",
+            "BDEFB"
+        ],
+        "body": [
+            "\\begin{definitionBox}$1{${2:title}} % DEF$3",
+            "    ",
+            "    ${4:body}",
+            "    ",
+            "\\end{definitionBox}"
+        ]
+    },
+    "Example Box environment": {
+        "description": "exampleBox environment",
+        "prefix": [
+            "\\exampleBox",
+            "\\begin{exampleBox}",
+            "\\BEB"
+        ],
+        "body": [
+            "\\begin{exampleBox}$1{ % E$2",
+            "    ${3:title}",
+            "} % E$2",
+            "    ",
+            "    ${4:body}",
+            "    ",
+            "\\end{exampleBox}"
+        ]
+    },
+    "Section Box environment": {
+        "description": "sectionBox environment",
+        "prefix": [
+            "\\sectionBox",
+            "\\begin{sectionBox}",
+            "\\BSB"
+        ],
+        "body": [
+            "\\begin{sectionBox}$1{${2:title}} % S$3",
+            "    ",
+            "    ${4:body}",
+            "    ",
+            "\\end{sectionBox}"
+        ]
+    },
+    // ,,
+    // `7MMM.     ,MMF'           mm    `7MM
+    //   MMMb    dPMM             MM      MM
+    //   M YM   ,M MM   ,6"Yb.  mmMMmm    MMpMMMb.
+    //   M  Mb  M' MM  8)   MM    MM      MM    MM
+    //   M  YM.P'  MM   ,pm9MM    MM      MM    MM
+    //   M  `YM'   MM  8M   MM    MM      MM    MM
+    // .JML. `'  .JMML.`Moo9^Yo.  `Mbmo .JMML  JMML.
+    "math enclosing brackets": {
+        "description": "enclosing brackets from math",
+        "prefix": [
+            "\\{",
+        ],
+        "body": [
+            "${1:\\left}\\{",
+            "    $3",
+            "${2:\\right}\\}"
+        ]
+    },
+    "math vert": {
+        "description": "vert enclosing from math",
+        "prefix": [
+            "\\lvert",
+        ],
+        "body": [
+            "${1:\\left}\\lvert",
+            "    $3",
+            "${2:\\right}\\rvert"
+        ]
+    },
+    "math Vert": {
+        "description": "Vert enclosing from math",
+        "prefix": [
+            "\\lVert",
+        ],
+        "body": [
+            "${1:\\left}\\lVert",
+            "    $3",
+            "${2:\\right}\\rVert"
+        ]
+    },
+    "flalign* environment": {
+        "description": "full-length-alignment*",
+        "prefix": [
+            "\\begin{flalign*}",
+            "\\BFLA*"
+        ],
+        "body": [
+            "\\begin{flalign*}",
+            "    &",
+            "        $1",
+            "    &",
+            "\\end{flalign*}"
+        ]
+    },
+    "boldmath environment": {
+        "description": "Bold math align* environment",
+        "prefix": [
+            "\\begin{BM}",
+            "\\BBM"
+        ],
+        "body": [
+            "\\begin{BM}${1:[${2:options}]}",
+            "    $3",
+            "\\end{BM}",
+        ]
+    },
+    /* ==================================================================================================== */
+    /* ==================================================================================================== */
+    /* ==================================================================================================== */
+    /* ==================================================================================================== */
+    /* ==================================================================================================== */
+    "description environment": {
+        "description": "description environment",
+        "prefix": [
+            "\\description",
+            "\\begin{description}",
+            "\\BDES"
+        ],
+        "body": [
+            "\\begin{description}[",
+            "    leftmargin=!,",
+            "    labelwidth=\\widthof{} % Longest item",
+            "]",
+            "    \\item[$1] $2",
+            "\\end{description}"
+        ]
+    },
+    "enumerate environment": {
+        // "description": ,
+        "prefix": [
+            "\\begin{enumerate}",
+            "\\Benumerate",
+            "\\BEN"
+        ],
+        "body": [
+            "\\begin{enumerate}${1:[${2:label=\\arabic{enumi\\}}]}",
+            "    \\item $3",
+            "\\end{enumerate}"
+        ]
+    },
+    "itemize environment": {
+        // "description": ,
+        "prefix": [
+            "\\begin{itemize}",
+            "\\Bitemize",
+            "\\BIT"
+        ],
+        "body": [
+            "\\begin{itemize}",
+            "    \\item $1",
+            "\\end{itemize}"
+        ]
+    },
+    "multicols environment": {
+        "description": "multicolumn environment",
+        "prefix": [
+            "\\begin{multicols}",
+            "\\BMC"
+        ],
+        "body": [
+            "\\begin{multicols}{${1:2}}",
+            "    $2",
+            "\\end{multicols}"
+        ]
+    },
+    "Table environment": {
+        "description": "Table template",
+        "prefix": [
+            "\\BTBL",
+            "\\table",
+            "\\begin{table}"
+        ],
+        "body": [
+            "\\begin{center}",
+            "    \\vspace{1ex}",
+            "    \\begin{tabular}{${1:columns}}",
+            "        \\toprule",
+            "        ",
+            "            \\multicolumn{1}{c}{$2}",
+            "        ",
+            "        \\\\\\\\\\midrule",
+            "        ",
+            "            ",
+            "        ",
+            "        \\\\\\\\\\bottomrule",
+            "    \\end{tabular}",
+            "    \\vspace{2ex}",
+            "\\end{center}"
+        ]
+    },
+    "underset": {
+        "description": "",
+        "prefix": "\\underset",
+        "body": "\\underset{${1:under}}{${2:=}}",
+    },
+    // ,,                           ,,
+    // `7MMF'   `7MF'                  *MM                   mm      db
+    //   `MA     ,V                     MM                   MM
+    //    VM:   ,V    .gP"Ya  `7Mb,od8  MM,dMMb.   ,6"Yb.  mmMMmm  `7MM  `7MMpMMMb.pMMMb.
+    //     MM.  M'   ,M'   Yb   MM' "'  MM    `Mb 8)   MM    MM      MM    MM    MM    MM
+    //     `MM A'    8M""""""   MM      MM     M8  ,pm9MM    MM      MM    MM    MM    MM
+    //      :MM;     YM.    ,   MM      MM.   ,M9 8M   MM    MM      MM    MM    MM    MM
+    //       VF       `Mbmmd' .JMML.    P^YbmdP'  `Moo9^Yo.  `Mbmo .JMML..JMML  JMML  JMML.
+    "indexer": {
+        "description": "input some files using luacode",
+        "prefix": "\\indexer",
+        "body": [
+            "% print files",
+            "\\begin{luacode*}",
+            "",
+            "    -- Files Directory",
+            "    dir = \"\"",
+            "",
+            "",
+            "    -- Prefix and sufix",
+            "    prefix = \"\"",
+            "    sufix  = \"\"",
+            "",
+            "    -- Files",
+            "    files = {",
+            "        -- 1, --",
+            "    }",
+            "",
+            "    -- Print some files",
+            "    index = {1}",
+            "",
+            "    -- Loop",
+            "    -- for v,i in ipairs(index) -- Generic some",
+            "    -- for i,v in ipairs(files) -- Generic all",
+            "",
+            "    for i,v in ipairs(files) -- Generic all",
+            "    do",
+            "        tex.print(string.split(table.concat{",
+            "        [[",
+            "            \\input{]], dir, prefix, files[i], sufix, [[}\\newpage",
+            "        ]]",
+            "        },\"\\n\"))",
+            "    end",
+            "",
+            "\\end{luacode*}",
+        ]
+    },
+    "Minted environment": {
+        "description": "Minted environment for code",
+        "prefix": [
+            "\\BMNT",
+            "\\begin{minted}"
+        ],
+        "body": [
+            "\\begin{listing}[H]",
+            "    \\begin{tcolorbox}[left= 2.5em]",
+            "    \\begin{minted}[linenos]{${1:python}}",
+            "    ",
+            "    print(\"Hello, World!\")",
+            "    ",
+            "    \\end{minted}",
+            "    \\end{tcolorbox}",
+            "    \\caption{hello world}",
+            "\\end{listing}"
+        ]
+    },
+    // ,,
+    // MMP""MM""YMM   db  `7MM
+    // P'   MM   `7         MM
+    //      MM      `7MM    MM  ,MP'M"""MMV
+    //      MM        MM    MM ;Y   '  AMV
+    //      MM        MM    MM;Mm     AMV
+    //      MM        MM    MM `Mb.  AMV  ,
+    //    .JMML.    .JMML..JMML. YA.AMMmmmM
+    "tikz/external/remake next": {
+        "description": "A variant of force remake which applies only to the next image.",
+        "prefix": "\\tikz/external/remake next",
+        "body": "\\tikzset{external/remake next=${1:true}}"
+    },
+    "tikz/external/force remake": {
+        "description": "automatic regeneration of every following figure",
+        "prefix": "\\tikz/external/force remake",
+        "body": "\\tikzset{external/force remake=${1:true}}"
+    },
+    "Tikz sci graph": {
+        "description": "draw a scientific graph",
+        "prefix": "\\tikz-sci-graph",
+        "body": [
+            "% \\tikzset{external/remake next=true}",
+            "% {\\Large\\bfseries{Solução 1}}\\par\\medskip",
+            "\\begin{tikzpicture}",
+            "\\begin{axis}",
+            "[",
+            "    xmajorgrids=true,",
+            "    ymajorgrids=true,",
+            "    minor tick num=3,",
+            "    xminorgrids=true,",
+            "    yminorgrids=true,",
+            "    % legend pos={north west},",
+            "    % axis on top,",
+            "    % ylabel={},",
+            "    % xlabel={},",
+            "]",
+            "    ",
+            "    % % Legends",
+            "    % \\addlegendimage{empty legend}",
+            "    % \\addlegendentry[Graph]{}",
+            "    % ================= Interpolation ================ %",
+            "    % \\addplot[",
+            "    %     no marks,",
+            "    %     dashed,",
+            "    %     samples=2,",
+            "    % ] expression [",
+            "    %     domain=0:4000",
+            "    % ] {",
+            "    %     -3.5953e-4*x+0.0013",
+            "    % };",
+            "    % ==================== Points ==================== %",
+            "    \\addplot[",
+            "        mark=*,",
+            "        only marks,",
+            "    ] coordinates {",
+            "        (   0,  0)",
+            "        (1000, -0.35667494393873245)",
+            "        (2000, -0.717289485881545)",
+            "        (3000, -1.0777309126157544)",
+            "        (4000, -1.437104913523651)",
+            "    };",
+            "    ",
+            "\\end{axis}",
+            "\\end{tikzpicture}"
+        ]
+    },
+    "Tikzpicture": {
+        "description": "draw a Tikzpicture",
+        "prefix": [
+            "\\begin{tikzpicture}",
+            "\\BTikzPicture"
+        ],
+        "body": [
+            "\\begin{tikzpicture}",
+            "    ",
+            "    \\draw[->, thick, blue!60!]",
+            "    ( 0,  0)--node[anchor=south west]{\\( A \\)}",
+            "    (-1,0.5);",
+            "    ",
+            "    \\draw[->, thick, blue!60!]",
+            "    ( 0,0  )--",
+            "    (-1,0.5)--node[anchor=south west]{\\( 2\\,A \\)}",
+            "    (-2,1  );",
+            "    ",
+            "    \\draw[->, thick, red!60!]",
+            "    (0,0)--node[anchor=south]{\\( B \\)}",
+            "    (1,0);",
+            "    ",
+            "    \\draw[->, thick, red!60!]",
+            "        (-2,1)--node[anchor=south]{\\( -3\\,B \\)}",
+            "    +(-3,0);",
+            "    ",
+            "    \\draw[->, thick, green!60!]",
+            "    ( 0,0)--",
+            "    (-5,1) node[anchor=south east]{\\( 2\\,A - 3\\,B \\)};",
+            "    ",
+            "\\end{tikzpicture}"
+        ]
+    },
+    // Tikz Graphs
+    "graphEdge": {
+        "description": "graphEdge function",
+        "prefix": "\\graphEdge",
+        "body": "\\graphEdge${1:*}${2:[placement options]}${3:[drawing options]}{${5:labels}}{${6:nodes}}"
+    },
+    "tikzgraphs": {
+        "description": "Simple graphs template",
+        "prefix": "\\tikzgraphs",
+        "body": [
+            "\\tikzset{external/remake next=true} % remake next",
+            "\\begin{center}",
+            "\\begin{tikzpicture}[myGraphsStyle]",
+            "",
+            "    % ===================== Vertices ===================== %",
+            "",
+            "    % 1,2,3",
+            "    \\pic (1) at (0, 0) {graphVertice={1/0/0/below/3mm}};",
+            "    \\pic (2) at (1, 1) {graphVertice={2/0/0/below/3mm}};",
+            "    \\pic (3) at (1,-1) {graphVertice={3/0/0/below/3mm}};",
+            "",
+            "    % ======================= Edges ====================== %",
+            "",
+            "    % 1 -> {2,3}",
+            "    \\draw[->] (1-x) -- (2-x);",
+            "    \\draw[->,dashed] (1-x) -- (3-x);",
+            "",
+            "    % ==================================================== %",
+            "",
+            "\\end{tikzpicture}",
+            "\\end{center}"
+        ]
+    },
+    "tikz 3d cube": {
+        "description": "Cube inside a tikzpicture",
+        "prefix": "\\tikz-3d-cube",
+        "body": [
+            "% Cube",
+            "\\draw[-]",
+            "   (0,0,0)",
+            "-- (1,0,0)",
+            "-- (1,1,0)",
+            "-- (0,1,0)",
+            "-- (0,0,0)",
+            "   (0,0,1)",
+            "-- (1,0,1)",
+            "-- (1,1,1)",
+            "-- (0,1,1)",
+            "-- (0,0,1)",
+            "(0,0,0) -- (0,0,1)",
+            "(0,1,0) -- (0,1,1)",
+            "(1,1,0) -- (1,1,1)",
+            "(1,0,0) -- (1,0,1);"
+        ]
+    },
+    "tikz 3d guide": {
+        "description": "guides to help with drawing",
+        "prefix": "\\tikz-3d-guide",
+        "body": [
+            "% Guide",
+            "\\draw[-] (0,0,0) circle (.2);",
+            "\\draw[-, red  ] (1,0,0) circle (.2);",
+            "\\draw[-, green] (0,1,0) circle (.2);",
+            "\\draw[-, blue ] (0,0,1) circle (.2);"
+        ]
+    },
+    //                 ,,
+    //     .g8"""bgd `7MM
+    //   .dP'     `M   MM
+    //   dM'       `   MMpMMMb.   .gP"Ya  `7MMpMMMb.pMMMb.
+    //   MM            MM    MM  ,M'   Yb   MM    MM    MM
+    //   MM.           MM    MM  8M""""""   MM    MM    MM
+    //   `Mb.     ,'   MM    MM  YM.    ,   MM    MM    MM
+    //     `"bmmmd'  .JMML  JMML. `Mbmmd' .JMML  JMML  JMML.
+    /* ===================== Chemfig ==================== */
+    "chemfig shortcut": {
+        "description": "shortcut for centered chemfig",
+        "prefix": ["\\chemfig"],
+        "body": [
+            "${1:\\begin{center\\}}",
+            "    \\chemfig[angle increment=${3:30}]{",
+            "        $4",
+            "    }",
+            "${2:\\end{center\\}}",
+        ]
+    },
+    "Chemfig-butano": {
+        "description": "cadeia de 4 carbonos",
+        "prefix": [
+            "\\chemfig-butano"
+        ],
+        "body": [
+            "C(-[5]H)(-[-3]H)",
+            "-[ 1]C(-[ 3]H)",
+            "-[-1]C(-[-3]H)",
+            "-[ 1]C(-[ 3]H)(-[-1]H)"
+        ]
+    },
+    "Chemfig-tert-butano": {
+        "description": "tetraedro de 5 carbonos",
+        "prefix": [
+            "\\chemfig-tert-butano",
+            "\\chemfig-tetraedro"
+        ],
+        "body": [
+            "C",
+            "(-[  6]CH)",
+            "(-[- 1]CH)",
+            "(-[- 3]CH)",
+            "(-[-10]CH)"
+        ]
+    },
+    /* ================================================== */
+    "modiagram environment": {
+        "description": "Molecular orbital diagram (CO)",
+        "prefix": [
+            "\\modiagram-template",
+            "\\BMOD"
+        ],
+        "body": [
+            "\\begin{center}",
+            "    \\begin{modiagram}",
+            "        \\setlength\\AtomVScale{0.1cm}",
+            // "        \\setlength\\MoleculeVScale{1.5cm}",
+            "",
+            "        % C",
+            "        \\AO(1cm){s}{-19.4\\AtomVScale;}       % S2  AO1: -19.4",
+            "        \\AO(1cm){s}{-10.6\\AtomVScale;}       % P2x AO2: -10.6",
+            "        \\AO(1cm){s}{-10.6\\AtomVScale+1pt;}   % P2y AO3: -10.6",
+            "        \\AO(1cm){s}{-10.6\\AtomVScale-1pt;}   % P2z AO4: -10.6",
+            "        % \\atom[C]{left}{",
+            "        %     2s = {-19.4\\AtomVScale;},",
+            "        %     2p = {-10.6\\AtomVScale;}",
+            "        % }",
+            "",
+            "        % O",
+            "        \\AO(5cm){s}{-32.3\\AtomVScale;}       % S2  AO5: -32.3",
+            "        \\AO(5cm){s}{-15.8\\AtomVScale;}       % P2x AO6: -15.8",
+            "        \\AO(5cm){s}{-15.8\\AtomVScale+1pt;}   % P2y AO7: -15.8",
+            "        \\AO(5cm){s}{-15.8\\AtomVScale-1pt;}   % P2z AO8: -15.8",
+            "        % \\atom[O]{right}{",
+            "        %     2s = {-32.3\\AtomVScale;},",
+            "        %     2p = {-15.8\\AtomVScale;}",
+            "        % }",
+            "",
+            "        % CO",
+            "        % 2s",
+            "        \\AO(3cm     ){s}{-29.075\\AtomVScale -1.44528\\MoleculeVScale; pair}   % SG3  AO9 : (-32.3) - ((-32.3)-(-19.4))/4 -1.44528",
+            "        \\AO(3cm     ){s}{-22.625\\AtomVScale -0.69683\\MoleculeVScale; pair}   % SG4  AO10: (-19.4) + ((-32.3)-(-19.4))/4 -0.69683",
+            "        % 2p",
+            "        \\AO(3cm-10pt){s}{-14.5\\AtomVScale -0.53993\\MoleculeVScale; pair}   % PI5  AO11: (-15.8) - (-15.8-(-10.6))/4 -0.53993",
+            "        \\AO(3cm+10pt){s}{-14.5\\AtomVScale -0.53993\\MoleculeVScale; pair}   % PI6  AO12: (-15.8) - (-15.8-(-10.6))/4 -0.53993",
+            "        \\AO(3cm     ){s}{-14.5\\AtomVScale -0.44513\\MoleculeVScale; pair}   % SG7  AO13: (-15.8) - (-15.8-(-10.6))/4 -0.44513",
+            "        \\AO(3cm-10pt){s}{-11.9\\AtomVScale +0.30615\\MoleculeVScale; pair}   % PI8  AO14: (-10.6) + (-15.8-(-10.6))/4 +0.30615",
+            "        \\AO(3cm+10pt){s}{-11.9\\AtomVScale +0.30615\\MoleculeVScale; pair}   % PI9  AO15: (-10.6) + (-15.8-(-10.6))/4 +0.30615",
+            "        \\AO(3cm     ){s}{-11.9\\AtomVScale +1.00913\\MoleculeVScale; pair}   % SG10 AO16: (-10.6) + (-15.8-(-10.6))/4 +1.00913",
+            "        % \\molecule[CO]{",
+            "        %     2sMO = {",
+            "        %         1.44528/-0.69683; pair",
+            "        %     },",
+            "        %     2pMO = {",
+            "        %         0.44513/1.00913, ",
+            "        %         0.53993/0.30615;",
+            "        %         up, pair, pair",
+            "        %     }",
+            "        % }",
+            "",
+            "        \\connect{",
+            "            % left",
+            "            AO1  & AO9,",
+            "            AO1  & AO10,",
+            "            AO1  & AO11,",
+            "            AO1  & AO13,",
+            "            AO1  & AO14,",
+            "            AO1  & AO16,",
+            "            AO2  & AO9,",
+            "            AO2  & AO10,",
+            "            AO2  & AO11,",
+            "            AO2  & AO13,",
+            "            AO2  & AO14,",
+            "            AO2  & AO16,",
+            "            % right",
+            "            AO9  & AO5,",
+            "            AO10 & AO5,",
+            "            AO12 & AO5,",
+            "            AO13 & AO5,",
+            "            AO15 & AO5,",
+            "            AO16 & AO5,",
+            "            AO9  & AO6,",
+            "            AO10 & AO6,",
+            "            AO12 & AO6,",
+            "            AO13 & AO6,",
+            "            AO15 & AO6,",
+            "            AO16 & AO6,",
+            "        }",
+            "",
+            "        \\EnergyAxis[title=E, head=stealth]",
+            "",
+            "    \\end{modiagram}",
+            "\\end{center}"
+        ]
+    },
+    "Chem Reaction table": {
+        "description": "Table for a chemical reaction",
+        "prefix": "\\Chemtable",
+        "body": [
+            "\\begin{table}[H]\\centering",
+            "    \\begin{tabular}{c *{4}{l}}",
+            "        ",
+            "        \\\\toprule",
+            "        ",
+            "        &   \\multicolumn{1}{c @{\\,+}      }{\\ch{HA}}",
+            "        &   \\multicolumn{1}{c @{\\,\\ch{<>}}}{\\ch{OH^-}}",
+            "        &   \\multicolumn{1}{c @{\\,+}      }{\\ch{A^-}}",
+            "        &   \\multicolumn{1}{c             }{\\ch{H2O}}",
+            "        ",
+            "        \\\\\\\\\\midrule",
+            "        ",
+            "            \\(t0\\)",
+            "        &   \\(\\ch{[HA]}_{t0}\\)",
+            "        &   \\(x\\)",
+            "        &   \\(0\\)",
+            "        &   --",
+            "        ",
+            "        \\\\\\\\",
+            "        ",
+            "            \\(t1\\)",
+            "        &   \\(\\ch{[HA]}_{t0}-x\\)",
+            "        &   \\(0\\)",
+            "        &   \\(x\\)",
+            "        &   --",
+            "        ",
+            "        \\\\\\\\\\toprule",
+            "        ",
+            "        &   \\multicolumn{1}{c @{\\,+}      }{\\ch{HA}}",
+            "        &   \\multicolumn{1}{c @{\\,\\ch{<>}}}{\\ch{H2O}}",
+            "        &   \\multicolumn{1}{c @{\\,+}      }{\\ch{A^-}}",
+            "        &   \\multicolumn{1}{c             }{\\ch{H3O^+}}",
+            "        ",
+            "        \\\\\\\\\\midrule",
+            "        ",
+            "            t1",
+            "        &   \\(\\ch{[HA]}_{t1}\\)",
+            "        &   --",
+            "        &   \\(\\ch{[A^-]}_{t1}\\)",
+            "        &   \\(0\\)",
+            "        ",
+            "        \\\\\\\\",
+            "        ",
+            "            t2",
+            "        &   \\(\\ch{[HA]}_{t1}-y\\)",
+            "        &   --",
+            "        &   \\(\\ch{[A^-]}_{t1}+y\\)",
+            "        &   \\(y\\)",
+            "        ",
+            "        \\\\\\\\\\bottomrule",
+            "        ",
+            "        \\multicolumn{5}{r}{",
+            "            Concentrações(\\unit{\\molar}) para solução final",
+            "        }",
+            "        ",
+            "    \\end{tabular}",
+            "\\end{table}"
+        ]
+    },
+    // `7MM"""Mq.   .g8"""bgd  `7MM"""YMM
+    //   MM   `MM..dP'     `M    MM    `7
+    //   MM   ,M9 dM'       `    MM   d
+    //   MMmmdM9  MM             MM""MM
+    //   MM       MM.    `7MMF'  MM   Y
+    //   MM       `Mb.     MM    MM
+    // .JMML.       `"bmmmdPY  .JMML.
+
+    //              ,,
+    // `7MM"""Mq. `7MM              mm
+    //   MM   `MM.  MM              MM
+    //   MM   ,M9   MM   ,pW"Wq.  mmMMmm  ,pP"Ybd
+    //   MMmmdM9    MM  6W'   `Wb   MM    8I   `"
+    //   MM         MM  8M     M8   MM    `YMMMa.
+    //   MM         MM  YA.   ,A9   MM    L.   I8
+    // .JMML.     .JMML. `Ybmd9'    `Mbmo M9mmmP'
+    "PGF data":{
+        "description": "2D plot of fitted data with regression",
+        "prefix": "\\pgfplot-data",
+        "body": [
+            "\\begin{center}",
+            "\\tikzset{external/remake next=true}",
+            "% \\pgfplotsset{height=7cm, width= .6\\textwidth}",
+            "\\begin{tikzpicture}",
+            "\\begin{axis}",
+            "    [",
+            "        set layers, mark layer={axis tick labels}, % regression on top",
+            "        % xmajorgrids = true,",
+            "        % legend pos  = north west",
+            "        % domain=0:4,",
+            "        xlabel={\\(x\\)},",
+            "        ylabel={\\(y\\)},",
+            "    ]",
+            "    % % Legends",
+            "    % \\addlegendimage{empty legend}",
+            "    % \\addlegendentry[Graph]{\\(y=\\num{a}\\,x+\\num{b}\\)}",
+            "    % \\addlegendimage{empty legend}",
+            "    % \\addlegendentry[Graph]{\\(R^2=\\num{}\\)}",
+            "",
+            "    % Plot from file",
+            "    \\addplot[mark=*,draw=none]",
+            "    table{graph.dat};",
+            "",
+            "    % line regression",
+            "    \\addplot[",
+            "        draw=GraphC,thick,",
+            "        domain={0:0.3},",
+            "    ]{a*x+b};",
+            "",
+            "\\end{axis}",
+            "\\end{tikzpicture}",
+            "\\end{center}"
+        ]
+    },
+    "PGF 2D Axes":{
+        "description": "2D Axes for pgf plots",
+        "prefix": "\\pgf-axes-2d",
+        "body": [
+            "% Axes 2D",
+            "\\draw[-\\stealth] (-0.5,0) -- (1,0) node[pos=1.1]{\\(x\\)};",
+            "\\draw[-\\stealth] (0,-0.5) -- (0,1) node[pos=1.1]{\\(y\\)};"
+        ]
+    },
+    "PGF 3D Axes":{
+        "description": "Simple 3D Axes for pgf plots",
+        "prefix": "\\pgf-axes-3d",
+        "body": [
+            "% Axes 3D",
+            "\\draw[-\\stealth] (-0.5,0,0) -- (1,0,0) node[pos=1.1]{\\(x\\)};",
+            "\\draw[-\\stealth] (0,-0.5,0) -- (0,1,0) node[pos=1.1]{\\(y\\)};",
+            "\\draw[-\\stealth] (0,0,-0.5) -- (0,0,1) node[pos=1.1]{\\(z\\)};"
+        ]
+    },
+    "PGFplot math 2D": {
+        "description": "Plot 2D graph for math (with fillbetween)",
+        "prefix": "\\pgfplot-math-2d",
+        "body": [
+            "\\begin{center}", 
+            "    \\tikzset{external/remake next=true}", 
+            "    % \\pgfplotsset{height=7cm, width= .6\\textwidth}", 
+            "    \\begin{tikzpicture}", 
+            "    \\begin{axis}", 
+            "        [", 
+            "            % xmajorgrids = true,", 
+            "            legend pos={south east},", 
+            "            % domain=0:4,", 
+            "            % xlabel={},", 
+            "            % ylabel={},", 
+            "            axis lines={center}, % left|right|center|box", 
+            "        ]", 
+            "        % Legends", 
+            "        % \\addlegendimage{empty legend}", 
+            "        % \\addlegendentry[Graph]{\\( ", 
+            "        %     {\\color{Graph}x},", 
+            "        %     {\\color{GraphC}x^2} ", 
+            "        % \\)}", 
+            "        ", 
+            "        % Plot from equation", 
+            "        \\addplot[", 
+            "            name path={A},", 
+            "            smooth,", 
+            "            thick,", 
+            "            Graph,", 
+            "            domain  = 0:1.1,", 
+            "            samples = \\mysampledensitySimple,", 
+            "        ]{ x };", 
+            "        % Plot from equation", 
+            "        \\addplot[", 
+            "            name path={B},", 
+            "            smooth,", 
+            "            thick,", 
+            "            GraphC,", 
+            "            domain  = 0:1.1,", 
+            "            samples = \\mysampledensitySimple,", 
+            "        ]{ x^2 };", 
+            "        ",
+            "        % ================ fillbetween =============== %",
+            "        \\addplot [", 
+            "            fill opacity=0.1,", 
+            "            foreground,", 
+            "        ] fill between [", 
+            "            of={A and B},", 
+            "            soft clip={domain={0:1}},", 
+            "        ];", 
+            "        ", 
+            "    \\end{axis}", 
+            "    \\end{tikzpicture}", 
+            "\\end{center}"
+        ]
+    },
+    "PGFplot 2D simple": {
+        "description": "Plot 2D graph (Simple settings)",
+        "prefix": [
+            "\\pgfplot-2d-simple",
+            "\\BPGFPlot2D-simple"
+        ],
+        "body": [
+            "\\begin{center}",
+            "    \\tikzset{external/remake next=true}",
+            "    % \\pgfplotsset{height=7cm, width= .6\\textwidth}",
+            "    \\begin{tikzpicture}",
+            "    \\begin{axis}",
+            "        [",
+            "            % xmajorgrids = true,",
+            "            % legend pos  = north west",
+            "            % domain=0:4,",
+            "            % xlabel={},",
+            "            % ylabel={},",
+            "        ]",
+            "        % Legends",
+            "        % \\addlegendimage{empty legend}",
+            "        % \\addlegendentry[Red]{\\( x \\)}",
+            "        ",
+            "        % % Plot from csv file",
+            "        % \\addplot[smooth, thick, mark=*] % mesh for colormap",
+            "        % table[",
+            "        %     col sep=comma,  % csv: comma,",
+            "        %     header=true,",
+            "        %     x index=3,      % x column on file",
+            "        %     y index=4,      % y column on file",
+            "        %     point meta=x,   % value to colormap",
+            "        % ]{  file.csv };",
+            "        ",
+            "        % % Plot from equation",
+            "        % \\addplot[",
+            "        %     smooth,",
+            "        %     thick,",
+            "        %     % Graph,",
+            "        %     domain  = -2:2,",
+            "        %     samples = \\mysampledensityDouble,",
+            "        % ]{ x };",
+            "        ",
+            "    \\end{axis}",
+            "    \\end{tikzpicture}",
+            "\\end{center}"
+        ]
+    },
+    "PGFplot 2D full": {
+        "description": "Plot 2D graph (Full settings)",
+        "prefix": [
+            "\\pgfplot-2d-full",
+            "\\BPGFPlot2D-full"
+        ],
+        "body": [
+            "\\begin{center}",
+            "    %\\pgfplotsset{height=7cm, width= .6\\textwidth}",
+            "    \\begin{tikzpicture}",
+            "    \\begin{axis}",
+            "        [",
+            "            % extra x ticks= { 0.5 },",
+            "            % extra y ticks= { 0.236798 },",
+            "            % Number formating",
+            "            x tick label style={",
+            "                /pgf/number format/.cd,",
+            "                    fixed,",
+            "                    fixed zerofill,",
+            "                    precision=3,",
+            "                /tikz/.cd",
+            "            },",
+            "            y tick label style={",
+            "                /pgf/number format/.cd,",
+            "                    fixed,",
+            "                    fixed zerofill,",
+            "                    precision=3,",
+            "                /tikz/.cd",
+            "            },",
+            "            % Label titles",
+            "            xlabel= {X\\textsubscript{Cu}},",
+            "            ylabel= {Absorvância corrigida},",
+            "            % MIN/MAX",
+            "            % xmin= 250,    xmax= 1100,",
+            "            % ymin= 0,        ymax= ,",
+            "            % Ticks",
+            "            % minor x tick num= 3,",
+            "            minor x tick num= 1,",
+            "            % Grids Major",
+            "            xmajorgrids= true,",
+            "            ymajorgrids= false,",
+            "            % Grids Minor",
+            "            % xminorgrids= false,",
+            "            % yminorgrids= false,",
+            "        ]",
+            "        ",
+            "        % Legends",
+            "        % \\addlegendimage{empty legend}",
+            "        % \\addlegendentry[LegendColor\\Light]{  }",
+            "        ",
+            "        % % Plot from csv file",
+            "        % \\addplot[smooth, thick, mark=*] % mesh for colormap",
+            "        % table[",
+            "        %     col sep=comma,  % csv: comma,",
+            "        %     header=true,",
+            "        %     x index=3,      % x column on file",
+            "        %     y index=4,      % y column on file",
+            "        %     point meta=x,   % value to colormap",
+            "        % ]{  file.csv };",
+            "        ",
+            "        % % Plot from equation",
+            "        % \\addplot[",
+            "        %     smooth,",
+            "        %     thick,",
+            "        %     % Red,",
+            "        %     domain  = -2:2,",
+            "        %     samples = 0.4*\\mysampledensity,",
+            "        % ]{  x };",
+            "        ",
+            "    \\end{axis}",
+            "    \\end{tikzpicture}",
+            "\\end{center}"
+        ]
+    },
+    "PGFplot 3D": {
+        "description": "Plot 2D graph (Simple settings)",
+        "prefix": [
+            "\\pgfplot-3d-simple",
+            "\\BPGFPlot3D-simple"
+        ],
+        "body": [
+            "\\begin{center}",
+            "    % \\pgfplotsset{height=0.3\\pageheight, width= .95\\textwidth}",
+            "    ",
+            "    % \\tikzset{external/remake next=true}",
+            "    \\begin{tikzpicture}",
+            "        \\begin{axis}",
+            "        [",
+            "            z buffer = {sort}, % default|none|auto|sort|reverse x seq|reverse y seq|reverse xy seq",
+            "            % xlabel={\\(x\\)}, ylabel={\\(y\\)}, zlabel={\\(z\\)}",
+            "            % xmajorgrids = true,",
+            "            % legend pos  = north west,",
+            "            % 3d view,",
+            "            % perspective,",
+            "            % view = {10}{10}, % rot/elevation",
+            "            hide axis,",
+            "            % axis lines = {center}, % 3D center/box/left/right",
+            "            % axis on top,",
+            "            % ticks = {none} % minor/major/both/none,",
+            "        ]",
+            "            % Legends",
+            "            % \\addlegendimage{empty legend}",
+            "            % \\addlegendentry[Red]{\\( x \\)}",
+            "            ",
+            "            % Conical surface",
+            "            \\addplot3 [",
+            "                % Aparence",
+            "                surf,",
+            "                opacity      = 0.5,",
+            "                fill opacity = 1,",
+            "                faceted color = White,",
+            "                shader = faceted interp,",
+            "                % Scope",
+            "                data cs = cart, % cart/polar/polarrad",
+            "                samples = \\mysampledensitySimple,",
+            "                % Variable",
+            "                % variable   = z,",
+            "                % variable y = z,",
+            "                % domain   = -1:1,",
+            "                % domain y = -1:1,",
+            "            ]{",
+            "                sqrt(x^2+y^2)",
+            "            };",
+            "        ",
+            "        \\end{axis}",
+            "    \\end{tikzpicture}",
+            "\\end{center}"
+        ]
+    },
+    //                        ,,                     ,,    ,,
+    //  .M"""bgd             *MM        `7MM"""YMM   db  `7MM
+    // ,MI    "Y              MM          MM    `7         MM
+    // `MMb.     `7MM  `7MM   MM,dMMb.    MM   d   `7MM    MM   .gP"Ya
+    //   `YMMNq.   MM    MM   MM    `Mb   MM""MM     MM    MM  ,M'   Yb
+    // .     `MM   MM    MM   MM     M8   MM   Y     MM    MM  8M""""""
+    // Mb     dM   MM    MM   MM.   ,M9   MM         MM    MM  YM.    ,
+    // P"Ybmmd"    `Mbod"YML. P^YbmdP'  .JMML.     .JMML..JMML. `Mbmmd'
+    
+    //                                                      ,,
+    // MMP""MM""YMM                                       `7MM             mm
+    // P'   MM   `7                                         MM             MM
+    //      MM       .gP"Ya  `7MMpMMMb.pMMMb.  `7MMpdMAo.   MM   ,6"Yb.  mmMMmm   .gP"Ya
+    //      MM      ,M'   Yb   MM    MM    MM    MM   `Wb   MM  8)   MM    MM    ,M'   Yb
+    //      MM      8M""""""   MM    MM    MM    MM    M8   MM   ,pm9MM    MM    8M""""""
+    //      MM      YM.    ,   MM    MM    MM    MM   ,AP   MM  8M   MM    MM    YM.    ,
+    //    .JMML.     `Mbmmd' .JMML  JMML  JMML.  MMbmmd'  .JMML.`Moo9^Yo.  `Mbmo  `Mbmmd'
+    //                                           MM
+    //                                         .JMML.
+    "Subfile Template":{
+        "description": "Subfile template",
+        "prefix": "\\latex-template-subfile",
+        "body": [
+            "% !TEX root = ./${1:Sub_File}.tex",
+            "\\providecommand\\mainfilename{\"./${2:Main_File}.tex\"}",
+            "\\providecommand \\subfilename{}",
+            "\\renewcommand   \\subfilename{\"./${1:Sub_File}.tex\"}",
+            "\\documentclass[\\mainfilename]{subfiles}",
+            "",
+            // "",
+            "% \\tikzset{external/force remake=true} % - remake all",
+            "",
+            "\\begin{document}",
+            "",
+            "% \\graphicspath{{\\subfix{./.build/figures/${1:Sub_File}}}}",
+            "% \\tikzsetexternalprefix{./.build/figures/${1:Sub_File}/graphics/}",
+            "",
+            "\\mymakesubfile{${3:part counter}}",
+            "${4:[${5:group}]}",
+            "{${6:Subfile Title}} % Subfile Title",
+            "{${6:Part title}} % Part Title",
+            "",
+            "",
+            "",
+            "\\end{document}"
+        ]
+    },
+    // ,,
+    // `7MMM.     ,MMF'           db
+    //   MMMb    dPMM
+    //   M YM   ,M MM   ,6"Yb.  `7MM  `7MMpMMMb.
+    //   M  Mb  M' MM  8)   MM    MM    MM    MM
+    //   M  YM.P'  MM   ,pm9MM    MM    MM    MM
+    //   M  `YM'   MM  8M   MM    MM    MM    MM
+    // .JML. `'  .JMML.`Moo9^Yo..JMML..JMML  JMML.
+    
+    //                                                      ,,
+    // MMP""MM""YMM                                       `7MM             mm
+    // P'   MM   `7                                         MM             MM
+    //      MM       .gP"Ya  `7MMpMMMb.pMMMb.  `7MMpdMAo.   MM   ,6"Yb.  mmMMmm   .gP"Ya
+    //      MM      ,M'   Yb   MM    MM    MM    MM   `Wb   MM  8)   MM    MM    ,M'   Yb
+    //      MM      8M""""""   MM    MM    MM    MM    M8   MM   ,pm9MM    MM    8M""""""
+    //      MM      YM.    ,   MM    MM    MM    MM   ,AP   MM  8M   MM    MM    YM.    ,
+    //    .JMML.     `Mbmmd' .JMML  JMML  JMML.  MMbmmd'  .JMML.`Moo9^Yo.  `Mbmo  `Mbmmd'
+    //                                           MM
+    //                                         .JMML.
+    "Main Template": {
+        "description": "",
+        "prefix": "\\latex-template-main",
+        "body": [
+            "% !TEX root = ./main_file.tex",
+            "% \\documentclass{article}",
+            "\\documentclass[",
+            "    class=article,",
+            "    multi={minipage},",
+            "    border={3mm},",
+            "]{standalone}",
+            "% -------------------------------------------------------- %",
+            "%                          Colors                          %",
+            "% -------------------------------------------------------- %",
+            "\\usepackage[hyperref]{xcolor} % Options: gray - dark and light",
+            "\\usepackage{mypallete}",
+            "\\colorlet{foreground}{light}",
+            "\\colorlet{background}{dark}",
+            "% \\usepackage{myGraphPallete} % Graph, GraphXY, GraphSplitX, GraphSplitCX",
+            "% ================== Palette Secondaries ================= %",
+            "\\colorlet{Emph}       {DarkGreen!70!foreground}",
+            "\\colorlet{Link}      {LightGreen!25!foreground}",
+            "\\colorlet{Comment}   {foreground!60!background}",
+            "\\colorlet{Background}{foreground!27!background}",
+            "% ======================= setcolor ======================= %",
+            "\\pagecolor{background}",
+            "\\color    {foreground}",
+            "% -------------------------------------------------------- %",
+            "%                        Essentials                        %",
+            "% -------------------------------------------------------- %",
+            "\\usepackage{luacode}",
+            "\\usepackage{xparse} % xparse - multiple optional arguments",
+            "\\usepackage{calc}",
+            "% % -------------------------------------------------------- %",
+            "% %                         Geometry                         %",
+            "% % -------------------------------------------------------- %",
+            "\\setlength\\textwidth{160mm}",
+            "% \\usepackage{geometry}",
+            "% \\geometry{",
+            "%     % papersize = {300mm, 400mm}, % ( 4:3 ) SVGA x 0.5",
+            "%     % papersize = {240mm, 320mm}, % ( 4:3 ) SVGA x 0.4",
+            "%     % papersize = {120mm, 640mm}, % ( 2*4:3/2 )",
+            "%     % papersize = {180mm, 240mm}, % ( 4:3 ) SVGA x 0.3",
+            "%     % papersize = {229mm, 305mm}, % ( 4:3 ) ArchA/Arch1",
+            "%     % papersize = {320mm, 512mm}, % (16:10)",
+            "%     % papersize = {280mm, 448mm}, % (16:10)",
+            "%     % papersize = {240mm, 384mm}, % (16:10)",
+            "%     % a4paper,  % {210mm, 297mm}, % (√2:1 ) A4",
+            "%     papersize = {180mm, 1m}, % LONG ( 4:3 ) SVGA x 0.3",
+            "%     top       = 21mm,",
+            "%     bottom    = 21mm,",
+            "%     left      = .06\\paperwidth,",
+            "%     right     = .06\\paperwidth,",
+            "%     portrait  = true,",
+            "% }",
+            "% -------------------------------------------------------- %",
+            "%                           Fonts                          %",
+            "% -------------------------------------------------------- %",
+            "\\usepackage[fontsize=12pt]{fontsize}",
+            "\\usepackage[T1]{fontenc}",
+            "\\usepackage{fontspec}",
+            "% \\usepackage[sfdefault, ultralight]{FiraSans}",
+            "% \\renewcommand{\\familydefault}{\\sfdefault} % set sans serif as defalt",
+            "% Redeclare emph",
+            "\\let\\emph\\relax",
+            "\\DeclareTextFontCommand{\\emph}{\\bfseries\\color{Emph}}",
+            "% % ==================== Set font family =================== %",
+            "\\setmainfont[",
+            "    Ligatures = TeX,",
+            "    UprightFont    = *-Light,",
+            "    ItalicFont     = *-LightIt,",
+            "    SmallCapsFont  = *SmText-Light,",
+            "    BoldFont       = *-Regular,",
+            "    BoldItalicFont = *-It",
+            "]{",
+            "    % ==================== Serif fonts =================== %",
+            "    SourceSerif4",
+            "    % ================= Handwritten fonts ================ %",
+            "    % DancingScript",
+            "    % Apple Chancery",
+            "    % Luminari",
+            "    % PetitFormalScript",
+            "    % Merienda",
+            "    % LaBelleAurore",
+            "    % Handlee",
+            "        % BadScript",
+            "        % Calligraffitti",
+            "}",
+            "% % ======================= Monofont ======================= %",
+            "% \\setmonofont[Contextuals = {ligatures}]{FiraCode}",
+            "% \\makeatletter",
+            "% \\def\\verbatim@nolig@list{}",
+            "% \\makeatother",
+            "% -------------------------------------------------------- %",
+            "%                         Linguagem                        %",
+            "% -------------------------------------------------------- %",
+            "\\usepackage[portuguese]{babel} % Babel",
+            "%\\usepackage{polyglossia}      % Polyglossia",
+            "%\\setdefaultlanguage[variant=brazilian]{portuguese}",
+            "% % -------------------------------------------------------- %",
+            "% %                         Graphics                         %",
+            "% % -------------------------------------------------------- %",
+            "% \\usepackage[draft, final]{graphics, graphicx}",
+            "% \\usepackage{graphicx}",
+            "% \\graphicspath{{./.build/figures}}",
+            "% -------------------------------------------------------- %",
+            "%                tocloft - Table of contents               %",
+            "% -------------------------------------------------------- %",
+            "\\usepackage{tocloft}",
+            "\\setcounter{tocdepth}{1}    % remove subsubsection from toc",
+            "% ========================= part ========================= %",
+            "\\renewcommand\\cftpartfont{\\bfseries}",
+            "%\\renewcommand\\cftpartafterpnum{\\vspace{0mm}}",
+            "\\setlength\\cftbeforepartskip{1ex}",
+            "% ========================== sec ========================= %",
+            "\\renewcommand\\cftsecfont{} % Font",
+            "\\renewcommand\\cftsecpagefont{} % page number font",
+            "\\renewcommand\\cftsecleader{\\cftdotfill{\\cftdotsep}} % Dots",
+            "\\setlength\\cftbeforesecskip{0.5ex}",
+            "\\setlength\\cftsecindent{0mm}",
+            "%\\setlength{\\cftsecnumwidth}{25mm} % Fix section width",
+            "% ======================== subsec ======================== %",
+            "\\setlength\\cftsubsecindent{0mm}",
+            "%\\setlength{\\cftsubsecnumwidth}{15mm}",
+            "% ====================== tab (table) ===================== %",
+            "\\setlength\\cfttabindent{0mm}",
+            "% % -------------------------------------------------------- %",
+            "% %                       filecontents                       %",
+            "% % -------------------------------------------------------- %",
+            "%\\usepackage{scontents}     % the better filecontents",
+            "%\\usepackage{filecontents}  % Create files",
+            "% % -------------------------------------------------------- %",
+            "% %                         Multicols                        %",
+            "% % -------------------------------------------------------- %",
+            "\\usepackage{multicol}",
+            "\\setlength{\\columnsep}{.05\\textwidth}",
+            "\\multicoltolerance = 200",
+            "% \\renewenvironment{multicols}[1]{}{\\relax} % toggle multicols  on/off",
+            "% -------------------------------------------------------- %",
+            "%                         enumitem                         %",
+            "% -------------------------------------------------------- %",
+            "\\usepackage{enumitem}  % modify enumerate index",
+            "\\setlist[description]{",
+            "    format={\\color{Emph}}",
+            "}",
+            "% -------------------------------------------------------- %",
+            "%                         titlesec                         %",
+            "% -------------------------------------------------------- %",
+            "\\usepackage{titlesec}",
+            "% ================= Reset section on part ================ %",
+            "\\counterwithin*{section}{part}",
+            "% ======================== Spacing ======================= %",
+            "% \titlespacing*{<left>}{<before>}{<after>}[<right>]",
+            "\\titlespacing*{\\part}      {0pt}{ 0pt}{0pt}",
+            "\\titlespacing*{\\section}   {0pt}{10mm}{0pt}",
+            "\\titlespacing*{\\subsection}{0pt}{ 5mm}{0pt}",
+            "% ================== Part customization ================== %",
+            "\\titleclass\\part{straight}",
+            "\\titleformat\\part",
+            "[block] % shape",
+            "{%",
+            "    \\begin{minipage}{\\textwidth}%",
+            "    \\centering\\Large\\bfseries\\color{Emph}%",
+            "    {\\titlerule[1pt]}\\vspace{3pt}%",
+            "} % format",
+            "{%",
+            "    \\thepart\\hspace{.5em}{--}",
+            "} % label",
+            "% {\\thepart} % label without --",
+            "{.5em} % sep",
+            "{} % before-code",
+            "[\\vspace{2pt}{\\titlerule[1pt]}\\end{minipage}] % after  code",
+            "% % ================= Chapter customization ================ %",
+            "% \\titleclass{\\chapter}{straight}",
+            "% \\titleformat{\\chapter}",
+            "%    [block]                         % shape",
+            "%    {\\huge\\bfseries\\color{Emph}}    % format",
+            "%    {\\thepart\\hspace{5mm}{\\(|\\)}}   % label",
+            "%    {5mm}                           % sep",
+            "%    {\\huge\\bfseries}                % before-code",
+            "%    [\\vspace{0.5mm}]                % after-code",
+            "% % -------------------------------------------------------- %",
+            "% %                         Appendix                         %",
+            "% % -------------------------------------------------------- %",
+            "% \\usepackage{appendix}",
+            "% % -------------------------------------------------------- %",
+            "% %                     siunix: SI units                     %",
+            "% % -------------------------------------------------------- %",
+            "% \\usepackage{siunitx,mysiunitx}",
+            "% % -------------------------------------------------------- %",
+            "% %                           Maths                          %",
+            "% % -------------------------------------------------------- %",
+            "\\usepackage{amsmath, amssymb, bm}",
+            "% \\usepackage{derivative} % Derivative",
+            "% \\DeclareDifferential{\\gdif}{\\nabla} % Gradient",
+            "% \\usepackage{mathrsfs}   % more symbols \\mathscr{} (Hamiltonian)",
+            "% % ====================== Math fonts ====================== %",
+            "% \\usepackage[math-style=ISO]{unicode-math} % change math font",
+            "% \\usepackage{firamath-otf}",
+            "% % ======================================================== %",
+            "\\usepackage{mathtools}",
+            "% \\DeclarePairedDelimiter{\\ceil}{\\lceil}{\\rceil}"
+            "% \\DeclarePairedDelimiter{\\floor}{\\lfloor}{\\rfloor}"
+            "% % ======================================================== %",
+            "% % ============== MathOperators Declarations ============== %",
+            "% \\newcommand\\E[1]{\\,\\mathrm{E}^{#1}}",
+            "% \\newcommand\\e[1]{\\,\\mathrm{e}^{#1}}",
+            "% % ========= Missing trigonometric math operators ========= %",
+            "% \\DeclareMathOperator\\sech   {sech}",
+            "% \\DeclareMathOperator\\csch   {csch}",
+            "% \\DeclareMathOperator\\arcsec {arcsec}",
+            "% \\DeclareMathOperator\\arccot {arccot}",
+            "% \\DeclareMathOperator\\arccsc {arccsc}",
+            "% \\DeclareMathOperator\\arccosh{arccosh}",
+            "% \\DeclareMathOperator\\arcsinh{arcsinh}",
+            "% % ================== Calculus operators ================== %",
+            "% \\DeclareMathOperator\\fronteira {fr}",
+            "% \\DeclareMathOperator\\interior  {int}",
+            "% \\DeclareMathOperator\\exterior  {ext}",
+            "% \\DeclareMathOperator\\grafico   {Graf}",
+            "% \\DeclareMathOperator\\dominio   {D}",
+            "% \\DeclareMathOperator\\visinhanca{\\mathcal{V}}",
+            "% % =================== Algebra operators ================== %",
+            "% \\DeclareMathOperator\\adj{adj}",
+            "% \\DeclareMathOperator\\id{id}",
+            "% \\DeclareMathOperator\\Img{Im}",
+            "% \\DeclareMathOperator\\Nuc{Nuc}",
+            "% \\DeclareMathOperator\\Ker{Ker}",
+            "% % ================== Statistics Operator ================= %",
+            "% \\DeclareMathOperator\\esperanca{E}",
+            "% \\DeclareMathOperator\\variancia{V}",
+            "% \\DeclareMathOperator\\bernoulli{Ber}",
+            "% \\DeclareMathOperator\\hiperbolica{H}",
+            "% \\DeclareMathOperator\\binomial{Bin}",
+            "% \\DeclareMathOperator\\poisson{P}",
+            "% \\DeclareMathOperator\\normal{N}",
+            "% % ======================================================== %",
+            "% % ======================================================== %",
+            "% =================== My math functions ================== %",
+            "\\usepackage{mathBM}",
+            "\\usepackage{myLogicOperators}",
+            "% \\lxor, \\lnand",
+            "% \\ldiv",
+            "% [<*>line break]",
+            "% [<l>left column]",
+            "% [<r>right column]",
+            "% [<division>]",
+            "% [<space>]",
+            "% [<before column>]",
+            "\\usepackage{mathEnclosings} ",
+            "% \\myvert[*scale]{<content>}",
+            "% \\myVert[*scale]{<content>}",
+            "% \\myrange[<*>invert all][<l>invert left][<r>invert right]{<content>}",
+            "% % -------------------------------------------------------- %",
+            "% %                          Vectors                         %",
+            "% % -------------------------------------------------------- %",
+            "% \\usepackage{esvect}      % Vector over-arrow",
+            "% \\NewCommandCopy\\vec\\vv",
+            "% % -------------------------------------------------------- %",
+            "% %                           Tikz                           %",
+            "% % -------------------------------------------------------- %",
+            "% \\usepackage{tikz}\\usetikzlibrary{babel}",
+            "% \\usetikzlibrary{",
+            "%     % perspective,",
+            "%     % 3d,",
+            "% }",
+            "% % ===================== External lib ===================== %",
+            "% \\usepackage{tikz-external-setup}",
+            "% \\tikzexternalize[",
+            "%     up to date check={simple}, % faster check",
+            "%     figure list={true}, % generate list of figures file",
+            "%     prefix={./.build/figures/graphics/}",
+            "% ] % turn externalization on/off",
+            "% % Fix background",
+            "% \\NewCommandCopy\\oldtikzpicture\\tikzpicture",
+            "% \\RenewDocumentCommand\\tikzpicture{O{}}{\\oldtikzpicture[#1]\\nopagecolor}",
+            "% % ==================== Other packages ==================== %",
+            "% \\usepackage{myTikzGraphs} % For graphs",
+            "% \\usepackage{varwidth}   % List inside TikzPicture",
+            "% % -------------------------------------------------------- %",
+            "% %                            pgf                           %",
+            "% % -------------------------------------------------------- %",
+            "% \\usepackage{pgf,pgfmath,pgfplots}",
+            "% \\usepackage{pgfplotstable}",
+            "% \\usepgfplotslibrary{fillbetween}",
+            "% % ========================= Setup ======================== %",
+            "% % 1e4 too much",
+            "% % 1e3 fancy",
+            "% % 1e2 simple",
+            "% % 1e1 draft",
+            "% \\newcommand\\mysampledensityDouble{2}",
+            "% \\newcommand\\mysampledensitySimple{1e1}",
+            "% \\newcommand\\mysampledensityFancy{1e2}",
+            "% \\usepackage{myPGFSetup}",
+            "% % -------------------------------------------------------- %",
+            "% %                          Tables                          %",
+            "% % -------------------------------------------------------- %",
+            "% \\setlength\\tabcolsep{6mm}        % width",
+            "% \\renewcommand\\arraystretch{1.25} % height",
+            "% \\usepackage{colortbl} % Colored Cells",
+            "% % ==================== Color commands ==================== %",
+            "% \\newcommand\\cellT[1]{\\cellcolor{green!70!grey!20!background}{#1}}",
+            "% \\newcommand\\cellF[1]{\\cellcolor{red!70!grey!20!background}{#1}}",
+            "% \\newcommand\\cellemph[1]{\\cellcolor{Emph!20!background}{#1}}",
+            "% \\usepackage{multirow}",
+            "% \\usepackage{longtable}",
+            "% \\usepackage{float}\\restylefloat{table}  % table position H(ere)",
+            "% % ======================= booktabs ======================= %",
+            "% \\usepackage{booktabs}",
+            "% \\setlength\\heavyrulewidth{.75pt} % Top and bottom rule",
+            "% \\setlength\\lightrulewidth{.30pt} % Middle rule",
+            "% % ======================= Mathtable ====================== %",
+            "% \\usepackage{array} % for \\newcolumntype macro",
+            "% \\newcolumntype{C}{>{$}c<{$}} % math-mode version of c column type",
+            "% \\newcolumntype{L}{>{$}l<{$}} % math-mode version of l column type",
+            "% \\newcolumntype{R}{>{$}r<{$}} % math-mode version of r column type",
+            "% % ===================== Table Caption ==================== %",
+            "% \\newcounter{tablecounter}",
+            "% % \\newcommand\\thetable{Tabela \\arabic{tablecounter}:}",
+            "% \\NewDocumentCommand\\tablecaption{o m}{",
+            "%     \\stepcounter{table}",
+            "%     Tabela \\thetable{}: #2",
+            "%     \\ifblank{#2}{}{\\label{table:#1}}",
+            "%     \\addcontentsline{lot}{table}{Tabela \\thetable{}: #2}",
+            "% }",
+            "% % -------------------------------------------------------- %",
+            "% %                           Chem                           %",
+            "% % -------------------------------------------------------- %",
+            "% \\usepackage{chemformula} % formulas quimicas",
+            "% \\usepackage{chemfig}     % Estruturas quimicas",
+            "% \\usepackage{modiagram}   % Molecular orbital diagram",
+            "% % ======================= modiagram ====================== %",
+            "% \\setmodiagram {",
+            "%     names,           % Display names",
+            "%     labels,          % Display labels",
+            "%     labels-fs=\\tiny, % label font",
+            "% }",
+            "% \\newlength\\AtomVScale    \\setlength\\AtomVScale{1cm}",
+            "% \\newlength\\MoleculeVScale\\setlength\\MoleculeVScale{1cm}",
+            "% % ====================== chemmacros ====================== %",
+            "% \\usepackage{chemmacros}",
+            "% \\chemsetup[phases]{pos=sub}",
+            "% \\newcommand{\\mol}[1]{ \\unit{\\mole\\of{\\ch{ #1 }}} } % mol",
+            "% % -------------------------------------------------------- %",
+            "% %                          Biology                         %",
+            "% % -------------------------------------------------------- %",
+            "% \\usepackage{mydnaseq}",
+            "% % -------------------------------------------------------- %",
+            "% %                           Code                           %",
+            "% % -------------------------------------------------------- %",
+            "% % Run on terminal: lualatex --shell-escape [file[.tex]]",
+            "% \\usepackage{shellesc, minted}",
+            "% \\setminted {",
+            "%     linenos,     % line number",
+            "%     autogobble,  % line trim",
+            "%     tabsize = 4, % tab size",
+            "%     obeytabs,    % tab alignment",
+            "%     breaklines,  % break lines",
+            "%     % python3,     % Python lexer or idk",
+            "% }",
+            "% \\usemintedstyle{stata-dark}",
+            "% % \\usemintedstyle{fruity}",
+            "% % \\usemintedstyle{paraiso}",
+            "% % \\usemintedstyle{rainbow_dash}",
+            "% % \\usemintedstyle{solarized-dark}",
+            "% % \\usemintedstyle{native}",
+            "% % -------------------------------------------------------- %",
+            "% %                         tcolorbox                        %",
+            "% % -------------------------------------------------------- %",
+            "\\usepackage{mytcolorbox}",
+            "\\tcbuselibrary{",
+            "    breakable,                % allow page break",
+            "    % minted, xparse, listings, % code minted",
+            "}",
+            "% % -------------------------------------------------------- %",
+            "% %                         Metadata                         %",
+            "% % -------------------------------------------------------- %",
+            "\\newcommand\\mytitle   {{title here}}",
+            "\\newcommand\\myauthor  {{Felipe B. Pinto 61387 -- MIEQB}}",
+            "\\newcommand\\mycreator {{Felipe B. Pinto}}",
+            "\\newcommand\\mysubject {{subject here}}",
+            "\\newcommand\\mykeywords{{{Keywords}}}",
+            "% ================ title, author and date ================ %",
+            "\\title{\\huge\\bfseries\\color{Emph}\\mytitle}",
+            "\\author{\\Large\\myauthor}",
+            "\\date{\\Large\\today}",
+            "% % -------------------------------------------------------- %",
+            "% %                         fancyhdr                         %",
+            "% % -------------------------------------------------------- %",
+            "% \\usepackage{fancyhdr}",
+            "% \\pagestyle{fancy}",
+            "% \\fancyhf{} % Clear",
+            "% \\fancyhead[R]{\\normalsize\\thepart}",
+            "% \\fancyfoot[L]{\\normalsize\\myauthor}",
+            "% \\fancyfoot[R]{\\thepage}",
+            "% \\renewcommand\\footrulewidth{.5pt}",
+            "% % Marks ",
+            "% % \\renewcommand{\\partmark}[1]{\\markboth{}{\\thepart#1}}",
+            "% % -------------------------------------------------------- %",
+            "% %                         Subfiles                         %",
+            "% % -------------------------------------------------------- %",
+            "\\usepackage{subfiles}",
+            "% % -------------------------------------------------------- %",
+            "% %                        My packages                       %",
+            "% % -------------------------------------------------------- %",
+            "% ======================== Setups ======================== %",
+            "\\usepackage{myhyperref}",
+            "% ========================= Boxes ======================== %",
+            "\\usepackage{sections}",
+            "% \\usepackage{questions}",
+            "% \\usepackage{answers}",
+            "% \\usepackage{examples}",
+            "% \\usepackage{definitions}",
+            "% ================= My title and subfile ================= %",
+            "\\usepackage{mytitle}    % \\mymaketitle",
+            "\\usepackage{mysubfile}  % \\mymakesubfile",
+            "% % -------------------------------------------------------- %",
+            "% %                  Divisions customization                 %",
+            "% % -------------------------------------------------------- %",
+            "\\renewcommand\\thesubsubsection{(\\roman{subsubsection})}",
+            "% \\renewcommand\\thepart{Part \\arabic{part}}",
+            "% 88                                    88",
+            "% 88                                    \"\"",
+            "% 88",
+            "% 88,dPPYba,    ,adPPYba,   ,adPPYb,d8  88  8b,dPPYba,",
+            "% 88P'    \"8a  a8P_____88  a8\"    `Y88  88  88P'   `\"8a",
+            "% 88       d8  8PP\"\"\"\"\"\"\"  8b       88  88  88       88",
+            "% 88b,   ,a8\"  \"8b,   ,aa  \"8a,   ,d88  88  88       88",
+            "% 8Y\"Ybbd8\"'    `\"Ybbd8\"'   `\"YbbdP\"Y8  88  88       88",
+            "%                           aa,    ,88",
+            "%                            \"Y8bbdP\"",
+            "\\begin{document}",
+            "\\mymaketitle",
+            "% print files",
+            "\\begin{luacode*}",
+            "    -- Files Directory",
+            "    dir = \"./\"",
+            "    -- Prefix and sufix",
+            "    prefix = \"\"",
+            "    sufix  = \"\"",
+            "    -- Print file range",
+            "    firstFile = 1 -- first file number",
+            "    lastFile  = 1 -- last  file number",
+            "    -- Print specific files by number",
+            "    index = {1}",
+            "    -- % ---------------------------------------------------- %",
+            "    -- %                         Loop                         %",
+            "    -- % ---------------------------------------------------- %",
+            "    -- for i=firstFile,lastFile,1 -- Print range",
+            "    -- for v,i in ipairs(index)   -- Print specific",
+            "    for i=firstFile,lastFile,1 -- Print range",
+            "    do",
+            "        tex.print(string.split(table.concat{",
+            "        [[",
+            "            \\subfile{]], dir, prefix, string.format(\"%d\", i), sufix, [[}\\newpage",
+            "        ]]",
+            "        },\"\\n\"))",
+            "    end",
+            "    -- % ==================================================== %",
+            "\\end{luacode*}", 
+            "",
+            "",
+            "\\end{document}"
+        ]
+    }
+}
