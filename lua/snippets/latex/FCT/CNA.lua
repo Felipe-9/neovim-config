@@ -3,11 +3,12 @@ local ls = require("luasnip")
 
 -- local s = ls.snippet -- build snippets
 local ms = ls.multi_snippet -- build snippets with multiple triggers
--- local t = ls.text_node -- insert text
+local t = ls.text_node -- insert text
 local i = ls.insert_node -- user input
+local d = ls.dynamic_node -- functions
 
--- local extras = require("luasnip.extras")
--- local rep = extras.rep -- repeat for multiple cursors
+local extras = require("luasnip.extras")
+local rep = extras.rep -- repeat for multiple cursors
 local fmt = require("luasnip.extras.fmt").fmta -- formatting with [[]] and delimiters=<>
 
 return {
@@ -15,41 +16,60 @@ return {
   ms( -- polinomio de lagrange
     {
       common = {
-        desc = { "lagrange polynomn" },
+        name = "lagrange polynomn",
+        desc = {
+          "        ⎛ k=1  x  -x_i ⎞⎛  n     x  -x_i ⎞",
+          "L_k(x) =⎜  ∏   ------- ⎟⎜  ∏     ------- ⎟",
+          "        ⎝ i=0  x_k-x_i ⎠⎝ i=k+1  x_k-x_i ⎠"
+        }
       },
       -- trig
       "\\formula-CNA-polinomio-lagrange",
+      "\\formula-CNA-lagrange-polynomn",
     },
     fmt(
       [[
-      p_{n\,(x)}=\sum_{i=0}^{n}{y_i\,l_{i\,(x)}}
-      ;&\\&
-      l_{i\,(x)}
-      =\varphi_{i\,(x)}
+      % n: <n_input>
+      <x_input>
+      p_{<n>}(x)
+      = \sum_{i=0}^{<n>}{ y_i\,L_{i}(x) }
+      % 
+      % 
+      % 
+      ;&\\[3ex]&
+      L_i(x)
       =\prod_{j=0}^{i-1}{\frac{x-x_j}{x_i-x_j}}
-      \,\prod_{j=i+1}^{n}{\frac{x-x_j}{x_i-x_j}}
+      \,\prod_{j=i+1}^{<n>}{\frac{x-x_j}{x_i-x_j}}
       ]],
-      {}
+      {
+        n_input = i(1,"n"),
+        n = rep(1),
+        x_input = t(""),
+      }
     )
   ),
   ms( -- polinómio de newton com diferenças divididas
     {
       common = {
-        desc = { "polinómio de newton com diferenças divididas" },
+        name = { "polinómio de newton com diferenças divididas" },
       },
       -- trig
-      "\\formula-polinomio-newton-com-diff-div",
+      "\\formula-CNA-polinomio-newton-com-diff-div",
     },
     fmt(
       [[
-      p_{n\,(x)}
-      = f_0
-      + \sum_{i=0}^{n-1}{
+      % n: <n_input>
+      p_{<n>\,(x)}
+      = f(x_0)
+      + \sum_{i=0}^{<n>-1}{
         \left(\prod_{j=0}^{i}{x-x_j}\right)
-        \,f_{[x_0,\dots,x_{i+1}]}
+        \,f\myrange{x_0,\dots,x_{i+1}}
       }
       ]],
-      {}
+      {
+        n_input = i(1,"n"),
+        n = rep(1)
+      }
     )
   ),
   ms( -- erro de interpolação
@@ -58,7 +78,7 @@ return {
         desc = { "erro de interpolação" },
       },
       -- trig
-      "\\formula-erro-interpolacao",
+      "\\formula-CNA-erro-interpolacao",
     },
     fmt(
       [[
@@ -83,7 +103,7 @@ return {
         },
       },
       -- trig
-      "\\formula-interp-spline-poli-cubico",
+      "\\formula-CNA-interp-spline-poli-cubico",
     },
     fmt(
       [[
@@ -129,7 +149,7 @@ return {
         },
       },
       -- trig
-      "\\formula-sistema-eq-spline-cubico-interp",
+      "\\formula-CNA-sistema-eq-spline-cubico-interp",
     },
     fmt(
       [[
@@ -151,7 +171,7 @@ return {
         desc = { "adicionar às equações [e] as equações" },
       },
       -- trig
-      "\\formula-sistema-eq-spline-cubico-completo",
+      "\\formula-CNA-sistema-eq-spline-cubico-completo",
     },
     fmt(
       [[
@@ -174,7 +194,7 @@ return {
         desc = { "adicionar às equações [e] as equações" },
       },
       -- trig
-      "\\formula-sistema-eq-spline-cubico-natural",
+      "\\formula-CNA-sistema-eq-spline-cubico-natural",
     },
     fmt("m_0=m_n=0", {})
   ),
@@ -187,7 +207,7 @@ return {
           "em relacao à base {1,x,...,x^m}",
         },
       },
-      "\\formula-metodo-minimos-quadrados",
+      "\\formula-CNA-metodo-minimos-quadrados",
     },
     fmt(
       [[
@@ -212,7 +232,7 @@ return {
         desc = { "regra do ponto médio" },
       },
       -- trig
-      "\\formula-newton-cotes-0-regra-ponto-medio",
+      "\\formula-CNA-newton-cotes-0-regra-ponto-medio",
     },
     fmt(
       [[
@@ -233,7 +253,7 @@ return {
         desc = { "regra dos trapézios" },
       },
       -- trig
-      "\\formula-newton-cotes-1-regra-trapezios",
+      "\\formula-CNA-newton-cotes-1-regra-trapezios",
     },
     fmt(
       [[
@@ -254,8 +274,8 @@ return {
         desc = { "regra de simpson simples" },
       },
       -- trig
-      "\\formula-newton-cotes-2-regra-simpson-simples",
-      "\\formula-regra-simpson-simples",
+      "\\formula-CNA-newton-cotes-2-regra-simpson-simples",
+      "\\formula-CNA-regra-simpson-simples",
     },
     fmt(
       [[
@@ -285,7 +305,7 @@ return {
         },
       },
       -- trig
-      "\\formula-regra-simpson-composta",
+      "\\formula-CNA-regra-simpson-composta",
     },
     fmt(
       [[
@@ -315,7 +335,7 @@ return {
         desc = { "método de integração de gaussu" },
       },
       -- trig
-      "\\formula-metodo-integracao-gauss",
+      "\\formula-CNA-metodo-integracao-gauss",
     },
     fmt(
       [[
@@ -347,7 +367,7 @@ return {
         desc = { "convergencia de uma sucessão x_i=f(x_(i-1)) a partir de um x_0 para α" },
       },
       -- trig
-      "\\formula-cna-convergencia-sucessao",
+      "\\formula-CNA-convergencia-sucessao",
     },
     fmt(
       [[
