@@ -115,6 +115,16 @@ return {
             cmdline = "[CMD]",
             path = "[Path]",
           })[entry.source.name]
+
+          function trim(text)
+            local max = 40
+            if text and text:len() > max then
+              text = text:sub(1,max) .. "..."
+            end
+            return text
+          end
+
+          vim_item.abbr = trim(vim_item.abbr:match("[^(]+"))
           return vim_item
         end,
       },
