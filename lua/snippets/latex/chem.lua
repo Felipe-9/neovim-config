@@ -12,6 +12,24 @@ local ne = extras.nonempty
 local fmt = require("luasnip.extras.fmt").fmta -- formatting with [[]] and delimiters=<>
 
 return {
+  -- chem
+  ms(
+    {
+      common = {
+        name = "BChem",
+        desc = "Display chemical equations bold, large and centering",
+      },
+      "\\BChem",
+    },
+    fmt(
+      [[
+      \begin{center}\Large\bfseries
+        \ch{<>}
+      \end{center}
+      ]],
+      {i(0)}
+    )
+  ),
     -- chemfig
   ms( -- chemfig shortcut
     {

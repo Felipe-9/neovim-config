@@ -206,6 +206,20 @@ return {
       % %                     siunix: SI units                     %
       % % -------------------------------------------------------- %
       % \usepackage{siunitx,mysiunitx}
+      \sisetup{
+        % input / scientific / engineering / false / fixed
+        exponent-mode={input},
+        exponent-to-prefix={false}, % 1000 g ->> 1 kg
+        % exponent-product={*}, % x * 10^y
+        round-mode={places}, % figures/places/none
+        round-precision={3},
+        exponent-product={\,},
+        exponent-base={\mathrm{E}},
+        % Ranges
+        range-phrase={\,\to\,},
+        range-units={bracket},
+        range-exponents={combine-bracket},
+      }
       % % -------------------------------------------------------- %
       % %                           Maths                          %
       % % -------------------------------------------------------- %
@@ -395,7 +409,8 @@ return {
       % %                         Metadata                         %
       % % -------------------------------------------------------- %
       \newcommand\mytitle   {{title here}}
-      \newcommand\myauthor  {{Felipe B. Pinto 61387 -- MIEQB}}
+      % \newcommand\myauthor  {{Felipe B. Pinto 61387 -- EQB}}
+      \newcommand\myauthor  {{Felipe B. Pinto 71951 -- EQB}}
       \newcommand\mycreator {{Felipe B. Pinto}}
       \newcommand\mysubject {{subject here}}
       \newcommand\mykeywords{{{Keywords}}}

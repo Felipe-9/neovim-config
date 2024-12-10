@@ -90,15 +90,15 @@ return { --
     },
     fmt(
       [[
-      \begin{BM}<d1><options><d2>
+      \begin{BM}
         <body>
       \end{BM}
       ]],
       {
-        options = i(1, "options"),
-        body = i(2, "body"),
-        d1 = ne(1, "["),
-        d2 = ne(1, "]"),
+        -- options = i(1, "options"),
+        body = i(0, "body"),
+        -- d1 = ne(1, "["),
+        -- d2 = ne(1, "]"),
       }
     )
   ),

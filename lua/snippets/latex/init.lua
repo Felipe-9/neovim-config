@@ -8,7 +8,7 @@ local snippet_tables = {
   require("snippets.latex.chem"),
   require("snippets.latex.boxes"),
   -- FCT
-  -- require("snippets.latex.FCT.EB"),
+  require("snippets.latex.FCT.EB"),
   require("snippets.latex.FCT.AM2C"),
   require("snippets.latex.FCT.AM3C"),
   require("snippets.latex.FCT.CMA"),
