@@ -41,7 +41,7 @@ return {
       accents = 1,
       ligatures = 1,
       cites = 1,
-      fancy = 1,
+      fancy = 0,
       spacing = 0,
       greek = 1,
       math_bounds = 1,
@@ -67,12 +67,12 @@ return {
         name = "mdif",
         concealchar = "D",
       },
-      -- { -- mdif*
-      --   mathmode = true,
-      --   name = "mdifstar",
-      --   cmdre = "mdif\\*",
-      --   concealchar = "D",
-      -- },
+      { -- mdif*
+        mathmode = true,
+        name = "mdifstar",
+        cmdre = "mdif\\*",
+        concealchar = "D",
+      },
       { -- odif
         mathmode = true,
         name = "odif",
@@ -106,9 +106,50 @@ return {
       --   cmdre = "\\left(",
       --   concealchar = "("
       -- },
+      {
+        mathmode = true,
+        name = "E",
+        concealchar = "E"
+      },
+      {
+        mathmode = true,
+        name = "e",
+        concealchar = "e"
+      },
+      {
+        mathmode = true,
+        name = "pm",
+        concealchar = "±"
+      },
+      {
+        mathmode = true,
+        name = "neq",
+        concealchar = "≠"
+      },
+      {
+        mathmode = true,
+        name = "to",
+        concealchar = "→"
+      },
+      {
+        mathmode = true,
+        name = "impliedby",
+        concealchar = "⇐"
+      },
+      {
+        mathmode = true,
+        name = "phantom",
+        concealchar = "p"
+      },
     }
     -- Commands with variables
     vim.g.vimtex_syntax_custom_cmds_with_concealed_delims = {
+      -- { -- phantom
+      --   mathmode = true,
+      --   opt = false,
+      --   name = "phantom",
+      --   nargs = 1,
+      -- },
       { -- myrange
         mathmode = true,
         opt = false,
@@ -190,6 +231,10 @@ return {
     }
 
     vim.g.vimtex_syntax_custom_envs = {
+      { -- Cases
+        name = "cases",
+        math = true,
+      },
       { -- BM
         name = "BM",
         math = true,
@@ -200,12 +245,32 @@ return {
       },
       { -- questionBox
         name = "questionBox",
+        contains = "ALL",
       },
       { -- exampleBox
         name = "exampleBox",
         contains="ALL",
       },
     }
+
+    vim.cmd([[
+      syntax match texSectionBoxEnvBgn "\\begin{sectionBox}"
+            \ nextgroup=texSectionBoxOpts skipwhite skipnl
+            \ contains=texCmdEnv
+      syntax match texSectionBoxEnvBgn "\\begin{questionBox}"
+            \ nextgroup=texSectionBoxOpts skipwhite skipnl
+            \ contains=texCmdEnv
+      syntax match texSectionBoxEnvBgn "\\begin{exampleBox}"
+            \ nextgroup=texSectionBoxOpts skipwhite skipnl
+            \ contains=texCmdEnv
+      syntax match texSectionBoxOpts "[s123bm]\*"
+            \ contained
+            \ nextgroup=texSectionBoxTitle skipwhite skipnl
+      " call vimtex#syntax#core#new_arg('texSectionBoxTitle')
+
+      highlight def link texSectionBoxOpts texOpt
+      highlight def link texSectionBoxTitle texPartArgTitle
+    ]])
 
     vim.g.vimtex_indent_delims = {
       open  = { "{", "(", "\\[" },
