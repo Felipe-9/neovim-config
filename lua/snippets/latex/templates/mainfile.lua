@@ -224,6 +224,7 @@ return {
       % %                           Maths                          %
       % % -------------------------------------------------------- %
       \usepackage{amsmath, amssymb, bm}
+      \usepackage{mleftright}\mleftright % better left-right
       % \usepackage{derivative} % Derivative
       % \DeclareDifferential{\gdif}{\nabla} % Gradient
       % \usepackage{mathrsfs}   % more symbols \mathscr{} (Hamiltonian)
@@ -270,6 +271,9 @@ return {
       % % ======================================================== %
       % % ======================================================== %
       % =================== My math functions ================== %
+      \makeatletter
+      \newcommand*\yesnumber{\incr@eqnum\tag{\theequation}}
+      \makeatother
       \usepackage{mathBM}
       \usepackage{myLogicOperators}
       % \lxor, \lnand
