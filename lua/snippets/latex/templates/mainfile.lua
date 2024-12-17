@@ -31,7 +31,7 @@ return {
       % -------------------------------------------------------- %
       %                          Colors                          %
       % -------------------------------------------------------- %
-      \usepackage[hyperref]{xcolor} % Options: gray - dark and light
+      \usepackage{xcolor} % Options: gray - dark and light
       \usepackage{mypallete}
       \colorlet{foreground}{light}
       \colorlet{background}{dark}
@@ -206,24 +206,26 @@ return {
       % %                     siunix: SI units                     %
       % % -------------------------------------------------------- %
       % \usepackage{siunitx,mysiunitx}
-      \sisetup{
-        % input / scientific / engineering / false / fixed
-        exponent-mode={input},
-        exponent-to-prefix={false}, % 1000 g ->> 1 kg
-        % exponent-product={*}, % x * 10^y
-        round-mode={places}, % figures/places/none
-        round-precision={3},
-        exponent-product={\,},
-        exponent-base={\mathrm{E}},
-        % Ranges
-        range-phrase={\,\to\,},
-        range-units={bracket},
-        range-exponents={combine-bracket},
-      }
+      % \sisetup{
+      %   % input / scientific / engineering / false / fixed
+      %   exponent-mode={input},
+      %   exponent-to-prefix={false}, % 1000 g ->> 1 kg
+      %   % exponent-product={*}, % x * 10^y
+      %   round-mode={places}, % figures/places/none
+      %   round-precision={3},
+      %   exponent-product={\,},
+      %   exponent-base={\mathrm{E}},
+      %   % Ranges
+      %   range-phrase={\,\to\,},
+      %   range-units={bracket},
+      %   range-exponents={combine-bracket},
+      % }
       % % -------------------------------------------------------- %
       % %                           Maths                          %
       % % -------------------------------------------------------- %
-      \usepackage{amsmath, amssymb, bm}
+      \usepackage[fleqn]{amsmath}
+      \usepackage{amssymb, bm}
+      \setlength\mathindent{0em} % remove left indent
       \usepackage{mleftright}\mleftright % better left-right
       % \usepackage{derivative} % Derivative
       % \DeclareDifferential{\gdif}{\nabla} % Gradient
@@ -271,9 +273,11 @@ return {
       % % ======================================================== %
       % % ======================================================== %
       % =================== My math functions ================== %
-      \makeatletter
-      \newcommand*\yesnumber{\incr@eqnum\tag{\theequation}}
-      \makeatother
+      \usepackage{mymathref} % \usingref{ref1,...} and mathText{} command for referencing inside math
+      % \yesnumber to add reference (without label)
+      % \tagthis to add reference and label
+      % \mathText{text} short command to add intextext with hfill
+      % \usingref{eq:1,...}
       \usepackage{mathBM}
       \usepackage{myLogicOperators}
       % \lxor, \lnand
@@ -447,6 +451,7 @@ return {
       \usepackage{sections}
       % \usepackage{questions}
       % \usepackage{answers}
+      % \usepackage{qgroups}
       % \usepackage{examples}
       % \usepackage{definitions}
       % ================= My title and subfile ================= %
