@@ -254,6 +254,7 @@ return {
     }
 
     vim.cmd([[
+      " boxed environments syntax
       syntax match texSectionBoxEnvBgn "\\begin{sectionBox}"
             \ nextgroup=texSectionBoxOpts skipwhite skipnl
             \ contains=texCmdEnv
@@ -270,6 +271,18 @@ return {
 
       highlight def link texSectionBoxOpts texOpt
       highlight def link texSectionBoxTitle texPartArgTitle
+
+      " conceal of usingref custom command
+      syntax match texCmdRefEq "\\usingref\>" nextgroup=texRefEqConcealedArg
+      " syntax match texCmdRefEq nextgroup=texRefEqConcealedArg
+      "   \ conceal skipwhite skipnl "\\usingref\>"
+      " call vimtex#syntax#core#new_arg('texRefEqConcealedArg', {
+      "   \ 'contains': 'texComment,@NoSpell,texRefEqConcealedDelim',
+      "   \ 'opts': 'keepend contained',
+      "   \ 'matchgroup': '',
+      " \})
+      " syntax match texRefEqConcealedDelim contained "{" conceal cchar=(
+      " syntax match texRefEqConcealedDelim contained "}" conceal cchar=)
     ]])
 
     vim.g.vimtex_indent_delims = {
