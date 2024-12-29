@@ -423,6 +423,8 @@ return {
     },
     fmt(
       [[
+      % tag: <tag_input>
+
       % polynom
       \begin{gather*}
         p_{(x)} 
@@ -642,6 +644,274 @@ return {
       \end{cases}
       ]],
       {}
+    )
+  ),
+  ms( -- Gauss simple rule approximation 1
+    {
+      common = {
+        name = "Gauss simple rule approximation 1 points",
+        desc = {
+          "Aproximate integral using gauss rule for 1 points",
+          "  b                  b-a  1",
+          "I=∫ f(x) dx = I_G,1 =---  ∫ g(x)dx",
+          "  a                   2  -1"
+        }
+      },
+      "\\function-CNA-gauss-rule-approximation-1-I_G1",
+    },
+    fmt(
+      [[
+      % tag: <tag_input>
+      % a = <a_input>
+      % b = <b_input>
+
+      \begin{gather*}
+        I_{G,1}
+        = \int_0^2{f(x)\,\odif{x}}
+        = \mathText{Using simple gauss rule (\(n=1\))}
+        = \frac{b-a}{2}
+        \,\int_{-1}^{1}{g(x)\,\odif{x}}
+        = \frac{<b>-<a>}{2}
+        \,\int_{-1}^{1}{g(x)\,\odif{x}}
+        \approx
+        2*g(0)
+        = \mathText{Using \eqref{eq:<tag>-g(x)}}
+        = 
+      \end{gather*}
+
+      % g(x)
+      \begin{gather*}
+        g(x)
+        = f\left(
+          \frac{b-a}{2}\,y
+          +\frac{b+a}{2}
+        \right)
+        = f\left(
+          \frac{<b>-<a>}{2}\,y
+          +\frac{<b>+<a>}{2}
+        \right)
+        =
+        %
+        \yesnumber\label{eq:<tag>-g(x)}
+      \end{gather*}
+      ]],{
+        tag_input = i(1,'tag'),
+        a_input = i(2,'a'),
+        b_input = i(3,'b'),
+        tag = rep(1),
+        a = rep(2),
+        b = rep(3),
+      }
+    )
+  ),
+  ms( -- Gauss simple rule approximation 2
+    {
+      common = {
+        name = "Gauss simple rule approximation 2 points",
+        desc = {
+          "Aproximate integral using gauss rule for 2 points",
+          "  b                  b-a  1",
+          "I=∫ f(x) dx = I_G,2 =---  ∫ g(x)dx",
+          "  a                   2  -1"
+        }
+      },
+      "\\function-CNA-gauss-rule-approximation-2-I_G2",
+    },
+    fmt(
+      [[
+      % tag: <tag_input>
+      % a = <a_input>
+      % b = <b_input>
+
+      \begin{gather*}
+        I_{G,2}
+        = \int_0^2{f(x)\,\odif{x}}
+        = \mathText{Using simple gauss rule (\(n=2\))}
+        = \frac{b-a}{2}
+        \,\int_{-1}^{1}{g(x)\,\odif{x}}
+        = \frac{<b>-<a>}{2}
+        \,\int_{-1}^{1}{g(x)\,\odif{x}}
+        \approx
+        g(-1/\sqrt{3})
+        +g(1/\sqrt{3})
+        = \mathText{Using \eqref{eq:<tag>-g(x)}}
+        = 
+      \end{gather*}
+
+      % g(x)
+      \begin{gather*}
+        g(x)
+        = f\left(
+          \frac{b-a}{2}\,y
+          +\frac{b+a}{2}
+        \right)
+        = f\left(
+          \frac{<b>-<a>}{2}\,y
+          +\frac{<b>+<a>}{2}
+        \right)
+        = 
+        %
+        \yesnumber\label{eq:<tag>-g(x)}
+      \end{gather*}
+      ]],{
+        tag_input = i(1,'tag'),
+        a_input = i(2,'a'),
+        b_input = i(3,'b'),
+        tag = rep(1),
+        a = rep(2),
+        b = rep(3),
+      }
+    )
+  ),
+  ms( -- Gauss simple rule approximation 3
+    {
+      common = {
+        name = "Gauss simple rule approximation 3 points",
+        desc = {
+          "Aproximate integral using gauss rule for 3 points",
+          "  b                  b-a  1",
+          "I=∫ f(x) dx = I_G,2 =---  ∫ g(x)dx",
+          "  a                   2  -1"
+        }
+      },
+      "\\function-CNA-gauss-rule-approximation-3-I_G3",
+    },
+    fmt(
+      [[
+      % tag: <tag_input>
+      % a = <a_input>
+      % b = <b_input>
+
+      \begin{gather*}
+        I_{G,2}
+        = \int_0^2{f(x)\,\odif{x}}
+        = \mathText{Using simple gauss rule (\(n=3\))}
+        = \frac{b-a}{2}
+        \,\int_{-1}^{1}{g(x)\,\odif{x}}
+        = \frac{<b>-<a>}{2}
+        \,\int_{-1}^{1}{g(x)\,\odif{x}}
+        \approx
+        \frac{8}{9}\,g(0)
+        + \frac{5}{9}\,(
+          g(\sqrt{3/5})
+          + g(-\sqrt{3/5})
+        )
+        = \mathText{Using \eqref{eq:<tag>-g(x)}}
+        = 
+      \end{gather*}
+
+      % g(x)
+      \begin{gather*}
+        g(x)
+        = f\left(
+          \frac{b-a}{2}\,y
+          +\frac{b+a}{2}
+        \right)
+        = f\left(
+          \frac{<b>-<a>}{2}\,y
+          +\frac{<b>+<a>}{2}
+        \right)
+        = 
+        %
+        \yesnumber\label{eq:<tag>-g(x)}
+      \end{gather*}
+      ]],{
+        tag_input = i(1,'tag'),
+        a_input = i(2,'a'),
+        b_input = i(3,'b'),
+        tag = rep(1),
+        a = rep(2),
+        b = rep(3),
+      }
+    )
+  ),
+  ms( -- Gauss simple rule approximation 4
+    {
+      common = {
+        name = "Gauss simple rule approximation 4 points",
+        desc = {
+          "Aproximate integral using gauss rule for 4 points",
+          "  b                  b-a  1",
+          "I=∫ f(x) dx = I_G,2 =---  ∫ g(x)dx",
+          "  a                   2  -1"
+        }
+      },
+      "\\function-CNA-gauss-rule-approximation-4-I_G4",
+    },
+    fmt(
+      [[
+      % tag: <tag_input>
+      % a = <a_input>
+      % b = <b_input>
+
+      \begin{gather*}
+        I_{G,2}
+        = \int_0^2{f(x)\,\odif{x}}
+        = \mathText{Using simple gauss rule (\(n=4\))}
+        = \frac{b-a}{2}
+        \,\int_{-1}^{1}{g(x)\,\odif{x}}
+        = \frac{<b>-<a>}{2}
+        \,\int_{-1}^{1}{g(x)\,\odif{x}}
+        \approx
+        \frac{18+\sqrt{30}}{36}\,\left(
+          g\left(
+            \sqrt{
+              \frac{3}{7}
+              -\frac{2}{7}
+              \,\sqrt{\frac{6}{5}}
+            }
+          \right)
+          + g\left(
+            -\sqrt{
+              \frac{3}{7}
+              -\frac{2}{7}
+              \,\sqrt{\frac{6}{5}}
+            }
+          \right)
+        \right)
+        +\frac{18-\sqrt{30}}{36}\,\left(
+          g\left(
+            \sqrt{
+              \frac{3}{7}
+              +\frac{2}{7}
+              \,\sqrt{\frac{6}{5}}
+            }
+          \right)
+          + g\left(
+            -\sqrt{
+              \frac{3}{7}
+              +\frac{2}{7}
+              \,\sqrt{\frac{6}{5}}
+            }
+          \right)
+        \right)
+        = \mathText{Using \eqref{eq:<tag>-g(x)}}
+        = 
+      \end{gather*}
+
+      % g(x)
+      \begin{gather*}
+        g(x)
+        = f\left(
+          \frac{b-a}{2}\,y
+          +\frac{b+a}{2}
+        \right)
+        = f\left(
+          \frac{<b>-<a>}{2}\,y
+          +\frac{<b>+<a>}{2}
+        \right)
+        = 
+        %
+        \yesnumber\label{eq:<tag>-g(x)}
+      \end{gather*}
+      ]],{
+        tag_input = i(1,'tag'),
+        a_input = i(2,'a'),
+        b_input = i(3,'b'),
+        tag = rep(1),
+        a = rep(2),
+        b = rep(3),
+      }
     )
   ),
 }
