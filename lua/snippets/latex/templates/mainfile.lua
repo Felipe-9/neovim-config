@@ -219,6 +219,9 @@ return {
       %   range-phrase={\,\to\,},
       %   range-units={bracket},
       %   range-exponents={combine-bracket},
+      %   % Units
+      %   inter-unit-product=\ensuremath{{}\,{}}
+      %   % inter-unit-product=\ensuremath{{}\cdot{}}
       % }
       % % -------------------------------------------------------- %
       % %                           Maths                          %
@@ -237,6 +240,7 @@ return {
       \usepackage{mathtools}
       % \DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
       % \DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+      % \DeclareDocumentCommand\mathemph{m}{{\color{Emph}\boldmath{#1}}}
       % % ======================================================== %
       % % ============== MathOperators Declarations ============== %
       % \newcommand\E[1]{\,\mathrm{E}^{#1}}
@@ -250,12 +254,15 @@ return {
       % \DeclareMathOperator\arccosh{arccosh}
       % \DeclareMathOperator\arcsinh{arcsinh}
       % % ================== Calculus operators ================== %
+      % \DeclareMathOperator\LagrangeTransform{\mathcal{L}}
+      % \DeclareMathOperator\prim{\mathcal{P}}
       % \DeclareMathOperator\fronteira {fr}
       % \DeclareMathOperator\interior  {int}
       % \DeclareMathOperator\exterior  {ext}
       % \DeclareMathOperator\grafico   {Graf}
       % \DeclareMathOperator\dominio   {D}
       % \DeclareMathOperator\visinhanca{\mathcal{V}}
+      % \DeclareMathOperator\erf{erf}
       % % =================== Algebra operators ================== %
       % \DeclareMathOperator\adj{adj}
       % \DeclareMathOperator\id{id}
@@ -324,14 +331,6 @@ return {
       % \usepackage{pgf,pgfmath,pgfplots}
       % \usepackage{pgfplotstable}
       % \usepgfplotslibrary{fillbetween}
-      % % ========================= Setup ======================== %
-      % % 1e4 too much
-      % % 1e3 fancy
-      % % 1e2 simple
-      % % 1e1 draft
-      % \newcommand\mysampledensityDouble{2}
-      % \newcommand\mysampledensitySimple{1e1}
-      % \newcommand\mysampledensityFancy{1e2}
       % \usepackage{myPGFSetup}
       % % -------------------------------------------------------- %
       % %                          Tables                          %
