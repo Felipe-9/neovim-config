@@ -38,16 +38,14 @@ return {
         %
         %
         %
-        = \\[3ex] 
-        \usingref{eq:<tag>-phi_x}
+        = \mathText{Using \eqref{eq:<tag>-phi_x}
         = \frac{c_0}{\varphi(<x>)}
         + \frac{1  }{\varphi(<x>)}
         \,\int{<b>\,\varphi(<x>)\,\odif{<x>}}
         %
         %
         %
-        = \\
-        \usingref{eq:<tag>-prim}
+        = \mathText{Using \eqref{eq:<tag>-prim}
         = \frac{c_0}{\varphi(<x>)}
         + \frac{1  }{\varphi(<x>)}
         \,\int{<b>\,\varphi(<x>)\,\odif{<x>}}
@@ -66,7 +64,6 @@ return {
       \end{gather*}
       % prim
       \begin{gather*}
-        & 
         P\left(
           <b>\,\varphi(<x>)
         \right)
@@ -168,8 +165,8 @@ return {
         %
         %
         %
-        = \\
-        % \usingref{eq:<tag>-z_solution}
+        = \\ 
+        % = \mathText{Using \eqref{eq:<tag>-z_solution}
         = <y_1>
         + z^{-1}
       \end{gather*}
@@ -237,8 +234,7 @@ return {
           <P>
         \right)
         \,y
-        =
-        \usingref{eq:<tag>-D_x(y),eq:<tag>-D2_x(y)}
+        = \mathText{Using \eqref{eq:<tag>-D_x(y),eq:<tag>-D2_x(y)}
         = \dots
         = \\
         = 0
@@ -274,7 +270,7 @@ return {
         ; \\[3ex]
         \mdif[2]{x}{y}
         = 
-        \usingref{eq:<tag>-D_x(y)}
+        \mathText{Using \eqref{eq:<tag>-D_x(y)}
         = \mdif{x}{\left(
           \dots
         \right)}
@@ -377,7 +373,7 @@ return {
         = c_1(x)\,y_1(x)
         + c_2(x)\,y_2(x)
         = 
-        \usingref{eq:<tag>-c_1,eq:<tag>-c_2}
+        \mathText{Using \eqref{eq:<tag>-c_1,eq:<tag>-c_2}
         = \left(
           <y_1>
         \right)
@@ -397,7 +393,7 @@ return {
         c_1(x) 
         = \int{c_1'(x)\,\odif{x}}
         = 
-        \usingref{eq:<tag>-c_1'}
+        \mathText{Using \eqref{eq:<tag>-c_1'}
         = \dots
         \yesnumber\label{eq:<tag>-c_1}
         %
@@ -405,14 +401,14 @@ return {
         ; \\[1ex]
         c_2(x) 
         = \int{c_2'(x)\,\odif{x}}
-        \usingref{eq:<tag>-c_2'}
+        \mathText{Using \eqref{eq:<tag>-c_2'}
         = \dots
         \yesnumber\label{eq:<tag>-c_2}
       \end{gather*}
 
       % c_1',c_2'
       \begin{gather*}
-        \usingref{eq:<tag>-eq_sytem}
+        \mathText{Using \eqref{eq:<tag>-eq_sytem}
         c_1'(x)
         = \frac{1}{W(y_1,y_2)}
         \,\begin{vmatrix}
@@ -422,14 +418,14 @@ return {
           &  \mdif[1]{x}y_2
         \end{vmatrix}
         = 
-        \usingref{eq:<tag>-w,eq:<tag>-D_x(y_2)}
+        \mathText{Using \eqref{eq:<tag>-w,eq:<tag>-D_x(y_2)}
         = \dots
         \yesnumber\label{eq:<tag>-c_1'}
         %
         %
         %
         \\[3ex]
-        \usingref{eq:<tag>-eq_sytem}
+        \mathText{Using \eqref{eq:<tag>-eq_sytem}
         c_2'(x)
         = \frac{1}{W(y_1,y_2)}
         \,\begin{vmatrix}
@@ -439,7 +435,7 @@ return {
           &  \frac{<f>}{<a_2>}
         \end{vmatrix}
         =
-        \usingref{eq:<tag>-w,eq:<tag>-D_x(y_1)}
+        \mathText{Using \eqref{eq:<tag>-w,eq:<tag>-D_x(y_1)}
         = \dots
         \yesnumber\label{eq:<tag>-c_2'}
       \end{gather*}
@@ -593,7 +589,7 @@ return {
         c_1(x) 
         = \int{c_1'(x)\,\odif{x}}
         =
-        \usingref{eq:<tag>-c_1'}
+        \mathText{Using \eqref{eq:<tag>-c_1'}
         = \dots
         \yesnumber\label{eq:<tag>-c_1}
         %
@@ -602,7 +598,7 @@ return {
         ; \\[1ex]
         c_2(x) 
         = \int{c_2'(x)\,\odif{x}}
-        \usingref{eq:<tag>-c_2'}
+        \mathText{Using \eqref{eq:<tag>-c_2'}
         = \dots
         \yesnumber\label{eq:<tag>-c_2}
         %
@@ -611,14 +607,14 @@ return {
         ; \\[1ex]
         c_3(x) 
         = \int{c_3'(x)\,\odif{x}}
-        \usingref{eq:<tag>-c_3'}
+        \mathText{Using \eqref{eq:<tag>-c_3'}
         = \dots
         \yesnumber\label{eq:<tag>-c_3}
       \end{gather*}
 
       % c_1',c_2',c_3'
       \begin{gather*}
-        \usingref{eq:<tag>-eq_sytem}
+        \mathText{Using \eqref{eq:<tag>-eq_sytem}
         c_1'(x)
         = \frac{1}{W(y_1,y_2,y_3)}
         \,\begin{vmatrix}
@@ -646,7 +642,7 @@ return {
         % 
         % 
         ; \\[3ex]
-        \usingref{eq:<tag>-eq_sytem}
+        \mathText{Using \eqref{eq:<tag>-eq_sytem}
         c_2'(x)
         = \frac{1}{W(y_1,y_2,y_3)}
         \,\begin{vmatrix}
@@ -673,8 +669,7 @@ return {
         %
         %
         %
-        \\[3ex]
-        \usingref{eq:<tag>-eq_sytem}
+        \mathText{Using \eqref{eq:<tag>-eq_sytem}
         c_3'(x)
         = \frac{1}{W(y_1,y_2,y_3)}
         \, \begin{vmatrix}
