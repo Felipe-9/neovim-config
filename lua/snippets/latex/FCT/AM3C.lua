@@ -38,14 +38,14 @@ return {
         %
         %
         %
-        = \mathText{Using \eqref{eq:<tag>-phi_x}
+        = \mathText{Using \eqref{eq:<tag>-phi_x}}
         = \frac{c_0}{\varphi(<x>)}
         + \frac{1  }{\varphi(<x>)}
         \,\int{<b>\,\varphi(<x>)\,\odif{<x>}}
         %
         %
         %
-        = \mathText{Using \eqref{eq:<tag>-prim}
+        = \mathText{Using \eqref{eq:<tag>-prim}}
         = \frac{c_0}{\varphi(<x>)}
         + \frac{1  }{\varphi(<x>)}
         \,\int{<b>\,\varphi(<x>)\,\odif{<x>}}
@@ -166,7 +166,7 @@ return {
         %
         %
         = \\ 
-        % = \mathText{Using \eqref{eq:<tag>-z_solution}
+        % = \mathText{Using \eqref{eq:<tag>-z_solution}}
         = <y_1>
         + z^{-1}
       \end{gather*}
@@ -234,7 +234,7 @@ return {
           <P>
         \right)
         \,y
-        = \mathText{Using \eqref{eq:<tag>-D_x(y),eq:<tag>-D2_x(y)}
+        = \mathText{Using \eqref{eq:<tag>-D_x(y),eq:<tag>-D2_x(y)}}
         = \dots
         = \\
         = 0
@@ -270,7 +270,7 @@ return {
         ; \\[3ex]
         \mdif[2]{x}{y}
         = 
-        \mathText{Using \eqref{eq:<tag>-D_x(y)}
+        \mathText{Using \eqref{eq:<tag>-D_x(y)}}
         = \mdif{x}{\left(
           \dots
         \right)}
@@ -373,7 +373,7 @@ return {
         = c_1(x)\,y_1(x)
         + c_2(x)\,y_2(x)
         = 
-        \mathText{Using \eqref{eq:<tag>-c_1,eq:<tag>-c_2}
+        \mathText{Using \eqref{eq:<tag>-c_1,eq:<tag>-c_2}}
         = \left(
           <y_1>
         \right)
@@ -393,7 +393,7 @@ return {
         c_1(x) 
         = \int{c_1'(x)\,\odif{x}}
         = 
-        \mathText{Using \eqref{eq:<tag>-c_1'}
+        \mathText{Using \eqref{eq:<tag>-c_1'}}
         = \dots
         \yesnumber\label{eq:<tag>-c_1}
         %
@@ -401,14 +401,14 @@ return {
         ; \\[1ex]
         c_2(x) 
         = \int{c_2'(x)\,\odif{x}}
-        \mathText{Using \eqref{eq:<tag>-c_2'}
+        \mathText{Using \eqref{eq:<tag>-c_2'}}
         = \dots
         \yesnumber\label{eq:<tag>-c_2}
       \end{gather*}
 
       % c_1',c_2'
       \begin{gather*}
-        \mathText{Using \eqref{eq:<tag>-eq_sytem}
+        \mathText{Using \eqref{eq:<tag>-eq_sytem}}
         c_1'(x)
         = \frac{1}{W(y_1,y_2)}
         \,\begin{vmatrix}
@@ -418,14 +418,14 @@ return {
           &  \mdif[1]{x}y_2
         \end{vmatrix}
         = 
-        \mathText{Using \eqref{eq:<tag>-w,eq:<tag>-D_x(y_2)}
+        \mathText{Using \eqref{eq:<tag>-w,eq:<tag>-D_x(y_2)}}
         = \dots
         \yesnumber\label{eq:<tag>-c_1'}
         %
         %
         %
         \\[3ex]
-        \mathText{Using \eqref{eq:<tag>-eq_sytem}
+        \mathText{Using \eqref{eq:<tag>-eq_sytem}}
         c_2'(x)
         = \frac{1}{W(y_1,y_2)}
         \,\begin{vmatrix}
@@ -435,7 +435,7 @@ return {
           &  \frac{<f>}{<a_2>}
         \end{vmatrix}
         =
-        \mathText{Using \eqref{eq:<tag>-w,eq:<tag>-D_x(y_1)}
+        \mathText{Using \eqref{eq:<tag>-w,eq:<tag>-D_x(y_1)}}
         = \dots
         \yesnumber\label{eq:<tag>-c_2'}
       \end{gather*}
@@ -450,9 +450,9 @@ return {
           &  \mdif[1]{x}\,y_2
         \end{bmatrix}
         =
-        \usingref{
-          eq:<tag>D_x(y_1),
-          eq:<tag>D_x(y_2)
+        \mathText{using 
+          \eqref{eq:<tag>D_x(y_1)}
+          \eqref{eq:<tag>D_x(y_2)}
         }
         = \det\begin{bmatrix}
              <y_1>
@@ -559,10 +559,10 @@ return {
         + y_2(x)\,c_2(x)
         + y_3(x)\,c_3(x)
         =
-        \usingref{
-          eq:<tag>-c_1,
-          eq:<tag>-c_2,
-          eq:<tag>-c_3
+        \mathText{using 
+          \eqref{eq:<tag>-c_1}
+          \eqref{eq:<tag>-c_2}
+          \eqref{eq:<tag>-c_3}
         }
         = \left(
           <y_1>
@@ -589,7 +589,7 @@ return {
         c_1(x) 
         = \int{c_1'(x)\,\odif{x}}
         =
-        \mathText{Using \eqref{eq:<tag>-c_1'}
+        \mathText{Using \eqref{eq:<tag>-c_1'}}
         = \dots
         \yesnumber\label{eq:<tag>-c_1}
         %
@@ -598,7 +598,7 @@ return {
         ; \\[1ex]
         c_2(x) 
         = \int{c_2'(x)\,\odif{x}}
-        \mathText{Using \eqref{eq:<tag>-c_2'}
+        \mathText{Using \eqref{eq:<tag>-c_2'}}
         = \dots
         \yesnumber\label{eq:<tag>-c_2}
         %
@@ -607,14 +607,14 @@ return {
         ; \\[1ex]
         c_3(x) 
         = \int{c_3'(x)\,\odif{x}}
-        \mathText{Using \eqref{eq:<tag>-c_3'}
+        \mathText{Using \eqref{eq:<tag>-c_3'}}
         = \dots
         \yesnumber\label{eq:<tag>-c_3}
       \end{gather*}
 
       % c_1',c_2',c_3'
       \begin{gather*}
-        \mathText{Using \eqref{eq:<tag>-eq_sytem}
+        \mathText{Using \eqref{eq:<tag>-eq_sytem}}
         c_1'(x)
         = \frac{1}{W(y_1,y_2,y_3)}
         \,\begin{vmatrix}
@@ -629,12 +629,12 @@ return {
           &  \mdif[2]{x}y_3
         \end{vmatrix}
         =
-        \usingref{
-          eq:<tag>-w,
-          eq:<tag>-D1_x(y_2),
-          eq:<tag>-D2_x(y_2),
-          eq:<tag>-D1_x(y_3),
-          eq:<tag>-D2_x(y_3)
+        \mathText{Using
+          \eqref{eq:<tag>-w}
+          \eqref{eq:<tag>-D1_x(y_2)}
+          \eqref{eq:<tag>-D2_x(y_2)}
+          \eqref{eq:<tag>-D1_x(y_3)}
+          \eqref{eq:<tag>-D2_x(y_3)}
         }
         = \dots
         \yesnumber\label{eq:<tag>-c_1'}
@@ -642,7 +642,7 @@ return {
         % 
         % 
         ; \\[3ex]
-        \mathText{Using \eqref{eq:<tag>-eq_sytem}
+        \mathText{Using \eqref{eq:<tag>-eq_sytem}}
         c_2'(x)
         = \frac{1}{W(y_1,y_2,y_3)}
         \,\begin{vmatrix}
@@ -657,19 +657,19 @@ return {
           &  \mdif[2]{x}y_3
         \end{vmatrix}
         =
-        \usingref{
-          eq:<tag>-w,
-          eq:<tag>-D1_x(y_1),
-          eq:<tag>-D2_x(y_1),
-          eq:<tag>-D1_x(y_3),
-          eq:<tag>-D2_x(y_3)
+        \mathText{Using 
+          \eqref{eq:<tag>-w}
+          \eqref{eq:<tag>-D1_x(y_1)}
+          \eqref{eq:<tag>-D2_x(y_1)}
+          \eqref{eq:<tag>-D1_x(y_3)}
+          \eqref{eq:<tag>-D2_x(y_3)}
         }
         = \dots
         \yesnumber\label{eq:<tag>-c_2'}
         %
         %
         %
-        \mathText{Using \eqref{eq:<tag>-eq_sytem}
+        \mathText{Using \eqref{eq:<tag>-eq_sytem}}
         c_3'(x)
         = \frac{1}{W(y_1,y_2,y_3)}
         \, \begin{vmatrix}
@@ -683,12 +683,12 @@ return {
           &  \mdif[2]{x}y_2
           &  \frac{<f>}{<a_3>}
         \end{vmatrix}
-        \usingref{
-          eq:<tag>-w,
-          eq:<tag>-D1_x(y_1),
-          eq:<tag>-D2_x(y_1),
-          eq:<tag>-D1_x(y_2),
-          eq:<tag>-D2_x(y_2)
+        \mathText{Using 
+          \eqref{eq:<tag>-w}
+          \eqref{eq:<tag>-D1_x(y_1)}
+          \eqref{eq:<tag>-D2_x(y_1)}
+          \eqref{eq:<tag>-D1_x(y_2)}
+          \eqref{eq:<tag>-D2_x(y_2)}
         }
         = \dots
         \yesnumber\label{eq:<tag>-c_3'}
@@ -709,13 +709,13 @@ return {
           &  \mdif[2]{x}\,y_3
         \end{bmatrix}
         = 
-        \usingref{
-          eq:<tag>-D1_x(y_1),
-          eq:<tag>-D2_x(y_1),
-          eq:<tag>-D1_x(y_2),
-          eq:<tag>-D2_x(y_2),
-          eq:<tag>-D1_x(y_3),
-          eq:<tag>-D2_x(y_3)
+        \mathText{using 
+          \eqref{eq:<tag>-D1_x(y_1)}
+          \eqref{eq:<tag>-D2_x(y_1)}
+          \eqref{eq:<tag>-D1_x(y_2)}
+          \eqref{eq:<tag>-D2_x(y_2)}
+          \eqref{eq:<tag>-D1_x(y_3)}
+          \eqref{eq:<tag>-D2_x(y_3)}
         }
         = \det\begin{bmatrix}
              <y_1>
