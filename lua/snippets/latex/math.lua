@@ -21,10 +21,15 @@ return { --
         },
       },
       -- trig
-      "\\formula-quadratic",
+      "formula-quadratic",
+      "formula-bhaskara"
     },
     fmt(
       [[
+      % a = <a_input>
+      % b = <b_input>
+      % c = <c_input>
+      % <a> x^2 + <b> x + <c> = 0
       x
       = \frac{
         - <b>
@@ -34,7 +39,14 @@ return { --
         }
       } {2\,<a>}
       ]],
-      { a = i(1, "a"), b = i(2, "b"), c = i(3, "c") }
+      {
+        a_input = i(1, "a"),
+        b_input = i(2, "b"),
+        c_input = i(3, "c"),
+        a = rep(1),
+        b = rep(2),
+        c = rep(3)
+      }
     )
   ),
   ms( -- underset
