@@ -36,6 +36,7 @@ return {
       \colorlet{foreground}{light}
       \colorlet{background}{dark}
       % \usepackage{myGraphPallete} % Graph, GraphXY, GraphSplitX, GraphSplitCX
+      % \usepackage{myEmphPalette} % Emph, EmphXY, EmphSplitX, EmphSplitCX
       % ================== Palette Secondaries ================= %
       \colorlet{Emph}       {DarkGreen!70!foreground}
       \colorlet{Link}      {LightGreen!25!foreground}
@@ -245,6 +246,7 @@ return {
       % % ============== MathOperators Declarations ============== %
       % \newcommand\E[1]{\,\mathrm{E}^{#1}}
       % \newcommand\e[1]{\,\mathrm{e}^{#1}}
+      % \DeclareMathOperator\sign{sign}
       % % ========= Missing trigonometric math operators ========= %
       % \DeclareMathOperator\sech   {sech}
       % \DeclareMathOperator\csch   {csch}
@@ -341,6 +343,7 @@ return {
       % % ==================== Color commands ==================== %
       % \newcommand\cellT[1]{\cellcolor{green!70!grey!20!background}{#1}}
       % \newcommand\cellF[1]{\cellcolor{red!70!grey!20!background}{#1}}
+      % \newcommand\cellC[2]{\cellcolor{#1!70!grey!20!background}{#2}}
       % \newcommand\cellemph[1]{\cellcolor{Emph!20!background}{#1}}
       % \usepackage{multirow}
       % \usepackage{longtable}
