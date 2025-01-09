@@ -12,6 +12,21 @@ local ne = extras.nonempty
 local fmt = require("luasnip.extras.fmt").fmta -- formatting with [[]] and delimiters=<>
 
 return {
+  ms( -- tcolorbox shortcut
+    {
+      common = { name = 'tcolorbox' },
+      'tbox',
+      'TBOX',
+      '\\TBOX',
+      'tcolorbox',
+      'BTBOX'
+    },
+    {
+      t{"\\begin{tcolorbox}","  "},
+      i(0),
+      t{"","\\end{tcolorbox}"}
+    }
+  ),
   ms( -- Question Box environment
     {
       common = {
