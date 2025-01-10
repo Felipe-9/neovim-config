@@ -17,7 +17,7 @@ return {
         name = "Formula EDOs Lineares ordem 1",
         desc = {
           "y' + a(x) y = b(x)",
-          "onde: 𝛗(x)=\\exp(∫{ a(x)dx })",
+          "onde: 𝛗(x)=\\exp(Px{a(x)})",
         },
       },
       -- trig
@@ -34,51 +34,63 @@ return {
       \answer{\eqref{eq:<tag> answer}}
 
       General solution
-      \begin{gather*}
-        <y>
-        = \frac{c_0}{\varphi(<x>)}
-        + \frac{1  }{\varphi(<x>)}
-        \,\int{<b>\,\varphi(<x>)\,\odif{<x>}}
-        %
-        %
-        %
-        = \mathText{using 
-          \eqref{eq:<tag> phi_x}
-          \eqref{eq:<tag> prim}
-        }
-        = \frac{c_0}{\varphi(<x>)}
-        + \frac{1  }{\varphi(<x>)}
-        \,\int{<b>\,\varphi(<x>)\,\odif{<x>}}
-        %
-        \yesnumber\label{eq:<tag> answer}
-      \end{gather*}
+      \begin{tcolorbox}
+        \begin{gather*}
+          <y>
+          = \frac{c_0}{\varphi(<x>)}
+          + \frac{1  }{\varphi(<x>)}
+          \,\prim_x{\left(
+            <b>\,\varphi(<x>)
+          \right)}
+          %
+          %
+          %
+          = \mathText{using 
+            \eqref{eq:<tag> phi_x}
+            \eqref{eq:<tag> prim}
+          }
+          = \frac{c_0}{\varphi(<x>)}
+          + \frac{1  }{\varphi(<x>)}
+          \,\prim_<x>{\left( <b>\,\varphi(<x>) \right)}
+          %
+          \yesnumber\label{eq:<tag> answer}
+        \end{gather*}
+      \end{tcolorbox}
 
       Finding \(\varphi(x)\)
-      \begin{gather*}
-        \varphi(<x>) 
-        = \exp{\left(
-          \int{<a>\,\odif{<x>}}
-        \right)}
-        = \exp{\left(
-          \int{<a>\,\odif{<x>}}
-        \right)}
-        %
-        \yesnumber\label{eq:<tag> phi_x}
-      \end{gather*}
+      \begin{tcolorbox}
+        \begin{gather*}
+          \varphi(<x>) 
+          = \exp{\left(
+            \prim_<x>{\left(
+              <a>
+            \right)}
+          \right)}
+          = \exp{\left(
+            \prim_<x>{\left(
+              <a>
+            \right)}
+          \right)}
+          %
+          \yesnumber\label{eq:<tag> phi_x}
+        \end{gather*}
+      \end{tcolorbox}
 
       Integrating
-      \begin{gather*}
-        \prim_x{\left(
-          <b>\,\varphi(<x>)
-        \right)}
-        = \mathText{using \eqref{eq:<tag> phi_x}}
-        = \prim_x{\left(
-          <b>
-          \,\varphi(<x>)
-        \right)}
-        %
-        \yesnumber\label{eq:<tag> prim}
-      \end{gather*}
+      \begin{tcolorbox}
+        \begin{gather*}
+          \prim_x{\left(
+            <b>\,\varphi(<x>)
+          \right)}
+          = \mathText{using \eqref{eq:<tag> phi_x}}
+          = \prim_x{\left(
+            <b>
+            \,\varphi(<x>)
+          \right)}
+          %
+          \yesnumber\label{eq:<tag> prim}
+        \end{gather*}
+      \end{tcolorbox}
       ]],
       {
         tag_input = i(1, "tag"),
@@ -116,76 +128,84 @@ return {
       % \answer{\eqref{eq:<tag> answer}}
 
       General solution
-      \begin{gather*}
-        y 
-        = z^{1/(1-<k>)}
-        %
-        \yesnumber\label{eq:<tag> y->>z}
-        %
-        = \\
-        = \left(
-          \frac{c_0}{\varphi(x)}
-          + \frac{1}{\varphi(x)}
-          \,\prim_x{(
-            (1-<k>)
-            \,<b>
-            \,\varphi(x)
-          )}
-        \right)^{1/(1-<k>)}
-        = \mathText{using
-          \eqref{eq:<tag> phi_x}
-          \eqref{eq:<tag> prim}
-        }
-        = \left(
-          \frac{c_0}{\varphi(x)}
-          + \frac{1}{\varphi(x)}
-          \,\prim_x{(
-            (1-<k>)
-            \,<b>
-            \,\varphi(x)
-          )}
-        \right)^{1/(1-<k>)}
-        %
-        \yesnumber\label{eq:<tag> answer}
-      \end{gather*}
+      \begin{tcolorbox}
+        \begin{gather*}
+          y 
+          = z^{1/(1-<k>)}
+          %
+          \yesnumber\label{eq:<tag> y->>z}
+          %
+          = \\
+          = \left(
+            \frac{c_0}{\varphi(x)}
+            + \frac{1}{\varphi(x)}
+            \,\prim_x{(
+              (1-<k>)
+              \,<b>
+              \,\varphi(x)
+            )}
+          \right)^{1/(1-<k>)}
+          = \mathText{using
+            \eqref{eq:<tag> phi_x}
+            \eqref{eq:<tag> prim}
+          }
+          = \left(
+            \frac{c_0}{\varphi(x)}
+            + \frac{1}{\varphi(x)}
+            \,\prim_x{(
+              (1-<k>)
+              \,<b>
+              \,\varphi(x)
+            )}
+          \right)^{1/(1-<k>)}
+          %
+          \yesnumber\label{eq:<tag> answer}
+        \end{gather*}
+      \end{tcolorbox}
 
       Bernoulli's substitution
-      \begin{gather*}
-        y' + <a>\,y = <b>\,y^<k>
-        \implies \mathText{using \eqref{eq:<tag> y->>z}}
-        \implies
-        z' + (1-<k>)<a>\,z = (1-<k>)\,<b>
-      \end{gather*}
+      \begin{tcolorbox}
+        \begin{gather*}
+          y' + <a>\,y = <b>\,y^<k>
+          \implies \mathText{using \eqref{eq:<tag> y->>z}}
+          \implies
+          z' + (1-<k>)<a>\,z = (1-<k>)\,<b>
+        \end{gather*}
+      \begin{tcolorbox}
 
       Finding \(\varphi(x}\)
-      \begin{gather*}
-        \varphi(x)
-        = \exp{\left(
-          \prim_x{(
-            (1-k)
-            \,<a>
-          )}
-        \right)}
-        %
-        \yesnumber\label{eq:<tag> phi_x}
-      \end{gather*}
+      \begin{tcolorbox}
+        \begin{gather*}
+          \varphi(x)
+          = \exp{\left(
+            \prim_x{(
+              (1-k)
+              \,<a>
+            )}
+          \right)}
+          %
+          \yesnumber\label{eq:<tag> phi_x}
+        \end{gather*}
+      \begin{tcolorbox}
 
       Integrating
-      \begin{gather*}
-        P{\left(
-          (1-k)
-          \,<b>
-          \,\varphi(x)
-        \right)}
-        = \mathText{using \eqref{eq:<tag> phi_x}}
-        = P{\left(
-          (1-k)
-          \,<b>
-          \,\varphi(x)
-        \right)}
-        %
-        \yesnumber\label{eq:<tag> prim}
-      \end{gather*}
+      \begin{tcolorbox}
+        \begin{gather*}
+          P{\left(
+            (1-k)
+            \,<b>
+            \,\varphi(x)
+          \right)}
+          = \mathText{using \eqref{eq:<tag> phi_x}}
+          = P{\left(
+            (1-k)
+            \,<b>
+            \,\varphi(x)
+          \right)}
+          %
+          \yesnumber\label{eq:<tag> prim}
+        \end{gather*}
+      \begin{tcolorbox}
       ]],
       {
         tag_input = i(1, 'tag'),
@@ -226,72 +246,80 @@ return {
       % \answer{\eqref{eq:<tag> answer}}
 
       General solution
-      \begin{gather*}
-        y
-        = <y_1> + z^{-1}
-        %
-        \yesnumber\label{eq:<tag> y->>z}
-        %
-        = \\
-        = <y_1> + \left(
-          \frac{c_0}{\varphi(x)}
-          + \frac{1}{\varphi(x)}
-          \,\prim_x{\left(
-            -<c>
-            \,\varphi(x)
-          \right)}
-        \right)^{-1}
-        = \mathText{using
-          \eqref{eq:<tag> phi_x}
-          \eqref{eq:<tag> prim}
-        }
-        = <y_1> + \left(
-          \frac{c_0}{\varphi(x)}
-          + \frac{1}{\varphi(x)}
-          \,\prim_x{\left(
-            -<c>
-            \,\varphi(x)
-          \right)}
-        \right)^{-1}
-        %
-        \yesnumber\label{eq:<tag> answer}
-      \end{gather*}
+      \begin{tcolorbox}
+        \begin{gather*}
+          y
+          = <y_1> + z^{-1}
+          %
+          \yesnumber\label{eq:<tag> y->>z}
+          %
+          = \\
+          = <y_1> + \left(
+            \frac{c_0}{\varphi(x)}
+            + \frac{1}{\varphi(x)}
+            \,\prim_x{\left(
+              -<c>
+              \,\varphi(x)
+            \right)}
+          \right)^{-1}
+          = \mathText{using
+            \eqref{eq:<tag> phi_x}
+            \eqref{eq:<tag> prim}
+          }
+          = <y_1> + \left(
+            \frac{c_0}{\varphi(x)}
+            + \frac{1}{\varphi(x)}
+            \,\prim_x{\left(
+              -<c>
+              \,\varphi(x)
+            \right)}
+          \right)^{-1}
+          %
+          \yesnumber\label{eq:<tag> answer}
+        \end{gather*}
+      \end{tcolorbox}
 
       Riccati substitution
-      \begin{gather*}
-        y' + <a>\,y = <b> + <c>\,y^2
-        \implies \mathText{using \eqref{eq:<tag> y->>z}}
-        \implies
-        z' + (2\,<c>\,<y_1> - <a>)\,z 
-        = -<c>
-      \end{gather*}
+      \begin{tcolorbox}
+        \begin{gather*}
+          y' + <a>\,y = <b> + <c>\,y^2
+          \implies \mathText{using \eqref{eq:<tag> y->>z}}
+          \implies
+          z' + (2\,<c>\,<y_1> - <a>)\,z 
+          = -<c>
+        \end{gather*}
+      \end{tcolorbox}
 
       Finding \(\varphi(x)\)
-      \begin{gather*}
-        \varphi(x)
-        = \exp{\left(
-          \prim_x{\left(
-            (2\,<c>\,<y_1>-<a>)
+      \begin{tcolorbox}
+        \begin{gather*}
+          \varphi(x)
+          = \exp{\left(
+            \prim_x{\left(
+              (2\,<c>\,<y_1>-<a>)
+            \right)}
           \right)}
-        \right)}
-        %
-        \yesnumber\label{eq:<tag> phi_x}
-      \end{gather*}
+          %
+          \yesnumber\label{eq:<tag> phi_x}
+        \end{gather*}
+      \end{tcolorbox}
       
       Integrating
-      \begin{gather*}
-        \prim_x{\left(
-          -<c>
-          \,\varphi(x)
-        \right)}
-        = \mathText{using \eqref{eq:<tag> phi_x}}
-        = \prim_x{\left(
-          -<c>
-          \,\varphi(x)
-        \right)}
-        %
-        \yesnumber\label{eq:<tag> prim}
-      \end{gather*}
+      \begin{tcolorbox}
+        \begin{gather*}
+          \prim_x{\left(
+            -<c>
+            \,\varphi(x)
+          \right)}
+          = \mathText{using \eqref{eq:<tag> phi_x}}
+          = \prim_x{\left(
+            -<c>
+            \,\varphi(x)
+          \right)}
+          %
+          \yesnumber\label{eq:<tag> prim}
+        \end{gather*}
+      \end{tcolorbox}
       ]],
       {
         tag_input = i(1,'tag'),
@@ -327,82 +355,90 @@ return {
       \answer{\eqref{eq:<tag> answer}}
 
       General Solution
-      \begin{gather*}
-        y 
-        = \varphi(x)\,\prim_x{(z)}
-        = <phi_x>\,\prim_x{(z)}
-        %
-        \yesnumber\label{eq:<tag> y->>z}
-        %
-        = \mathText{using \eqref{eq:<tag> z}}
-        = <phi_x>\,\prim_x{\left(
-          z
-        \right)}
-        %
-        \yesnumber\label{eq:<tag> answer}
-      \end{gather*}
+      \begin{tcolorbox}
+        \begin{gather*}
+          y 
+          = \varphi(x)\,\prim_x{(z)}
+          = <phi_x>\,\prim_x{(z)}
+          %
+          \yesnumber\label{eq:<tag> y->>z}
+          %
+          = \mathText{using \eqref{eq:<tag> z}}
+          = <phi_x>\,\prim_x{\left(
+            z
+          \right)}
+          %
+          \yesnumber\label{eq:<tag> answer}
+        \end{gather*}
+      \end{tcolorbox}
 
       Substitution \(y \to z\)
-      \begin{gather*}
-        P(x)\,y 
-        = \mathText{using \eqref{eq:<tag> y->>z}}
-        = <P>
-        \,(
-          y
-        )
-        = \mathText{using 
-          \eqref{eq:<tag> D1x(y)}
-          \eqref{eq:<tag> D2x(y)}
-        }
-        = 0
-        %
-        \yesnumber\label{eq:<tag> eq z}
-      \end{gather*}
+      \begin{tcolorbox}
+        \begin{gather*}
+          P(x)\,y 
+          = \mathText{using \eqref{eq:<tag> y->>z}}
+          = <P>
+          \,(
+            y
+          )
+          = \mathText{using 
+            \eqref{eq:<tag> D1x(y)}
+            \eqref{eq:<tag> D2x(y)}
+          }
+          = 0
+          %
+          \yesnumber\label{eq:<tag> eq z}
+        \end{gather*}
+      \end{tcolorbox}
 
       Finding \(
         \mdif{x}{y},
         \mdif[2]{x}{y}
       \)
-      \begin{gather*}
-        \mdif{x}{y}
-        = \mdif{x}{(
-          <phi_x>\,\prim_x{(z)}
-        )}
-        = \mdif{x}{(
-          <phi_x>\,\prim_x{(z)}
-        )}
-        %
-        \yesnumber\label{eq:<tag> D1x(y)}
-        %
-        %
-        %
-        ;\\
-        \mdif[2]{x}{y}
-        = \mathText{using \eqref{eq:<tag> D1x(y)}}
-        = \mdif{x}{\left(
+      \begin{tcolorbox}
+        \begin{gather*}
           \mdif{x}{y}
-        \right)}
-        %
-        \yesnumber\label{eq:<tag> D2x(y)}
-        % %
-        % %
-        % %
-        % ;\\
-        % \mdif[3]{x}{y}
-        % = \mathText{using \eqref{eq:<tag> D2x(y)}}
-        % = \mdif{x}{\left(
-        %   \mdif[2]{x}{y}
-        % \right)}
-        % %
-        % \yesnumber\label{eq:<tag> D3x(y)}
-      \end{gather*}
+          = \mdif{x}{(
+            <phi_x>\,\prim_x{(z)}
+          )}
+          = \mdif{x}{(
+            <phi_x>\,\prim_x{(z)}
+          )}
+          %
+          \yesnumber\label{eq:<tag> D1x(y)}
+          %
+          %
+          %
+          ;\\
+          \mdif[2]{x}{y}
+          = \mathText{using \eqref{eq:<tag> D1x(y)}}
+          = \mdif{x}{\left(
+            \mdif{x}{y}
+          \right)}
+          %
+          \yesnumber\label{eq:<tag> D2x(y)}
+          % %
+          % %
+          % %
+          % ;\\
+          % \mdif[3]{x}{y}
+          % = \mathText{using \eqref{eq:<tag> D2x(y)}}
+          % = \mdif{x}{\left(
+          %   \mdif[2]{x}{y}
+          % \right)}
+          % %
+          % \yesnumber\label{eq:<tag> D3x(y)}
+        \end{gather*}
+      \end{tcolorbox}
 
       Solving \eqref{eq:<tag> eq z}
-      \begin{gather*}
-        z
-        %
-        \yesnumber\label{eq:<tag> z}
-      \end{gather*}
+      \begin{tcolorbox}
+        \begin{gather*}
+          z
+          %
+          \yesnumber\label{eq:<tag> z}
+        \end{gather*}
+      \end{tcolorbox}
       ]],
       {
         tag_input   = i(1,'tag'),
@@ -429,31 +465,33 @@ return {
     },
     fmt(
       [[
-      \begin{gather*}
-        W(F)(x)
-        = \det(w)
-        % = 
-        % \det\begin{bmatrix}
-        %   f_1 & f_2 & \dots
-        %   f_1' & f_2' & \dots
-        % \end{bmatrix}
-        %
-        %
-        %
-        \\
-        \begin{cases}
-          = 0 &\quad \text{não é linearmente indep}
+      \begin{tcolorbox}
+        \begin{gather*}
+          W(F)(x)
+          = \det(w)
+          % = 
+          % \det\begin{bmatrix}
+          %   f_1 & f_2 & \dots
+          %   f_1' & f_2' & \dots
+          % \end{bmatrix}
+          %
+          %
+          %
           \\
-          \neq 0 &\quad \text{é linearmente indep}
-        \end{cases}
-        %
-        %
-        %
-        ; \\[3ex]
-        w \in \mathcal{M}_{n,m}
-        : w_{i,j}
-        = \mdif[j]{x}\,f_i
-      \end{gather*}
+          \begin{cases}
+            = 0 &\quad \text{não é linearmente indep}
+            \\
+            \neq 0 &\quad \text{é linearmente indep}
+          \end{cases}
+          %
+          %
+          %
+          ; \\[3ex]
+          w \in \mathcal{M}_{n,m}
+          : w_{i,j}
+          = \mdif[j]{x}\,f_i
+        \end{gather*}
+      \end{tcolorbox}
       ]],
       {}
     )
@@ -475,70 +513,76 @@ return {
       \answer{\eqref{eq:<tag> answer}}
 
       General Solution
-      \begin{gather*}
-        y
-        = \frac{C(x)}{\varphi(x)}
-        %
-        \yesnumber\label{eq:<tag> y(x C(x))}
-        %
-        = \mathText{using
-          \eqref{eq:<tag> C(x)}
-          \eqref{eq:<tag> phi_x}
-        }
-        = \frac{
-          C(x)
-        }{
-          \varphi(x)
-        }
-      \end{gather*}
-
-      Finding \(C(x)\)
-      \begin{gather*}
-        y' + <a>\,y 
-        = \mathText{using \eqref{eq:<tag> phi_x}}
-        = \mdif{x}{(
-          \frac{C(x)}{
+      \begin{tcolorbox}
+        \begin{gather*}
+          y
+          = \frac{C(x)}{\varphi(x)}
+          %
+          \yesnumber\label{eq:<tag> y(x C(x))}
+          %
+          = \mathText{using
+            \eqref{eq:<tag> C(x)}
+            \eqref{eq:<tag> phi_x}
+          }
+          = \frac{
+            C(x)
+          }{
             \varphi(x)
           }
-        )}
-        + <a>
-        \,\frac{C(x)}{
-          \varphi(x)
-        }
-        = <b>
-        %
-        %
-        %
-        \implies
-        C' 
-        = \dots
-        %
-        %
-        %
-        \implies \\
-        \implies
-        C(x) 
-        = \dots
-        %
-        \yesnumber\label{eq:<tag> C(x)}
-      \end{gather*}
+        \end{gather*}
+      \end{tcolorbox}
+
+      Finding \(C(x)\)
+      \begin{tcolorbox}
+        \begin{gather*}
+          y' + <a>\,y 
+          = \mathText{using \eqref{eq:<tag> phi_x}}
+          = \mdif{x}{(
+            \frac{C(x)}{
+              \varphi(x)
+            }
+          )}
+          + <a>
+          \,\frac{C(x)}{
+            \varphi(x)
+          }
+          = <b>
+          %
+          %
+          %
+          \implies
+          C' 
+          = \dots
+          %
+          %
+          %
+          \implies \\
+          \implies
+          C(x) 
+          = \dots
+          %
+          \yesnumber\label{eq:<tag> C(x)}
+        \end{gather*}
+      \end{tcolorbox}
 
       Finding \(\varphi(x)\)
-      \begin{gather*}
-        \varphi(x)
-        = \exp{\left(
-          \prim_x{\left(
-            <a>
+      \begin{tcolorbox}
+        \begin{gather*}
+          \varphi(x)
+          = \exp{\left(
+            \prim_x{\left(
+              <a>
+            \right)}
           \right)}
-        \right)}
-        = \exp{\left(
-          \prim_x{\left(
-            <a>
+          = \exp{\left(
+            \prim_x{\left(
+              <a>
+            \right)}
           \right)}
-        \right)}
-        %
-        \yesnumber\label{eq:<tag> phi_x}
-      \end{gather*}
+          %
+          \yesnumber\label{eq:<tag> phi_x}
+        \end{gather*}
+      \end{tcolorbox}
       ]], {
         tag_input = i(1,"tag"),
         a_input   = i(2,"a(x)"),
@@ -576,151 +620,170 @@ return {
       %  \,y
       %  = <f>
 
-      \begin{gather*}
-        y
-        = c_1(x)\,y_1(x)
-        + c_2(x)\,y_2(x)
-        = \mathText{using 
-          \eqref{eq:<tag> c_1}
-          \eqref{eq:<tag> c_2}
-        }
-        = \left(
-          <y_1>
-        \right)
-        \,\left(
-          c_1
-        \right)
-          + \left(
-          <y_2>
-        \right)
-        \,\left(
-          c_2
-        \right)
-      \end{gather*}
+      \answer{\eqref{eq:<tag> answer}}
 
-      % y_1 y_2
-      \begin{gather*}
-        \begin{cases}
-          y_1 = <y_1>
-          \\
-          y_2 = <y_2>
-        \end{cases}
-        %
-        \yesnumber\label{eq:<tag> y_1 y_2}
-      \end{gather*}
+      General solution
+      \begin{tcolorbox}
+        \begin{gather*}
+          y
+          = c_1(x)\,y_1(x)
+          + c_2(x)\,y_2(x)
+          = \mathText{using 
+            \eqref{eq:<tag> c_1}
+            \eqref{eq:<tag> c_2}
+          }
+          = \left(
+            <y_1>
+          \right)
+          \,\left(
+            c_1
+          \right)
+            + \left(
+            <y_2>
+          \right)
+          \,\left(
+            c_2
+          \right)
+          %
+          \yesnumber\label{eq:<tag> answer}
+        \end{gather*}
+      \end{tcolorbox}
 
-      % c_1,c_2
-      \begin{gather*}
-        c_1(x) 
-        = \int{c_1'(x)\,\odif{x}}
-        = \mathText{Using \eqref{eq:<tag> c_1'}}
-        = \dots
-        %
-        \yesnumber\label{eq:<tag> c_1}
-        %
-        %
-        ; \\[1ex]
-        c_2(x) 
-        = \int{c_2'(x)\,\odif{x}}
-        = \mathText{Using \eqref{eq:<tag> c_2'}}
-        = \dots
-        %
-        \yesnumber\label{eq:<tag> c_2}
-      \end{gather*}
+      Finding \(y_1,y_2\)
+      \begin{tcolorbox}
+        \begin{gather*}
+          \begin{cases}
+            y_1 = <y_1>
+            \\
+            y_2 = <y_2>
+          \end{cases}
+          %
+          \yesnumber\label{eq:<tag> y_1 y_2}
+        \end{gather*}
+      \end{tcolorbox}
 
-      % c_1',c_2'
-      \begin{gather*}
-        \mathText{Using \eqref{eq:<tag> eq_sytem}}
-        c_1'(x)
-        = \frac{1}{W(y_1,y_2)}
-        \,\begin{vmatrix}
-          0 
-          &  \mdif[0]{x}y_2
-          \\ \frac{<f>}{<a_2>}
-          &  \mdif[1]{x}y_2
-        \end{vmatrix}
-        = \mathText{using 
-          \eqref{eq:<tag> w}
-          \eqref{eq:<tag> D_x(y_2)}
-        }
-        = \dots
-        %
-        \yesnumber\label{eq:<tag> c_1'}
-        %
-        %
-        %
-        ; \\[2ex]
-        \mathText{Using \eqref{eq:<tag> eq_sytem}}
-        c_2'(x)
-        = \frac{1}{W(y_1,y_2)}
-        \,\begin{vmatrix}
-             \mdif[0]{x}y_1
-          &  0 
-          \\ \mdif[1]{x}y_1
-          &  \frac{<f>}{<a_2>}
-        \end{vmatrix}
-        = \mathText{using 
-          \eqref{eq:<tag> w}
-          \eqref{eq:<tag> D_x(y_1)}
-        }
-        = \dots
-        %
-        \yesnumber\label{eq:<tag> c_2'}
-      \end{gather*}
+      Finding \(c_1,c_2\)
+      \begin{tcolorbox}
+        \begin{gather*}
+          c_1(x) 
+          = \int{c_1'(x)\,\odif{x}}
+          = \mathText{Using \eqref{eq:<tag> c_1'}}
+          = \dots
+          %
+          \yesnumber\label{eq:<tag> c_1}
+          %
+          %
+          ; \\[1ex]
+          c_2(x) 
+          = \int{c_2'(x)\,\odif{x}}
+          = \mathText{Using \eqref{eq:<tag> c_2'}}
+          = \dots
+          %
+          \yesnumber\label{eq:<tag> c_2}
+        \end{gather*}
+      \end{tcolorbox}
 
-      % Wronskiano
-      \begin{gather*}
-        W(y_1,y_2)
-        = \det\begin{bmatrix}
-             \mdif[0]{x}\,y_1
-          &  \mdif[0]{x}\,y_2
-          \\ \mdif[1]{x}\,y_1
-          &  \mdif[1]{x}\,y_2
-        \end{bmatrix}
-        = \mathText{using 
-          \eqref{eq:<tag> D_x(y_1)}
-          \eqref{eq:<tag> D_x(y_2)}
-        }
-        = \det\begin{bmatrix}
-             <y_1>
-          &  <y_2>
-          \\ \mdif[1]{x}\,y_1
-          &  \mdif[1]{x}\,y_2
-        \end{bmatrix}
-        %
-        \yesnumber\label{eq:<tag> w}
-      \end{gather*}
+      \solving \(\mdif[1]{x}{(c_1,c_2)}\)
+      \begin{tcolorbox}
+        \begin{gather*}
+          \mathText{Using \eqref{eq:<tag> eq_sytem}}
+          c_1'(x)
+          = \frac{1}{W(y_1,y_2)}
+          \,\begin{vmatrix}
+            0 
+            &  \mdif[0]{x}y_2
+            \\ \frac{<f>}{<a_2>}
+            &  \mdif[1]{x}y_2
+          \end{vmatrix}
+          = \mathText{using 
+            \eqref{eq:<tag> w}
+            \eqref{eq:<tag> D_x(y_2)}
+          }
+          = \dots
+          %
+          \yesnumber\label{eq:<tag> c_1'}
+          %
+          %
+          %
+          ; \\[2ex]
+          \mathText{Using \eqref{eq:<tag> eq_sytem}}
+          c_2'(x)
+          = \frac{1}{W(y_1,y_2)}
+          \,\begin{vmatrix}
+               \mdif[0]{x}y_1
+            &  0 
+            \\ \mdif[1]{x}y_1
+            &  \frac{<f>}{<a_2>}
+          \end{vmatrix}
+          = \mathText{using 
+            \eqref{eq:<tag> w}
+            \eqref{eq:<tag> D_x(y_1)}
+          }
+          = \dots
+          %
+          \yesnumber\label{eq:<tag> c_2'}
+        \end{gather*}
+      \end{tcolorbox}
 
-      % Sistema de equações da regra de crammer
-      \begin{gather*}
-        \begin{Bmatrix}
-          {
-              c_1'(x)\,\mdif[0]{x}\,y_1(x) 
-            + c_2'(x)\,\mdif[0]{x}\,y_2(x)
-          } &=& 0
-          \\ {
-              c_1'(x)\,\mdif[1]{x}\,y_1(x) 
-            + c_2'(x)\,\mdif[1]{x}\,y_2(x)
-          } &=& \frac{<f>}{<a_2>}
-        \end{Bmatrix}
-        %
-        \yesnumber\label{eq:<tag> eq_sytem}
-      \end{gather*}
+      Solving Wronskiano
+      \begin{tcolorbox}
+        \begin{gather*}
+          W(y_1,y_2)
+          = \det\begin{bmatrix}
+               \mdif[0]{x}\,y_1
+            &  \mdif[0]{x}\,y_2
+            \\ \mdif[1]{x}\,y_1
+            &  \mdif[1]{x}\,y_2
+          \end{bmatrix}
+          = \mathText{using 
+            \eqref{eq:<tag> D_x(y_1)}
+            \eqref{eq:<tag> D_x(y_2)}
+          }
+          = \det\begin{bmatrix}
+               <y_1>
+            &  <y_2>
+            \\ \mdif[1]{x}\,y_1
+            &  \mdif[1]{x}\,y_2
+          \end{bmatrix}
+          %
+          \yesnumber\label{eq:<tag> w}
+        \end{gather*}
+      \end{tcolorbox}
 
-      % y_1',y_2'
-      \begin{gather*}
-        \mdif[1]{x}\,y_1
-        = \mdif[1]{x}\,<y_1>
-        %
-        \yesnumber\label{eq:<tag> D_x(y_1)}
-        %
-        %
-        ; \\[1ex]
-        \mdif[1]{x}\,y_2
-        = \mdif[1]{x}\,<y_2>
-        %
-        \yesnumber\label{eq:<tag> D_x(y_2)}
-      \end{gather*}
+      Crammers equation system
+      \begin{tcolorbox}
+        \begin{gather*}
+          \begin{Bmatrix}
+            {
+                c_1'(x)\,\mdif[0]{x}\,y_1(x) 
+              + c_2'(x)\,\mdif[0]{x}\,y_2(x)
+            } &=& 0
+            \\ {
+                c_1'(x)\,\mdif[1]{x}\,y_1(x) 
+              + c_2'(x)\,\mdif[1]{x}\,y_2(x)
+            } &=& \frac{<f>}{<a_2>}
+          \end{Bmatrix}
+          %
+          \yesnumber\label{eq:<tag> eq_sytem}
+        \end{gather*}
+      \end{tcolorbox}
+
+      Solving \(\mdif[1]{x}{(y_1,y_2)}\)
+      \begin{tcolorbox}
+        \begin{gather*}
+          \mdif[1]{x}\,y_1
+          = \mdif[1]{x}\,<y_1>
+          %
+          \yesnumber\label{eq:<tag> D_x(y_1)}
+          %
+          %
+          ; \\[1ex]
+          \mdif[1]{x}\,y_2
+          = \mdif[1]{x}\,<y_2>
+          %
+          \yesnumber\label{eq:<tag> D_x(y_2)}
+        \end{gather*}
+      \end{tcolorbox}
       ]],
       {
         tag_input = i(1, 'tag'),
@@ -770,266 +833,282 @@ return {
       % \,y
       % = <f>
 
-      \begin{gather*}
-        y
-        = y_1(x)\,c_1(x)
-        + y_2(x)\,c_2(x)
-        + y_3(x)\,c_3(x)
-        = \mathText{using 
-          \eqref{eq:<tag> y_1 y_2 y_3}
-          \eqref{eq:<tag> c_1}
-          \eqref{eq:<tag> c_2}
-          \eqref{eq:<tag> c_3}
-        }
-        = \left(
-          <y_1>
-        \right)
-        \,\left(
-          c_1
-        \right)
+      General solution
+      \begin{tcolorbox}
+        \begin{gather*}
+          y
+          = y_1(x)\,c_1(x)
+          + y_2(x)\,c_2(x)
+          + y_3(x)\,c_3(x)
+          = \mathText{using 
+            \eqref{eq:<tag> y_1 y_2 y_3}
+            \eqref{eq:<tag> c_1}
+            \eqref{eq:<tag> c_2}
+            \eqref{eq:<tag> c_3}
+          }
+          = \left(
+            <y_1>
+          \right)
+          \,\left(
+            c_1
+          \right)
+            + \left(
+            <y_2>
+          \right)
+          \,\left(
+            c_2
+          \right)
           + \left(
-          <y_2>
-        \right)
-        \,\left(
-          c_2
-        \right)
-        + \left(
-          <y_3>
-        \right)
-        \,\left(
-          c_3
-        \right)
-      \end{gather*}
+            <y_3>
+          \right)
+          \,\left(
+            c_3
+          \right)
+        \end{gather*}
+      \end{tcolorbox}
 
-      \begin{gather*}
-        \begin{cases}
-          y_1 = <y_1>
-          \\
-          y_2 = <y_2>
-          \\
-          y_3 = <y_3>
-        \end{cases}
-        %
-        \yesnumber\label{eq:<tag> y_1 y_2 y_3}
-      \end{gather*}
+      Solving \(y_1,y_2,y_3\)
+      \begin{tcolorbox}
+        \begin{gather*}
+          \begin{cases}
+            y_1 = <y_1>
+            \\
+            y_2 = <y_2>
+            \\
+            y_3 = <y_3>
+          \end{cases}
+          %
+          \yesnumber\label{eq:<tag> y_1 y_2 y_3}
+        \end{gather*}
+      \end{tcolorbox}
 
-      % c_1,c_2,c_3
-      \begin{gather*}
-        c_1(x) 
-        = \int{c_1'(x)\,\odif{x}}
-        = \mathText{Using \eqref{eq:<tag> c_1'}}
-        = \dots
-        %
-        \yesnumber\label{eq:<tag> c_1}
-        %
-        %
-        %
-        ; \\[1ex]
-        c_2(x) 
-        = \int{c_2'(x)\,\odif{x}}
-        = \mathText{Using \eqref{eq:<tag> c_2'}}
-        = \dots
-        %
-        \yesnumber\label{eq:<tag> c_2}
-        %
-        %
-        %
-        ; \\[1ex]
-        c_3(x) 
-        = \int{c_3'(x)\,\odif{x}}
-        = \mathText{Using \eqref{eq:<tag> c_3'}}
-        = \dots
-        %
-        \yesnumber\label{eq:<tag> c_3}
-      \end{gather*}
+      Solving \(c_1,c_2,c_3\)
+      \begin{tcolorbox}
+        \begin{gather*}
+          c_1(x) 
+          = \int{c_1'(x)\,\odif{x}}
+          = \mathText{Using \eqref{eq:<tag> c_1'}}
+          = \dots
+          %
+          \yesnumber\label{eq:<tag> c_1}
+          %
+          %
+          %
+          ; \\[1ex]
+          c_2(x) 
+          = \int{c_2'(x)\,\odif{x}}
+          = \mathText{Using \eqref{eq:<tag> c_2'}}
+          = \dots
+          %
+          \yesnumber\label{eq:<tag> c_2}
+          %
+          %
+          %
+          ; \\[1ex]
+          c_3(x) 
+          = \int{c_3'(x)\,\odif{x}}
+          = \mathText{Using \eqref{eq:<tag> c_3'}}
+          = \dots
+          %
+          \yesnumber\label{eq:<tag> c_3}
+        \end{gather*}
+      \end{tcolorbox}
 
-      % c_1',c_2',c_3'
-      \begin{gather*}
-        \mathText{Using \eqref{eq:<tag> eq_sytem}}
-        c_1'(x)
-        = \frac{1}{W(y_1,y_2,y_3)}
-        \,\begin{vmatrix}
-          0 
-          &  \mdif[0]{x}y_2
-          &  \mdif[0]{x}y_3
-          \\ 0
-          &  \mdif[1]{x}y_2
-          &  \mdif[1]{x}y_3
-          \\ \frac{<f>}{<a_3>}
-          &  \mdif[2]{x}y_2
-          &  \mdif[2]{x}y_3
-        \end{vmatrix}
-        = \mathText{Using
-          \eqref{eq:<tag> w}
-          \eqref{eq:<tag> D1_x(y_2)}
-          \eqref{eq:<tag> D2_x(y_2)}
-          \eqref{eq:<tag> D1_x(y_3)}
-          \eqref{eq:<tag> D2_x(y_3)}
-        }
-        = \dots
-        %
-        \yesnumber\label{eq:<tag> c_1'}
-        % 
-        % 
-        % 
-        ; \\[3ex]
-        \mathText{Using \eqref{eq:<tag> eq_sytem}}
-        c_2'(x)
-        = \frac{1}{W(y_1,y_2,y_3)}
-        \,\begin{vmatrix}
-             \mdif[0]{x}y_1
-          &  0 
-          &  \mdif[0]{x}y_3
-          \\ \mdif[1]{x}y_1
-          &  0
-          &  \mdif[1]{x}y_3
-          \\ \mdif[2]{x}y_1
-          &  \frac{<f>}{<a_3>}
-          &  \mdif[2]{x}y_3
-        \end{vmatrix}
-        = \mathText{Using 
-          \eqref{eq:<tag> w}
-          \eqref{eq:<tag> D1_x(y_1)}
-          \eqref{eq:<tag> D2_x(y_1)}
-          \eqref{eq:<tag> D1_x(y_3)}
-          \eqref{eq:<tag> D2_x(y_3)}
-        }
-        = \dots
-        %
-        \yesnumber\label{eq:<tag> c_2'}
-        %
-        %
-        %
-        \mathText{Using \eqref{eq:<tag> eq_sytem}}
-        c_3'(x)
-        = \frac{1}{W(y_1,y_2,y_3)}
-        \, \begin{vmatrix}
-             \mdif[0]{x}y_1
-          &  \mdif[0]{x}y_2
-          &  0
-          \\ \mdif[1]{x}y_1
-          &  \mdif[1]{x}y_2
-          &  0
-          \\ \mdif[2]{x}y_1
-          &  \mdif[2]{x}y_2
-          &  \frac{<f>}{<a_3>}
-        \end{vmatrix}
-        = \mathText{Using 
-          \eqref{eq:<tag> w}
-          \eqref{eq:<tag> D1_x(y_1)}
-          \eqref{eq:<tag> D2_x(y_1)}
-          \eqref{eq:<tag> D1_x(y_2)}
-          \eqref{eq:<tag> D2_x(y_2)}
-        }
-        = \dots
-        %
-        \yesnumber\label{eq:<tag> c_3'}
-      \end{gather*}
+      Finding \(\mdif[1]{x}{(c_1,c_2,c_3)}\)
+      \begin{tcolorbox}
+        \begin{gather*}
+          \mathText{Using \eqref{eq:<tag> eq_sytem}}
+          c_1'(x)
+          = \frac{1}{W(y_1,y_2,y_3)}
+          \,\begin{vmatrix}
+            0 
+            &  \mdif[0]{x}y_2
+            &  \mdif[0]{x}y_3
+            \\ 0
+            &  \mdif[1]{x}y_2
+            &  \mdif[1]{x}y_3
+            \\ \frac{<f>}{<a_3>}
+            &  \mdif[2]{x}y_2
+            &  \mdif[2]{x}y_3
+          \end{vmatrix}
+          = \mathText{Using
+            \eqref{eq:<tag> w}
+            \eqref{eq:<tag> D1_x(y_2)}
+            \eqref{eq:<tag> D2_x(y_2)}
+            \eqref{eq:<tag> D1_x(y_3)}
+            \eqref{eq:<tag> D2_x(y_3)}
+          }
+          = \dots
+          %
+          \yesnumber\label{eq:<tag> c_1'}
+          % 
+          % 
+          % 
+          ; \\[3ex]
+          \mathText{Using \eqref{eq:<tag> eq_sytem}}
+          c_2'(x)
+          = \frac{1}{W(y_1,y_2,y_3)}
+          \,\begin{vmatrix}
+               \mdif[0]{x}y_1
+            &  0 
+            &  \mdif[0]{x}y_3
+            \\ \mdif[1]{x}y_1
+            &  0
+            &  \mdif[1]{x}y_3
+            \\ \mdif[2]{x}y_1
+            &  \frac{<f>}{<a_3>}
+            &  \mdif[2]{x}y_3
+          \end{vmatrix}
+          = \mathText{Using 
+            \eqref{eq:<tag> w}
+            \eqref{eq:<tag> D1_x(y_1)}
+            \eqref{eq:<tag> D2_x(y_1)}
+            \eqref{eq:<tag> D1_x(y_3)}
+            \eqref{eq:<tag> D2_x(y_3)}
+          }
+          = \dots
+          %
+          \yesnumber\label{eq:<tag> c_2'}
+          %
+          %
+          %
+          \mathText{Using \eqref{eq:<tag> eq_sytem}}
+          c_3'(x)
+          = \frac{1}{W(y_1,y_2,y_3)}
+          \, \begin{vmatrix}
+               \mdif[0]{x}y_1
+            &  \mdif[0]{x}y_2
+            &  0
+            \\ \mdif[1]{x}y_1
+            &  \mdif[1]{x}y_2
+            &  0
+            \\ \mdif[2]{x}y_1
+            &  \mdif[2]{x}y_2
+            &  \frac{<f>}{<a_3>}
+          \end{vmatrix}
+          = \mathText{Using 
+            \eqref{eq:<tag> w}
+            \eqref{eq:<tag> D1_x(y_1)}
+            \eqref{eq:<tag> D2_x(y_1)}
+            \eqref{eq:<tag> D1_x(y_2)}
+            \eqref{eq:<tag> D2_x(y_2)}
+          }
+          = \dots
+          %
+          \yesnumber\label{eq:<tag> c_3'}
+        \end{gather*}
+      \end{tcolorbox}
 
-      % Wronskiano
-      \begin{gather*}
-        W(y_1,y_2,y_3)
-        = \det\begin{bmatrix}
-             \mdif[0]{x}\,y_1
-          &  \mdif[0]{x}\,y_2
-          &  \mdif[0]{x}\,y_3
-          \\ \mdif[1]{x}\,y_1
-          &  \mdif[1]{x}\,y_2
-          &  \mdif[1]{x}\,y_3
-          \\ \mdif[2]{x}\,y_1
-          &  \mdif[2]{x}\,y_2
-          &  \mdif[2]{x}\,y_3
-        \end{bmatrix}
-        = \mathText{using 
-          \eqref{eq:<tag> D1_x(y_1)}
-          \eqref{eq:<tag> D2_x(y_1)}
-          \eqref{eq:<tag> D1_x(y_2)}
-          \eqref{eq:<tag> D2_x(y_2)}
-          \eqref{eq:<tag> D1_x(y_3)}
-          \eqref{eq:<tag> D2_x(y_3)}
-        }
-        = \det\begin{bmatrix}
-             <y_1>
-          &  <y_2>
-          &  <y_3>
-          \\ \mdif[1]{x}\,y_1
-          &  \mdif[1]{x}\,y_2
-          &  \mdif[1]{x}\,y_3
-          \\ \mdif[2]{x}\,y_1
-          &  \mdif[2]{x}\,y_2
-          &  \mdif[2]{x}\,y_3
-        \end{bmatrix}
-        %
-        \yesnumber\label{eq:<tag> w}
-      \end{gather*}
+      Solving Wronskiano
+      \begin{tcolorbox}
+        \begin{gather*}
+          W(y_1,y_2,y_3)
+          = \det\begin{bmatrix}
+               \mdif[0]{x}\,y_1
+            &  \mdif[0]{x}\,y_2
+            &  \mdif[0]{x}\,y_3
+            \\ \mdif[1]{x}\,y_1
+            &  \mdif[1]{x}\,y_2
+            &  \mdif[1]{x}\,y_3
+            \\ \mdif[2]{x}\,y_1
+            &  \mdif[2]{x}\,y_2
+            &  \mdif[2]{x}\,y_3
+          \end{bmatrix}
+          = \mathText{using 
+            \eqref{eq:<tag> D1_x(y_1)}
+            \eqref{eq:<tag> D2_x(y_1)}
+            \eqref{eq:<tag> D1_x(y_2)}
+            \eqref{eq:<tag> D2_x(y_2)}
+            \eqref{eq:<tag> D1_x(y_3)}
+            \eqref{eq:<tag> D2_x(y_3)}
+          }
+          = \det\begin{bmatrix}
+               <y_1>
+            &  <y_2>
+            &  <y_3>
+            \\ \mdif[1]{x}\,y_1
+            &  \mdif[1]{x}\,y_2
+            &  \mdif[1]{x}\,y_3
+            \\ \mdif[2]{x}\,y_1
+            &  \mdif[2]{x}\,y_2
+            &  \mdif[2]{x}\,y_3
+          \end{bmatrix}
+          %
+          \yesnumber\label{eq:<tag> w}
+        \end{gather*}
+      \end{tcolorbox}
 
-      % eq system
-      \begin{gather*}
-        \begin{Bmatrix}
-          {
-              c_1'(x)\,\mdif[0]{x}y_1(x) 
-            + c_2'(x)\,\mdif[0]{x}y_2(x)
-            + c_3'(x)\,\mdif[0]{x}y_3(x)
-          } = 0
-          \\ {
-              c_1'(x)\,\mdif[1]{x}\,y_1(x) 
-            + c_2'(x)\,\mdif[1]{x}\,y_2(x)
-            + c_3'(x)\,\mdif[1]{x}\,y_3(x)
-          } = 0
-          \\ {
-              c_1'(x)\,\mdif[2]{x}\,y_1(x) 
-            + c_2'(x)\,\mdif[2]{x}\,y_2(x)
-            + c_3'(x)\,\mdif[2]{x}\,y_3(x)
-          } = \frac{<f>}{<a_3>}
-        \end{Bmatrix}
-        %
-        \yesnumber\label{eq:<tag> eq_sytem}
-      \end{gather*}
+      Crammer's equation system
+      \begin{tcolorbox}
+        \begin{gather*}
+          \begin{Bmatrix}
+            {
+                c_1'(x)\,\mdif[0]{x}y_1(x) 
+              + c_2'(x)\,\mdif[0]{x}y_2(x)
+              + c_3'(x)\,\mdif[0]{x}y_3(x)
+            } = 0
+            \\ {
+                c_1'(x)\,\mdif[1]{x}\,y_1(x) 
+              + c_2'(x)\,\mdif[1]{x}\,y_2(x)
+              + c_3'(x)\,\mdif[1]{x}\,y_3(x)
+            } = 0
+            \\ {
+                c_1'(x)\,\mdif[2]{x}\,y_1(x) 
+              + c_2'(x)\,\mdif[2]{x}\,y_2(x)
+              + c_3'(x)\,\mdif[2]{x}\,y_3(x)
+            } = \frac{<f>}{<a_3>}
+          \end{Bmatrix}
+          %
+          \yesnumber\label{eq:<tag> eq_sytem}
+        \end{gather*}
+      \end{tcolorbox}
 
-      % y_1',y_1",y_2',y_2",y_3',y_3"
-      \begin{gather*}
-        \mdif[1]{x}\,y_1
-        = \mdif[1]{x}\,<y_1>
-        \yesnumber\label{eq:<tag> D_x(y_1)}
-        %
-        %
-        ; \\[1ex]
-        \mdif[2]{x}\,y_1
-        = \mdif{x}{
-          \dots
-        }
-        \yesnumber\label{eq:<tag> D2_x(y_1)}
-        %
-        %
-        %
-        ; \\[1ex]
-        \mdif[1]{x}\,y_2
-        = \mdif[1]{x}\,<y_2>
-        \yesnumber\label{eq:<tag> D_x(y_2)}
-        %
-        %
-        ; \\[1ex]
-        \mdif[2]{x}\,y_2
-        = \mdif{x}{
-          \dots
-        }
-        \yesnumber\label{eq:<tag> D2_x(y_2)}
-        %
-        %
-        ; \\[1ex]
-        \mdif[1]{x}\,y_3
-        = \mdif[1]{x}\,<y_3>
-        \yesnumber\label{eq:<tag> D_x(y_3)}
-        %
-        %
-        ; \\[1ex]
-        \mdif[2]{x}\,y_3
-        = \mdif{x}{
-          \dots
-        }
-        %
-        \yesnumber\label{eq:<tag> D2_x(y_3)}
-      \end{gather*}
+      Solving \((\mdif[1]{x},\mdif[2]{x})(y_1,y_2,y_3)\)
+      \begin{tcolorbox}
+        \begin{gather*}
+          \mdif[1]{x}\,y_1
+          = \mdif[1]{x}\,<y_1>
+          \yesnumber\label{eq:<tag> D_x(y_1)}
+          %
+          %
+          ; \\[1ex]
+          \mdif[2]{x}\,y_1
+          = \mdif{x}{
+            \dots
+          }
+          \yesnumber\label{eq:<tag> D2_x(y_1)}
+          %
+          %
+          %
+          ; \\[1ex]
+          \mdif[1]{x}\,y_2
+          = \mdif[1]{x}\,<y_2>
+          \yesnumber\label{eq:<tag> D_x(y_2)}
+          %
+          %
+          ; \\[1ex]
+          \mdif[2]{x}\,y_2
+          = \mdif{x}{
+            \dots
+          }
+          \yesnumber\label{eq:<tag> D2_x(y_2)}
+          %
+          %
+          ; \\[1ex]
+          \mdif[1]{x}\,y_3
+          = \mdif[1]{x}\,<y_3>
+          \yesnumber\label{eq:<tag> D_x(y_3)}
+          %
+          %
+          ; \\[1ex]
+          \mdif[2]{x}\,y_3
+          = \mdif{x}{
+            \dots
+          }
+          %
+          \yesnumber\label{eq:<tag> D2_x(y_3)}
+        \end{gather*}
+      \end{tcolorbox}
       ]],
       {
         tag_input = i(1, 'tag'),
@@ -1077,28 +1156,30 @@ return {
       % f_{2,2} = <f_22_input>
       % f_{2,3} = <f_23_input>
 
-      % regra de crammer (sol sistema)
-      \begin{gather*}
-        \begin{Bmatrix}
-             <a_1>\,<f_11> + <a_2>\,<f_12> = <f_13>
-          \\ <a_1>\,<f_21> + <a_2>\,<f_22> = <f_23>
-        \end{Bmatrix}
-        \\
-        \implies
-        <a_1> = \frac{
-          \begin{vmatrix}
-            <f_13> & <f_12>
-            \\
-            <f_23> & <f_22>
-          \end{vmatrix}
-        }{
-          \begin{vmatrix}
-            <f_11> & <f_12>
-            \\
-            <f_21> & <f_22>
-          \end{vmatrix}
-        }
-      \end{gather*}
+      Crammer's rule solution system
+      \begin{tcolorbox}
+        \begin{gather*}
+          \begin{Bmatrix}
+               <a_1>\,<f_11> + <a_2>\,<f_12> = <f_13>
+            \\ <a_1>\,<f_21> + <a_2>\,<f_22> = <f_23>
+          \end{Bmatrix}
+          \\
+          \implies
+          <a_1> = \frac{
+            \begin{vmatrix}
+              <f_13> & <f_12>
+              \\
+              <f_23> & <f_22>
+            \end{vmatrix}
+          }{
+            \begin{vmatrix}
+              <f_11> & <f_12>
+              \\
+              <f_21> & <f_22>
+            \end{vmatrix}
+          }
+        \end{gather*}
+      \end{tcolorbox}
       ]],
       {
         a_1_input = i(1,"a_1"),
@@ -1117,67 +1198,6 @@ return {
         f_21 = rep(6),
         f_22 = rep(7),
         f_23 = rep(8)
-      }
-    )
-  ),
-  ms( -- Desenvolvimento EDO fator integrante
-    {
-      common = {
-        name = "Desenvolvimento EDO com fator integrante",
-        desc = {
-          "f₁(x,y) dx + f₂(x,y) dy = 0",
-          "φ(x,y) (fator integrante)"
-        }
-      },
-      "formulas-AM3C-EDO-desenvolvimento-fator-integrante"
-    },
-      fmt(
-      [[
-      % f1:  <f1_input>
-      % f2:  <f2_input>
-      % φ:   <phi_input>
-      \begin{gather*}
-        <f1>\,\odif{x}
-        + <f2>\,\odif{y}
-        = 0
-        ;\quad
-        % ;\\
-        \varphi(x,y)
-        = <phi>
-        %
-        %
-        %
-        \implies \\
-        \implies
-        \left(<phi>\right)
-        \left(<f1>\right)
-        \,\odif{x}
-        + 
-        \left(<phi>\right)
-        \left(<f2>\right)
-        \,\odif{y}
-        = 0
-        %
-        %
-        %
-        \implies \\
-        \implies
-        \pdv{}{y}
-        \left(<phi>\right)
-        \left(<f1>\right)
-        =
-        \pdv{}{x}
-        \left(<phi>\right)
-        \left(<f2>\right)
-      \end{gather*}
-      ]],
-      {
-        f1_input = i(1,'f_1'),
-        f2_input = i(2,'f_2'),
-        phi_input = i(3,'\\varphi'),
-        f1 = rep(1),
-        f2 = rep(2),
-        phi = rep(3),
       }
     )
   ),
