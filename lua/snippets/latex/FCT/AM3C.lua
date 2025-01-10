@@ -31,6 +31,11 @@ return {
       % y    = <y_input>
       % x    = <x_input>
 
+      % y' + y( 
+      %   <a> 
+      % )
+      % = <b>
+
       \answer{\eqref{eq:<tag> answer}}
 
       General solution
@@ -124,6 +129,13 @@ return {
       % a(x) = <a_input>
       % b(x) = <b_input>
       % k    = <k_input>
+
+      % y' + y(
+      %   <a>
+      % )
+      % = y^<k> (
+      %   <b>
+      % )
 
       % \answer{\eqref{eq:<tag> answer}}
 
@@ -243,6 +255,14 @@ return {
       % c(x) = <c_input>
       % y_1(x) = <y_1_input>
 
+      % y' + y(
+      %   <a>
+      % )
+      % = <b>
+      % + y^2(
+      %   <c>
+      % )
+
       % \answer{\eqref{eq:<tag> answer}}
 
       General solution
@@ -351,6 +371,8 @@ return {
       % tag  = <tag_input>
       % P    = <P_input>
       % φ(x) = <phi_x_input>
+
+      % y ( <p> ) = 0
 
       \answer{\eqref{eq:<tag> answer}}
 
@@ -509,6 +531,7 @@ return {
       % tag  = <tag_input>
       % a(x) = <a_input>
       % b(x) = <b_input>
+
 
       \answer{\eqref{eq:<tag> answer}}
 
@@ -823,7 +846,6 @@ return {
       % y_2(x) = <y_2_input>
       % y_3(x) = <y_3_input>
 
-      % y:
       % \begin{pmatrix}
       %     <a_0>
       %   \\ + <a_1>\,\mdif[1]{x}
@@ -1515,8 +1537,6 @@ return {
     },
     fmt(
       [[
-      \answer{\eqref{eq<tag> answer}}
-
       % Solve using method of lineq constcoeff
       % remember to substitute x->>t s/x/t/gc
 
@@ -1528,6 +1548,8 @@ return {
 
       % y ( <P> )
       % = <f>
+
+      \answer{\eqref{eq<tag> answer}}
 
       Finding linear equation of constant coefficients using euler's equation
       \begin{tcolorbox}
