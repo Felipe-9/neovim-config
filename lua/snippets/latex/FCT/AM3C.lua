@@ -133,7 +133,7 @@ return {
       % y' + y(
       %   <a>
       % )
-      % = y^<k> (
+      % = y^{<k>} (
       %   <b>
       % )
 
@@ -143,7 +143,7 @@ return {
       \begin{tcolorbox}
         \begin{gather*}
           y 
-          = z^{1/(1-<k>)}
+          = z^{1/(1-(<k>))}
           %
           \yesnumber\label{eq:<tag> y->>z}
           %
@@ -152,11 +152,11 @@ return {
             \frac{c_0}{\varphi(x)}
             + \frac{1}{\varphi(x)}
             \,\prim_x{(
-              (1-<k>)
+              (1-(<k>))
               \,<b>
               \,\varphi(x)
             )}
-          \right)^{1/(1-<k>)}
+          \right)^{1/(1-(<k>))}
           = \mathText{using
             \eqref{eq:<tag> phi_x}
             \eqref{eq:<tag> prim}
@@ -165,11 +165,11 @@ return {
             \frac{c_0}{\varphi(x)}
             + \frac{1}{\varphi(x)}
             \,\prim_x{(
-              (1-<k>)
+              (1-(<k>))
               \,<b>
               \,\varphi(x)
             )}
-          \right)^{1/(1-<k>)}
+          \right)^{1/(1-(<k>))}
           %
           \yesnumber\label{eq:<tag> answer}
         \end{gather*}
@@ -178,46 +178,46 @@ return {
       Bernoulli's substitution
       \begin{tcolorbox}
         \begin{gather*}
-          y' + <a>\,y = <b>\,y^<k>
+          y' + <a>\,y = <b>\,y^{<k>}
           \implies \mathText{using \eqref{eq:<tag> y->>z}}
           \implies
-          z' + (1-<k>)<a>\,z = (1-<k>)\,<b>
+          z' + (1-(<k>))<a>\,z = (1-(<k>))\,<b>
         \end{gather*}
-      \begin{tcolorbox}
+      \end{tcolorbox}
 
-      Finding \(\varphi(x}\)
+      Finding \(\varphi(x)\)
       \begin{tcolorbox}
         \begin{gather*}
           \varphi(x)
           = \exp{\left(
             \prim_x{(
-              (1-k)
+              (1-(<k>))
               \,<a>
             )}
           \right)}
           %
           \yesnumber\label{eq:<tag> phi_x}
         \end{gather*}
-      \begin{tcolorbox}
+      \end{tcolorbox}
 
       Integrating
       \begin{tcolorbox}
         \begin{gather*}
-          P{\left(
-            (1-k)
+          \prim_x{\left(
+            (1-(<k>))
             \,<b>
             \,\varphi(x)
           \right)}
           = \mathText{using \eqref{eq:<tag> phi_x}}
-          = P{\left(
-            (1-k)
+          = \prim_x{\left(
+            (1-(<k>))
             \,<b>
             \,\varphi(x)
           \right)}
           %
           \yesnumber\label{eq:<tag> prim}
         \end{gather*}
-      \begin{tcolorbox}
+      \end{tcolorbox}
       ]],
       {
         tag_input = i(1, 'tag'),
@@ -372,7 +372,7 @@ return {
       % P    = <P_input>
       % φ(x) = <phi_x_input>
 
-      % y ( <p> ) = 0
+      % y ( <P> ) = 0
 
       \answer{\eqref{eq:<tag> answer}}
 
@@ -1976,6 +1976,262 @@ return {
         tag = rep(1),
         u   = rep(2),
         v   = rep(3),
+      }
+    )
+  ),
+  ms( -- laplace's equation solution
+    {
+      common = {
+        name = "Laplace's equation solution",
+        desc = [[
+          y = x α(y') + β(y')
+          y'=p
+        ]]
+      },
+      "AM3C-laplaces-equation-solution"
+    },
+    fmt(
+      [[
+      % tag = <tag_input>
+      % alpha = <alpha_input>
+      % beta  = <beta_input>
+
+      % y = x\,(<alpha>) + <beta>
+
+      \answer{\eqref{eq:<tag> answer}}
+
+      General and singular solutions for \(y\)
+      \begin{tcolorbox}
+        \begin{gather*}
+          y = x\,\left(
+            <alpha>
+          \right)
+          (y')
+          + \left(
+            <beta>
+          \right)
+          (y')
+          = \mathText{\(y'=p\)}
+          = x\,\left(
+            <alpha>
+          \right)
+          (p)
+          + \left(
+            <beta>
+          \right)
+          (p)
+          %
+          \yesnumber\label{eq:<tag> y to p}
+          %
+          = \mathText{using 
+            \eqref{eq:<tag> solutions for x}
+          }
+          = 
+        \end{gather*}
+      \end{tcolorbox}
+
+      % solve general solution for x here
+      General solution for \eqref{eq:<tag> x diffeq}
+      \begin{tcolorbox}
+        % \begin{gather*}
+        % \end{gather*}
+      \end{tcolorbox}
+
+      Solving \(y'\)
+      \begin{tcolorbox}
+        \begin{gather*}
+          y' = p
+          = \mathText{using \eqref{eq:<tag> y to p}}
+          = \mdif{x}{\left(
+            x\,\left(
+              <alpha>
+            \right)
+            (p)
+            + \left(
+              <beta>
+            \right)
+            (p)
+          \right)}
+          \implies
+          p
+          = x\,\left(
+            <alpha>
+          \right)
+          (p)
+          + \left(
+            <beta>
+          \right)
+          (p)
+          \implies \\
+          \implies
+          x'
+          - x\,\left(
+            \frac{
+              \mdif{x}{
+                \left(
+                  <alpha>
+                \right)(p)
+              }
+            }{
+              p
+              -
+              \left(
+                <alpha>
+              \right)(p)
+            }
+          \right)
+          = \frac{
+            \mdif{x}{
+              \left(
+                <beta>
+              \right)(p)
+            }
+          }{
+            p
+            - 
+            \left(
+              <alpha>
+            \right)(p)
+          }
+          %
+          \yesnumber\label{eq:<tag> x diffeq}
+        \end{gather*}
+      \end{tcolorbox}
+      ]],{
+        tag_input   = i(1,"tag"),
+        alpha_input = i(2,"α"),
+        beta_input  = i(3,"β"),
+        tag   = rep(1),
+        alpha = rep(2),
+        beta  = rep(3)
+      }
+    )
+  ),
+  ms( -- Clairut's equation solution
+    {
+      common = {
+        name = "Clairut's equation solution",
+        desc = [[
+          y = x y' + β(y')
+          y' = p
+        ]]
+      },
+      "AM3C-Clairuts-equation-solution"
+    },
+    fmt(
+      [[
+      % tag = <tag_input>
+      % beta = <beta_input>
+
+      \answer{\eqref{<tag> answer}}
+
+      General and singular solutions for \(y\)
+      \begin{tcolorbox}
+        \begin{gather*}
+          y 
+          = x\,y' 
+          + \left(
+            <beta>
+          \right)(y')
+          = \mathText{\(y'=p\)}
+          = x\,p
+          + \left(
+            <beta>
+          \right)(p)
+          %
+          \yesnumber\label{eq:<tag> y to p}
+          %
+          \implies \mathText{using \eqref{eq:<tag> solutions for y}}
+          \implies
+          \begin{cases}
+            y = x\,c 
+            + \left(
+              <beta>
+            \right)(c)
+            % \text{General solution}
+            \\
+            \begin{cases}
+              x = -(<beta>)'(p)
+              \\
+              y 
+              = - \mdif{x}{(
+                <beta>
+              })(p)
+              \,p
+              + (
+                <beta>
+              )(p)
+            \end{cases}
+            & \text{singular solutions parametric}
+            \\
+            y 
+            = x\,(
+              - \mdif{x}{(
+                <beta>
+              })(p)
+            )
+            + (
+              <beta>
+            )(p)
+          \end{cases}
+        \end{gather*}
+      \end{tcolorbox}
+
+      Solving \(y'\)
+      \begin{tcolorbox}
+        \begin{gather*}
+          y' = p
+          = \mathText{using \eqref{eq:<tag> y to p}}
+          = x\,p
+          + \left(
+            <beta>
+          \right)(p)
+          \implies
+          x\,p'
+          + \mdif{x}{\left(
+            <beta>
+          \right)(p)}
+          \implies \\
+          \implies
+          \begin{cases}
+            p'= 0
+            \\
+            x
+            = -\mdif{x}{\left(
+              <beta>
+            \right)(p)}
+          \end{cases}
+          %
+          \yesnumber\label{eq:<tag> solutions for y}
+        \end{gather*}
+      \end{tcolorbox}
+      ]],{
+        tag_input  = i(1,"tag"),
+        beta_input = i(2,"β"),
+        tag  = rep(1),
+        beta = rep(2)
+      }
+    )
+  ),
+  ms( -- Heaviside function conversion
+    {
+      common = {
+        name = "Heaviside function conversion",
+        common = "f{ f(x), a<t<b }"
+      },
+      "AM3C-heaviside-function-conversion"
+    },
+    fmt(
+      [[
+      % <f_input>, <a_input> << t << <b_input>
+      <f>(\Heavi(t-<a>)-\Heavi(t-<b>))
+      ]],{
+        f_input = i(1,'f(t)'),
+        a_input = i(2,"a"),
+        b_input = i(3,"b"),
+        f = rep(1),
+        a = rep(2),
+        b = rep(3)
       }
     )
   )
