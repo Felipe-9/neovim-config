@@ -12,6 +12,36 @@ local fmt = require("luasnip.extras.fmt").fmta -- formatting with [[]] and delim
 
 return {
   --
+  ms( -- Which law to use
+    {
+      common = {
+        name = "Size reduction size guide",
+        desc = [[
+          Compare sizes for 
+          kicks, ritingers
+        ]]
+      },
+      "OSF-size-reduction-guide"
+    },
+    fmt(
+      [[
+        Kicks
+        p: -1.0
+        L: 50 ->> 1500 mm
+        L0: 5 ->> 50 mm
+        Rittngers
+        Fine reduction
+        E ∝ Increase of surface area
+        p: -2.0
+        L₀ 2 ->> 5 mm",
+        L  << 0.1  mm",
+        Bonds Intermediate reduction, 
+        p = -1.5
+        L₀ 2.0 ->> 50 mm
+        L  0.1 ->>  5 mm
+      ]],{}
+    )
+  ),
   ms( -- kick law
     {
       common = {
