@@ -19,6 +19,7 @@ return {
         -- desc = ""
       },
       "\\latex-template-subfile",
+      "latex-template-subfile"
     },
     fmt(
       [[

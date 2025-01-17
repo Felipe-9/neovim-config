@@ -18,6 +18,7 @@ return {
         desc = "Main Template",
       },
       "\\latex-template-main",
+      "latex-template-main"
     },
     fmt(
       [[
@@ -32,11 +33,12 @@ return {
       %                          Colors                          %
       % -------------------------------------------------------- %
       \usepackage{xcolor} % Options: gray - dark and light
-      \usepackage{mypallete}
+      \usepackage{mypalette}
+      % \usepackage{mypalette-greenR}
       \colorlet{foreground}{light}
       \colorlet{background}{dark}
-      % \usepackage{myGraphPallete} % Graph, GraphXY, GraphSplitX, GraphSplitCX
-      % \usepackage{myEmphPalette} % Emph, EmphXY, EmphSplitX, EmphSplitCX
+      \def\Emph#1{#1!50!foreground}
+      \def\Graph#1{#1!98!foreground}
       % ================== Palette Secondaries ================= %
       \colorlet{Emph}       {DarkGreen!70!foreground}
       \colorlet{Link}      {LightGreen!25!foreground}
@@ -256,7 +258,9 @@ return {
       % \DeclareMathOperator\arccosh{arccosh}
       % \DeclareMathOperator\arcsinh{arcsinh}
       % % ================== Calculus operators ================== %
-      % \DeclareMathOperator\LagrangeTransform{\mathcal{L}}
+      % \DeclareMathOperator\Heavi{\mathcal{H}}
+      % \DeclareMathOperator\Lagr{\mathcal{L}}
+      % \DeclareMathOperator\Lapl{\mathcal{L}}
       % \DeclareMathOperator\prim{\mathcal{P}}
       % \DeclareMathOperator\fronteira {fr}
       % \DeclareMathOperator\interior  {int}
