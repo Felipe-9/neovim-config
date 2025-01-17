@@ -363,10 +363,10 @@ return {
         desc = "environment",
       },
       -- trig
-      "\\BTBL",
-      "\\table",
-      "\\begin{table}",
-      "\\tabular",
+      "BTBL",
+      "table",
+      "begin{table}",
+      "tabular",
     },
     fmt(
       [[
@@ -375,13 +375,12 @@ return {
         \begin{tabular}{<col>}
           \toprule
 
-            \multicolumn{1}{c}{<title>}
+          \multicolumn{1}{c}{<title>}
 
           \\\midrule
 
           \\\bottomrule
         \end{tabular}
-        \vspace{2ex}
       \end{center}
       ]],
       {

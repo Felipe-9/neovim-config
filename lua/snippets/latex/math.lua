@@ -12,6 +12,23 @@ local ne = extras.nonempty
 local fmt = require("luasnip.extras.fmt").fmta -- formatting with [[]] and delimiters=<>
 
 return { --
+  ms( -- gather environment
+    {
+      common = {
+        name = "gather environment"
+      },
+      "gat",
+      "gather",
+      "bgat",
+    },
+    fmt(
+      [[
+      \begin{gather*}
+        <>
+      \end{gather*}
+      ]],{i(0)}
+    )
+  ),
   ms( -- quadratic formula
     {
       common = {
